@@ -3,6 +3,8 @@
     Testing codes, failing identification
     Author: Yuri Wada
     yuriwada@ufmg.br
+
+    Edited: M. Clara Contarini
 */
 
 #include <iostream>
