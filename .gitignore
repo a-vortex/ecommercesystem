@@ -1,0 +1,5 @@
+# Ignorar binários C++
+*.out
+*.exe
+*.so
+*.dll
