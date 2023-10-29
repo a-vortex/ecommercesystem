@@ -1,4 +1,5 @@
 /* 
+    classes.hpp
     First attempt to create the signatures
     Author: M. Clara Contarini, Yuri Wada
     mccontarinid@gmail.com
@@ -8,4 +9,5 @@
 #pragma once
 
 #include "produto.cpp"
-#include "cliente.hpp"
+#include "cliente.cpp"
+#include "estoque.cpp"

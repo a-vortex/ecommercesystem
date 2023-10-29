@@ -7,8 +7,7 @@
     Realiza operacoes sobre as informacoes.
 */
 
-#ifndef CLIENTE_HPP
-#define CLIENTE_HPP
+#pragma once
 
 #include <iostream>
 #include <iomanip>
@@ -23,5 +22,3 @@ private:
 public:
 
 };
-
-#endif /*CLIENTE_HPP*/
