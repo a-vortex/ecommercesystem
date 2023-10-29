@@ -7,8 +7,7 @@
     Tambem eh possivel atualizar as informacoes.
 */
 
-#ifndef PRODUTO_HPP
-#define PRODUTO_HPP
+#pragma once
 
 #include <iostream>
 #include <iomanip>
@@ -41,5 +40,3 @@ public:
     //atualiza as informacoes
     void atualiza_info();
 };
-
-#endif /*PRODUTO_HPP*/
