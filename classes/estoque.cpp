@@ -11,7 +11,7 @@ Estoque::adiciona_produto(const Produto& produto, int quantidade)
 void
 Estoque::atualiza_quantidade(const std::string& id_produto, int quantidade)
 {
-    int flag = 0;
+    bool flag = false;
     for(auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
     {
         const std::string& key = it->first;
@@ -21,11 +21,11 @@ Estoque::atualiza_quantidade(const std::string& id_produto, int quantidade)
             _lista_ids.erase(it);
             std::pair<std::string, int> novaQnt(id_produto, quantidade);
             _lista_ids.insert(novaQnt);
-            flag = 1;
+            flag = true;
             break;
         }
     }
-    if(flag == 0)
+    if(!flag)
     {
         std::cout << "Produto nao encontrado: " << id_produto << std::endl;
     }
@@ -34,7 +34,7 @@ Estoque::atualiza_quantidade(const std::string& id_produto, int quantidade)
 void
 Estoque::exibe_quantidade(const std::string& id_produto)
 {
-    int flag = 0;
+    bool flag = false;
     for(auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
     {
         const std::string& key = it->first;
@@ -42,12 +42,18 @@ Estoque::exibe_quantidade(const std::string& id_produto)
         {
             std::cout << std::left << std::setw(20) << "ID do Produto: " << id_produto << std::endl;
             std::cout << std::left << std::setw(20) << "Quantidade: " << it->second << std::endl;
-            flag = 1;
+            flag = true;
             break;
         }
     }
-    if(flag == 0 )
+    if(!flag)
     {
         std::cout << "Produto nao encontrado: " << id_produto << std::endl;
     }
+}
+
+std::vector<Produto> 
+Estoque::lista_produtos()
+{
+    return produtos;
 }

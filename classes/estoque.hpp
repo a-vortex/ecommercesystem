@@ -34,4 +34,8 @@ public:
     /// @brief Exibe quantos produtos associados a um ID tem disponiveis
     /// @param id_produto ID do produto a ser pesquisado
     void exibe_quantidade(const std::string& id_produto);
+
+    /// @brief Lista de produtos do estoque
+    /// @return a lista de produtos
+    std::vector<Produto> lista_produtos();
 };
