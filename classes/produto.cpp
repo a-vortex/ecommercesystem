@@ -10,23 +10,11 @@ Produto::Produto(const std::string& nome,
     this->id_produto = id_produto;
     this->tipo = tipo;
     this->preco = preco;
-    
-    std::map<long int, std::string> produto;
-    long int id = std::stol(id_produto);
-    produto.insert(std::make_pair(id, nome));
 }
 
 void
-Produto::exibe_info(){
-    std::cout << std::left << std::setw(20) << "Nome: " << nome << std::endl;
-    std::cout << std::left << std::setw(20) << "Descricao: " << descricao << std::endl;
-    std::cout << std::left << std::setw(20) << "ID do Produto: " << id_produto << std::endl;
-    std::cout << std::left << std::setw(20) << "Tipo: " << tipo << std::endl;
-    std::cout << std::left << std::setw(20) << "Preco: " << preco << std::endl;
-}
-
-void
-Produto::atualiza_info(){
+Produto::atualiza_info()
+{
     std::cout << "Qual tipo de informacao quer alterar? Escolha uma opcao (1 a 4)" << std::endl;
     std::cout << "Para finalizar a operacao, digite 0" << std::endl;
     std::cout << "1. Nome" << std::endl;
@@ -56,4 +44,38 @@ Produto::atualiza_info(){
         std::cout << "Escolha nova opcao (1 a 4)" << std::endl;
         std::cout << "Para finalizar a operacao, digite 0" << std::endl;
     }
+}
+
+std::map<long int, std::string> 
+Produto::associaID()
+{
+    std::map<long int, std::string> produto;
+    long int id = std::stol(id_produto);
+    produto.insert(std::make_pair(id, nome));
+    return produto;
+}
+
+std::string Produto::GetId() const
+{
+    return id_produto;
+}
+
+std::string Produto::GetName() const
+{
+    return nome;
+}
+
+std::string Produto::GetDescription() const
+{
+    return descricao;
+}
+
+std::string Produto::GetType() const
+{
+    return tipo;
+}
+
+float Produto::GetPrice() const
+{
+    return preco;
 }

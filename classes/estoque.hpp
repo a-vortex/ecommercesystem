@@ -15,12 +15,21 @@
 
 class Estoque{
 private:
-    int quantidade_disponivel;
     std::set<std::pair<std::string, int>> _lista_ids;
 
 public:
-    // bool operator==(Estoque const &other) const;
+    /// @brief Adiciona um produto ao estoque
+    /// @param id_produto ID do produto a ser adicionado
+    /// @param quantidade Inteiro que determina a quantidade do produto no estoque
+    /// @return true se o produto foi adicionado com sucesso, false se nao foi
     bool adiciona_produto(const std::string& id_produto, int quantidade);
+
+    /// @brief Atualiza a quantidade de um determinado produto no estoque
+    /// @param id_produto ID do produto a ser editado
+    /// @param quantidade Quantidade a ser atualizada
     void atualiza_quantidade(const std::string& id_produto, int quantidade);
+
+    /// @brief Exibe quantos produtos associados a um ID tem disponiveis
+    /// @param id_produto ID do produto a ser pesquisado
     void exibe_quantidade(const std::string& id_produto);
 };
