@@ -12,6 +12,7 @@
 #include <string>
 #include <set>
 #include <iomanip>
+#include "produto.hpp"
 
 class Estoque{
 private:
@@ -20,9 +21,9 @@ private:
 
 public:
     /// @brief Adiciona um produto ao estoque
-    /// @param id_produto ID do produto a ser adicionado
-    /// @param quantidade Inteiro que determina a quantidade do produto no estoque
-    /// @return true se o produto foi adicionado com sucesso, false se nao foi
+    /// @param produto Produto a ser adicionado
+    /// @param quantidade Quantidade inserida no estoque
+    /// @return true se foi adicionado, false se nao
     bool adiciona_produto(const Produto& produto, int quantidade);
 
     /// @brief Atualiza a quantidade de um determinado produto no estoque
