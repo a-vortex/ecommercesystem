@@ -35,22 +35,31 @@ public:
     void atualiza_info();
     std::map<long int, std::string> associaID();
 
-    static bool exibe_info(const std::string& id, const std::vector<Produto>& produtos)
+    template <typename Container>
+    static void exibe_info(const std::string &id, const Container &produtos)
     {
-        for (const Produto &produto : produtos)
+        bool produtoEncontrado = false;
+
+        for (auto it = produtos.begin(); it != produtos.end(); ++it)
         {
-            if (id == produto.GetId())
-            {
-                std::cout << std::left << std::setw(20) << "Nome: " << produto.GetName() << std::endl;
-                std::cout << std::left << std::setw(20) << "Descricao: " << produto.GetDescription() << std::endl;
-                std::cout << std::left << std::setw(20) << "ID do Produto: " << produto.GetId() << std::endl;
-                std::cout << std::left << std::setw(20) << "Tipo: " << produto.GetType() << std::endl;
-                std::cout << std::left << std::setw(20) << "Preco: " << produto.GetPrice() << std::endl;
-                return true;
+            if (id == it->GetId())
+            { // Use -> para acessar membros de objetos apontados por it
+                std::cout << "Produto encontrado:" << std::endl;
+                std::cout << std::left << std::setw(20) << "Nome: " << it->GetName() << std::endl;
+                std::cout << std::left << std::setw(20) << "Descrição: " << it->GetDescription() << std::endl;
+                std::cout << std::left << std::setw(20) << "ID do Produto: " << it->GetId() << std::endl;
+                std::cout << std::left << std::setw(20) << "Tipo: " << it->GetType() << std::endl;
+                std::cout << std::left << std::setw(20) << "Preço: " << it->GetPrice() << std::endl;
+                produtoEncontrado = true;
+                break;
             }
         }
-        return false;
+        if (!produtoEncontrado)
+        {
+            std::cout << "Produto não encontrado: " << id << std::endl;
+        }
     }
+
     std::string GetId() const;
     std::string GetName() const;
     std::string GetDescription() const;
