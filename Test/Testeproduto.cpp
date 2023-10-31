@@ -2,7 +2,7 @@
 #include "doctest.h"
 #include "../classes/classes.hpp"
 
-TEST_CASE("Testando atualiza_info") {  
+TEST_CASE("Testando classe produto") {  
 
 Produto teste("Produto1", "Testando o produto 1", "2154", "teste", 20.2 );
 
