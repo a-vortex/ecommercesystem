@@ -21,6 +21,6 @@ private:
     int quantidade_produto;
     std::string produtos;
     int id_transacao;
-    IdCliente id_cliente;
+    Cliente id_cliente;
     bool pagamento_realizado;
 };
