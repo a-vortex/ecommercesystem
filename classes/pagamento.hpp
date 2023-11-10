@@ -8,9 +8,9 @@
 class Pagamento {
 public:
     Pagamento(int numero_pedido, double valor_total, int quantidade_produto, std::string produtos,
-              int id_transacao, IdCliente id_cliente);
+              int id_transacao, cliente* id_cliente);
 
-    void realiza_pagamento();
+    void realiza_pagamento(); 
     void confirma_pagamento();
     std::string status_pagamento(int id_transacao);
     void novo_preco(const Cupom& cupom);
