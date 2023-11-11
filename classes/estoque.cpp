@@ -57,3 +57,4 @@ Estoque::lista_produtos()
 {
     return produtos;
 }
+
