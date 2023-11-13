@@ -15,7 +15,7 @@ class Busca {
 
     public:
 
-    @brief busca o produto no vetor Estoque
+    @brief busca o produto no vetor de produtos
     std::vector<Produto> busca_produtos_tipo(tipo);
     std::vector<Produto> busca_produtos_nome(nome);
     std::vector<Produto> busca_produtos_preco(preco);
