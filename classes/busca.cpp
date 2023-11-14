@@ -2,9 +2,12 @@
 #include "estoque.hpp"
 #include "produto.hpp"
 #include "produto.cpp"
+#include "cliente.hpp"
+#include "cliente.cpp"
 #include <iostream>
 #include <tuple>
 
+Cliente cliente;
 void Busca::busca_produtos_tipo(std::string tipo)
 {
     bool produto_encontrado = false;
@@ -17,8 +20,8 @@ void Busca::busca_produtos_tipo(std::string tipo)
             std::cout << "Lista de produtos do tipo:" << std::get<1>(buscador) << std::endl;
             std::cout << "tipo:" << std::get<1>(buscador) << std::endl;
             std::cout << "preço:" << std::get<2>(buscador) << std::endl;
-
             produto_encontrado = true;
+            cliente.historico.push_back(std::get<0>(buscador));
         }
         if (!produto_encontrado)
         {
@@ -41,6 +44,7 @@ void Busca::busca_produtos_nome(std::string nome)
             std::cout << "tipo:" << std::get<1>(buscador) << std::endl;
             std::cout << "preço:" << std::get<2>(buscador) << std::endl;
             produto_encontrado = true;
+            cliente.historico.push_back(std::get<0>(buscador));
         }
         if (!produto_encontrado)
         {
@@ -62,8 +66,8 @@ void Busca::busca_produtos_preco(float preco)
             std::cout << "Produto com o preços iguais e menores que:" << std::get<2>(buscador) << std::endl
                       << "nome:" << std::get<0>(buscador) << std::endl;
             std::cout << "tipo:" << std::get<1>(buscador) << std::endl;
-
             produto_encontrado = true;
+            cliente.historico.push_back(std::get<0>(buscador));
         }
         if (!produto_encontrado)
         {
@@ -80,4 +84,5 @@ int main()
     busca.busca_produtos_tipo("teste");
     busca.busca_produtos_nome("Produto1");
     busca.busca_produtos_preco(20.2);
+    cliente.historico_pesquisa();
 }
