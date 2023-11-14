@@ -1,22 +1,23 @@
-#pragma once;
+#pragma once
 
 #include <iostream>
 #include <string>
 #include <set>
 #include <vector>
+#include <tuple>
 #include "produto.hpp"
 
-class Busca {
-    private:
-    std::string id_produto;
-    std::string nome;
-    std::string tipo;
-    float preco_produto;
+class Busca
+{
+private:
+    std::vector<std::string> id_produto;
+    std::vector<std::string> nome;
+    std::vector<float> preco_produto;
 
-    public:
+public:
+    std::vector<std::tuple<std::string, std::string, float>> nome_tipo_preco;
 
-    @brief busca o produto no vetor de produtos
-    std::vector<Produto> busca_produtos_tipo(tipo);
-    std::vector<Produto> busca_produtos_nome(nome);
-    std::vector<Produto> busca_produtos_preco(preco);
+    void busca_produtos_nome(std::string nome);
+    void busca_produtos_tipo(std::string tipo);
+    void busca_produtos_preco(float preco);
 };

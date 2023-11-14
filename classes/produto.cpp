@@ -1,10 +1,12 @@
 #include "produto.hpp"
+#include "busca.hpp"
 
-Produto::Produto(const std::string& nome,
-                 const std::string& descricao,
-                 const std::string& id_produto,
-                 const std::string& tipo,
-                 float preco){
+Produto::Produto(const std::string &nome,
+                 const std::string &descricao,
+                 const std::string &id_produto,
+                 const std::string &tipo,
+                 float preco)
+{
     this->nome = nome;
     this->descricao = descricao;
     this->id_produto = id_produto;
@@ -12,8 +14,7 @@ Produto::Produto(const std::string& nome,
     this->preco = preco;
 }
 
-void
-Produto::atualiza_info()
+void Produto::atualiza_info()
 {
     std::cout << "Qual tipo de informacao quer alterar? Escolha uma opcao (1 a 4)" << std::endl;
     std::cout << "Para finalizar a operacao, digite 0" << std::endl;
@@ -22,31 +23,33 @@ Produto::atualiza_info()
     std::cout << "3. Tipo" << std::endl;
     std::cout << "4. Preco" << std::endl;
     unsigned escolha = 5;
-    while(std::cin >> escolha && escolha != 0){
-        switch(escolha){
-            case 1:
-                std::cout << "Insira o novo nome: " << std::endl;
-                std::cin >> nome;
-                break;
-            case 2:
-                std::cout << "Insira a nova descricao: " << std::endl;
-                std::cin >> descricao;
-                break;
-            case 3:
-                std::cout << "Insira o novo tipo: " << std::endl;
-                std::cin >> tipo;
-                break;
-            case 4:
-                std::cout << "Insira o novo preco: " << std::endl;
-                std::cin >> preco;
-                break;
+    while (std::cin >> escolha && escolha != 0)
+    {
+        switch (escolha)
+        {
+        case 1:
+            std::cout << "Insira o novo nome: " << std::endl;
+            std::cin >> nome;
+            break;
+        case 2:
+            std::cout << "Insira a nova descricao: " << std::endl;
+            std::cin >> descricao;
+            break;
+        case 3:
+            std::cout << "Insira o novo tipo: " << std::endl;
+            std::cin >> tipo;
+            break;
+        case 4:
+            std::cout << "Insira o novo preco: " << std::endl;
+            std::cin >> preco;
+            break;
         }
         std::cout << "Escolha nova opcao (1 a 4)" << std::endl;
         std::cout << "Para finalizar a operacao, digite 0" << std::endl;
     }
 }
 
-std::map<long int, std::string> 
+std::map<long int, std::string>
 Produto::associaID()
 {
     std::map<long int, std::string> produto;

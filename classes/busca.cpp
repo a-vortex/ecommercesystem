@@ -1,44 +1,74 @@
 #include "busca.hpp"
 #include "estoque.hpp"
+#include "produto.hpp"
+#include "produto.cpp"
 #include <iostream>
+#include <tuple>
 
-std::vector<Produto> produtos = Estoque::produtos;
+void Busca::busca_produtos_tipo(std::string tipo)
+{
+    bool produto_encontrado = false;
 
-std::vector<Produto> Busca::busca_produtos_tipo(std::string tipo) {
-
-    std::vector<Produto> resultado;
-
-    for(int i = 0; i < produtos.length; i++) {
-        if(produtos[i]::tipo == tipo) {
-            resultado::push_back(produtos[i]);
+    for (const std::tuple<std::string, std::string, float> &buscador : nome_tipo_preco)
+    {
+        if (std::get<1>(buscador) == tipo)
+        {
+            std::cout << std::endl;
+            std::cout << "Produto encontrado, nome:" << std::get<0>(buscador) << std::endl;
+            produto_encontrado = true;
+        }
+        if(!produto_encontrado)
+        {
+            std::cout << "Produto não encontrado." << std::endl;
         }
     }
-
-    return resultado;
 }
 
-std::vector<Produto> Busca::busca_produtos_nome(std::string nome) {
+void Busca::busca_produtos_nome(std::string nome)
+{
+    bool produto_encontrado = false;
 
-    std::vector<Produto> resultado;
+    for (const std::tuple<std::string, std::string, float> &buscador : nome_tipo_preco)
+    {
 
-    for(int i = 0; i < produtos.length; i++) {
-        if(produtos[i]::nome == nome) {
-            resultado::push_back(produtos[i]);
+        if (std::get<0>(buscador) == nome)
+        {
+            std::cout << std::endl;
+            std::cout << "Produto encontrado, tipo:" << std::get<1>(buscador) << std::endl;
+            std::cout << "Preço:" << std::get<2>(buscador) << std::endl;
+            produto_encontrado = true;
+        }
+        if(!produto_encontrado)
+        {
+            std::cout << "Produto não encontrado." << std::endl;
         }
     }
-
-    return resultado;
 }
 
-std::vector<Produto> Busca::busca_produtos_preco(float preco) {
+void Busca::busca_produtos_preco(float preco)
+{
+    bool produto_encontrado = false;
 
-    std::vector<Produto> resultado;
+    for (const std::tuple<std::string, std::string, float> &buscador : nome_tipo_preco)
+    {
 
-    for(int i = 0; i < produtos.length; i++) {
-        if(produtos[i]::preco == preco) {
-            resultado::push_back(produtos[i]);
+        if (std::get<2>(buscador) == preco)
+        {
+            std::cout << std::endl;
+            std::cout << "Produto encontrado, nome:" << std::get<0>(buscador) << std::endl;
+            produto_encontrado = true;
+        }
+        if(!produto_encontrado)
+        {
+            std::cout << "Produto não encontrado." << std::endl;
         }
     }
+}
 
-    return resultado;
+int main()
+{
+    Busca busca;
+    Produto p("Produto1", "Testando o produto 1", "2154", "teste", 20.2);
+    busca.nome_tipo_preco.push_back(std::make_tuple(p.GetName(), p.GetType(), p.GetPrice()));
+    busca.busca_produtos_tipo("tipofalso");
 }
