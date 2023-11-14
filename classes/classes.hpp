@@ -11,3 +11,5 @@
 #include "produto.cpp"
 #include "cliente.cpp"
 #include "estoque.cpp"
+#include "carrinho.cpp"
+#include "pagamento.cpp"
