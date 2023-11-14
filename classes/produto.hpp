@@ -32,9 +32,17 @@ public:
             const std::string& tipo,
             float preco);
 
+    /// @brief Atualiza as informacoes do produto
     void atualiza_info();
+
+    /// @brief Associa um ID a um nome, dentro de um tipo map
+    /// @return um tipo Map com um ID e nome
     std::map<long int, std::string> associaID();
 
+    /// @brief Exibe as informacoes de um determinado produto de um conteiner de produtos
+    /// @tparam Container
+    /// @param id ID do produto
+    /// @param produtos Conteiner de produtos
     template <typename Container>
     static void exibe_info(const std::string &id, const Container &produtos)
     {
@@ -60,6 +68,8 @@ public:
         }
     }
 
+    /// @brief Getters
+    /// @return ID, nome, descricao, tipo e preco do produto
     std::string GetId() const;
     std::string GetName() const;
     std::string GetDescription() const;
