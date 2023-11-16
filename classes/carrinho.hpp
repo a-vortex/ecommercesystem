@@ -6,14 +6,14 @@
     Cria uma lista com as compras do cliente
 */
 #pragma once
+#include <iostream>
+#include <list>
+#include <string>
 #include "produto.hpp"
-#include "estoque.hpp"
-#include "cliente.hpp"
-
 class carrinho{
     private:
-        std::string lista_ids_produtos;
-        float preço_produto;
+        std::list<std::pair<std::string ,int>> lista_ids_produtos;
+        float preço_total;
         unsigned quantidade_produto;
         std::string id_cliente;
     public:
