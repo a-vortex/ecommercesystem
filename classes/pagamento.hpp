@@ -11,7 +11,7 @@
  * Author: Brenda Belizário
  * Email: brendaboliveira@ufmg.br
  */
-class Pagamento {
+class pagamento {
 public:
     /**
      * @brief Construtor da classe Pagamento.
@@ -49,7 +49,7 @@ public:
      * 
      * @param cupom Objeto Cupom contendo as informações do desconto.
      */
-    void novo_preco(const Cupom& cupom);
+    void novo_preco(const cupom& cupom);
 
 private:
     int numero_pedido; 
