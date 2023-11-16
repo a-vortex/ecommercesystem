@@ -10,27 +10,31 @@
 #include <list>
 #include <string>
 #include "produto.hpp"
-class carrinho{
+
+class Carrinho{
     private:
-        std::list<std::pair<std::string ,int>> lista_ids_produtos;
+        std::list<std::pair<Produto, unsigned>> lista_ids_produtos;
         float preço_total;
         unsigned quantidade_produto;
-        std::string id_cliente;
+        // std::string id_cliente;
     public:
+        /// @brief Constructor
+        Carrinho();
+
         /// @brief adiciona um produto ao carrinho
         /// @param id_produto produto a ser adicionado
         /// @param quantidade quantidade do produto a ser adicionada
-        void adiciona_produto(std::string id_produto, int quantidade);
+        void adiciona_produto(Produto produto, unsigned quantidade);
         
         /// @brief remove um produto do carrinho
         /// @param id_produto produto a ser removido
         /// @param quantidade quantidade do produto a ser removida
         void remove_produto(std::string id_produto, int quantidade);
         
-        /// @brief 
-        void fecha_carrinho();
+        // /// @brief 
+        // void fecha_carrinho();
         
-        /// @brief  
-        void edita_carrinho();
+        // /// @brief  
+        // void edita_carrinho();
 
 };
