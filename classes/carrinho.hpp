@@ -30,12 +30,6 @@ class Carrinho{
         /// @param id_produto produto a ser removido
         /// @param quantidade quantidade do produto a ser removida
         void remove_produto(Produto produto, unsigned quantidade);
-        
-        // /// @brief 
-        // void fecha_carrinho();
-        
-        // /// @brief  
-        // void edita_carrinho();
 
         /// @brief para pegar a lista
         /// @return a lista de produtos com suas quantidades
