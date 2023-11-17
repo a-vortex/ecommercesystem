@@ -14,7 +14,8 @@
 #include <iomanip>
 #include "produto.hpp"
 
-class Estoque{
+class Estoque
+{
 private:
     std::set<std::pair<std::string, int>> _lista_ids;
     std::vector<Produto> produtos;
@@ -24,18 +25,18 @@ public:
     /// @param produto Produto a ser adicionado
     /// @param quantidade Quantidade inserida no estoque
     /// @return true se foi adicionado, false se nao
-    bool adiciona_produto(const Produto& produto, int quantidade);
+    bool adiciona_produto(const Produto &produto, int quantidade);
 
     /// @brief Atualiza a quantidade de um determinado produto no estoque
     /// @param id_produto ID do produto a ser editado
     /// @param quantidade Quantidade a ser atualizada
-    void atualiza_quantidade(const std::string& id_produto, int quantidade);
+    void atualiza_quantidade(const std::string &id_produto, int quantidade);
 
     /// @brief Exibe quantos produtos associados a um ID tem disponiveis
     /// @param id_produto ID do produto a ser pesquisado
-    void exibe_quantidade(const std::string& id_produto);
+    void exibe_quantidade(const std::string &id_produto);
 
     /// @brief Lista de produtos do estoque
     /// @return a lista de produtos
-    std::vector<Produto> lista_produtos();
+    std::vector<Produto> lista_produtos(int numero);
 };
