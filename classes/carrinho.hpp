@@ -14,7 +14,7 @@
 class Carrinho{
     private:
         std::list<std::pair<Produto, unsigned>> lista_ids_produtos;
-        float preço_total;
+        float preco_total;
         unsigned quantidade_produto;
         // std::string id_cliente;
     public:
@@ -29,12 +29,24 @@ class Carrinho{
         /// @brief remove um produto do carrinho
         /// @param id_produto produto a ser removido
         /// @param quantidade quantidade do produto a ser removida
-        void remove_produto(std::string id_produto, int quantidade);
+        void remove_produto(Produto produto, unsigned quantidade);
         
         // /// @brief 
         // void fecha_carrinho();
         
         // /// @brief  
         // void edita_carrinho();
+
+        /// @brief para pegar a lista
+        /// @return a lista de produtos com suas quantidades
+        std::list<std::pair<Produto, unsigned>> GetList() const;
+        
+        /// @brief para pegar o preço total
+        /// @return o preço total
+        float GetTotalPrice() const;
+
+        /// @brief para pegar a quantidade de produtos
+        /// @return quantidade de produtos
+        unsigned GetProductQuantity() const;
 
 };
