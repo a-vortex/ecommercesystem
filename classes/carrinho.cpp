@@ -25,12 +25,12 @@ void Carrinho::remove_produto(Produto produto, unsigned quantidade){
 
     for (auto it = lista_ids_produtos.begin(); it != lista_ids_produtos.end(); ++it){
         if (produto.GetId() == it->first.GetId()){
-            if ((it->second-=quantidade)<0){
+            if ((it->second-quantidade)<0){
                 std::cout<< "Quantidade inválida para remoção"<< std::endl;
                 break; 
-            }else if ((it->second-=quantidade)>0){
+            }else if ((it->second-quantidade)>0){
                 it->second-=quantidade;
-            }else if((it->second-=quantidade)==0){
+            }else if((it->second-quantidade)==0){
                 lista_ids_produtos.erase(it);
             }
             preco_total-=produto.GetPrice()*-(quantidade);
