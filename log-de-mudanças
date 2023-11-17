@@ -1,4 +1,0 @@
-!)alteração de letras maiúsculas-minúsculas em pagamento.hpp
-)alteração de tipo string->lista em carrinho.hpp 
-)implementação de carrinho.cpp
-!)alteração de float preco_produto -> preco_total em carrinho.hpp/.cpp
