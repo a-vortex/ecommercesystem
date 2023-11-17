@@ -1,83 +1,119 @@
 #include "busca.hpp"
-#include "estoque.hpp"
-#include "produto.hpp"
-#include "produto.cpp"
-#include <iostream>
-#include <tuple>
 
-void Busca::busca_produtos_tipo(std::string tipo)
+std::vector<Produto>
+Busca::busca_produtos_nome(const std::string nome, const std::vector<Produto> &_lista_de_produtos)
 {
     bool produto_encontrado = false;
-
-    for (const std::tuple<std::string, std::string, float> &buscador : nome_tipo_preco)
+    std::vector<Produto> lista_nome;
+    for (const Produto &buscador : _lista_de_produtos)
     {
-        if (std::get<1>(buscador) == tipo)
+        if (buscador.GetName() == nome)
         {
-            std::cout << std::endl;
-            std::cout << "Lista de produtos do tipo:" << std::get<1>(buscador) << std::endl;
-            std::cout << "tipo:" << std::get<1>(buscador) << std::endl;
-            std::cout << "preço:" << std::get<2>(buscador) << std::endl;
-
+            lista_nome.push_back(buscador);
             produto_encontrado = true;
         }
-        if (!produto_encontrado)
-        {
-            std::cout << "Produto não encontrado." << std::endl;
-        }
     }
+    if (!produto_encontrado)
+    {
+        std::cout << "Produto nao encontrado!!" << std::endl;
+    }
+    return lista_nome;
 }
 
-void Busca::busca_produtos_nome(std::string nome)
+std::vector<Produto>
+Busca::busca_produtos_tipo(const std::string tipo, const std::vector<Produto> &_lista_de_produtos)
 {
     bool produto_encontrado = false;
-
-    for (const std::tuple<std::string, std::string, float> &buscador : nome_tipo_preco)
+    std::vector<Produto> lista_tipos;
+    for (const Produto &buscador : _lista_de_produtos)
     {
-
-        if (std::get<0>(buscador) == nome)
+        if (buscador.GetType() == tipo)
         {
-            std::cout << std::endl;
-            std::cout << "Produto " << std::get<0>(buscador) << " encontrado" << std::endl;
-            std::cout << "tipo:" << std::get<1>(buscador) << std::endl;
-            std::cout << "preço:" << std::get<2>(buscador) << std::endl;
+            lista_tipos.push_back(buscador);
             produto_encontrado = true;
         }
-        if (!produto_encontrado)
-        {
-            std::cout << "Produto não encontrado." << std::endl;
-        }
     }
+    if (!produto_encontrado)
+    {
+        std::cout << "Produto nao encontrado!!" << std::endl;
+    }
+    return lista_tipos;
 }
 
-void Busca::busca_produtos_preco(float preco)
+std::vector<Produto>
+Busca::busca_produtos_preco(float preco, const std::vector<Produto> &lista_de_produtos)
 {
+    std::vector<Produto> lista_preco;
     bool produto_encontrado = false;
 
-    for (const std::tuple<std::string, std::string, float> &buscador : nome_tipo_preco)
+    for (const Produto &buscador : lista_de_produtos)
     {
 
-        if (std::get<2>(buscador) <= preco)
+        if (buscador.GetPrice() <= preco)
         {
-            std::cout << std::endl;
-            std::cout << "Produto com o preços iguais e menores que:" << std::get<2>(buscador) << std::endl
-                      << "nome:" << std::get<0>(buscador) << std::endl;
-            std::cout << "tipo:" << std::get<1>(buscador) << std::endl;
-
+            lista_preco.push_back(buscador);
             produto_encontrado = true;
         }
-        if (!produto_encontrado)
-        {
-            std::cout << "Produto não encontrado." << std::endl;
-        }
     }
+    if (!produto_encontrado)
+    {
+        std::cout << "Produto nao encontrado!!" << std::endl;
+    }
+
+    return lista_preco;
 }
 
 int main()
 {
+    Estoque estoque;
     Busca busca;
     Produto p("Produto1", "Testando o produto 1", "2154", "teste", 20.2);
-    busca.nome_tipo_preco.push_back(std::make_tuple(p.GetName(), p.GetType(), p.GetPrice()));
-    busca.busca_produtos_tipo("teste");
-    busca.busca_produtos_nome("Produto1");
-    busca.busca_produtos_preco(20.2);
+    estoque.adiciona_produto(p, 2);
+
+    std::vector<Produto> produtos_nome = busca.busca_produtos_nome("Produto1", estoque.lista_produtos());
+    std::vector<Produto> produtos_tipo = busca.busca_produtos_tipo("teste", estoque.lista_produtos());
+    std::vector<Produto> produtos_preco = busca.busca_produtos_preco(20.2, estoque.lista_produtos());
+
+    if (!produtos_nome.empty())
+    {
+        for (const Produto &imprime : produtos_nome)
+        {
+
+            std::cout << imprime.GetName() << std::endl;
+            std::cout << imprime.GetDescription() << std::endl;
+            std::cout << imprime.GetId() << std::endl;
+            std::cout << imprime.GetType() << std::endl;
+            std::cout << imprime.GetPrice() << std::endl;
+        }
+        return 0;
+    }
+
+    if (!produtos_tipo.empty())
+    {
+        for (const Produto &imprime : produtos_tipo)
+        {
+
+            std::cout << imprime.GetName() << std::endl;
+            std::cout << imprime.GetDescription() << std::endl;
+            std::cout << imprime.GetId() << std::endl;
+            std::cout << imprime.GetType() << std::endl;
+            std::cout << imprime.GetPrice() << std::endl;
+        }
+        return 0;
+    }
+    if (!produtos_preco.empty())
+    {
+        for (const Produto &imprime : produtos_preco)
+        {
+
+            std::cout << imprime.GetName() << std::endl;
+            std::cout << imprime.GetDescription() << std::endl;
+            std::cout << imprime.GetId() << std::endl;
+            std::cout << imprime.GetType() << std::endl;
+            std::cout << imprime.GetPrice() << std::endl;
+        }
+        return 0;
+    }
+
+    return 0;
 }

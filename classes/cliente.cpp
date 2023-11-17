@@ -1,6 +1,17 @@
 #include "cliente.hpp"
 
 int Cliente::contador_id = 0;
+Cliente::Cliente()
+{
+    std::cout << std::endl;
+    std::cout << "Escreva seu nome ";
+    std::cin >> nome_usuario;
+    std::cout << "Escreva seu endereço ";
+    std::cin >> endereco;
+    std::cout << "Escreva seu telefone ";
+    std::cin >> num_telefone;
+    contador();
+}
 void Cliente::atualiza_usuario(std::string novo_nome)
 {
     nome_usuario = novo_nome;
@@ -16,21 +27,19 @@ void Cliente::atualiza_telefone(std::string novo_telefone)
     num_telefone = novo_telefone;
 }
 
-Cliente::Cliente()
+std::string Cliente::GetNome()
 {
-    std::cout << std::endl;
-    std::cout << "Escreva seu nome ";
-    std::cin >> nome_usuario;
-    std::cout << "Escreva seu endereço ";
-    std::cin >> endereco;
-    std::cout << "Escreva seu telefone ";
-    std::cin >> num_telefone;
-    contador();
+    return nome_usuario;
 }
-int main()
+std::string Cliente::GetEndereco()
 {
-    Cliente p;
-    p.imprime();
-    Cliente x;
-    x.imprime();
+    return endereco;
+}
+std::string Cliente::GetNumero()
+{
+    return num_telefone;
+}
+std::string Cliente::GetID()
+{
+    return id_cliente;
 }

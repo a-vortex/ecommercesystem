@@ -1,5 +1,4 @@
 #include "produto.hpp"
-#include "busca.hpp"
 
 Produto::Produto(const std::string &nome,
                  const std::string &descricao,

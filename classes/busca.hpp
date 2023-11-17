@@ -4,8 +4,8 @@
 #include <string>
 #include <set>
 #include <vector>
-#include <tuple>
-#include "produto.hpp"
+#include "produto.cpp"
+#include "estoque.cpp"
 
 class Busca
 {
@@ -17,7 +17,7 @@ private:
 public:
     std::vector<std::tuple<std::string, std::string, float>> nome_tipo_preco;
 
-    void busca_produtos_nome(std::string nome);
-    void busca_produtos_tipo(std::string tipo);
-    void busca_produtos_preco(float preco);
+    std::vector<Produto> busca_produtos_nome(const std::string nome, const std::vector<Produto> &_lista_de_produtos);
+    std::vector<Produto> busca_produtos_tipo(const std::string tipo, const std::vector<Produto> &_lista_de_produtos);
+    std::vector<Produto> busca_produtos_preco(float preco, const std::vector<Produto> &_lista_de_produtos);
 };
