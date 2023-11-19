@@ -1,4 +1,4 @@
-// #pragma once
+
 
 <<<<<<< HEAD
 #include <iostream>
@@ -12,7 +12,7 @@
  * Author: Brenda Belizário
  * Email: brendaboliveira@ufmg.br
  */
-class Pagamento {
+class pagamento {
 public:
     /**
      * @brief Construtor da classe Pagamento.
@@ -25,7 +25,7 @@ public:
      * @param id_cliente Ponteiro para o objeto Cliente associado à transação.
      */
     pagamento(int numero_pedido, double valor_total, int quantidade_produto, std::string produtos,
-              int id_transacao, Cliente *id_cliente);
+              int id_transacao, cliente *id_cliente);
 =======
 
 // #include <iostream>
