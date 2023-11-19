@@ -7,7 +7,8 @@
     Realiza operacoes sobre as informacoes.
 */
 
-#pragma once
+#ifndef CLIENTE_H
+#define CLIENTE_H
 
 #include <iostream>
 #include <iomanip>
@@ -61,3 +62,5 @@ public:
     std::string GetNumero();
     std::string GetID();
 };
+
+#endif /* CLIENTE_H */

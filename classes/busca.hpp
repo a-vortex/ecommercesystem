@@ -1,11 +1,12 @@
-#pragma once
+#ifndef BUSCA_H
+#define BUSCA_H
 
 #include <iostream>
 #include <string>
 #include <set>
 #include <vector>
-#include "produto.cpp"
-#include "estoque.cpp"
+#include "produto.hpp"
+#include "estoque.hpp"
 
 class Busca
 {
@@ -21,3 +22,5 @@ public:
     std::vector<Produto> busca_produtos_tipo(const std::string tipo, const std::vector<Produto> &_lista_de_produtos);
     std::vector<Produto> busca_produtos_preco(float preco, const std::vector<Produto> &_lista_de_produtos);
 };
+
+#endif /* BUSCA_H */

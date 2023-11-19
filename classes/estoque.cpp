@@ -49,12 +49,8 @@ void Estoque::exibe_quantidade(const std::string &id_produto)
     }
 }
 
-std::vector<Produto> Estoque::lista_produtos(int numero)
+std::vector<Produto>
+Estoque::lista_produtos()
 {
-    if (numero >= produtos.size())
-    {
-        return std::vector<Produto>();
-    }
-
-    return std::vector<Produto>(produtos.begin(), produtos.begin() + numero);
+    return produtos;
 }
