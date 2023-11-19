@@ -6,7 +6,8 @@
     yuriwada@ufmg.br
 
 */
-#pragma once
+#ifndef CLASSES_H
+#define CLASSES_H
 
 #include "produto.cpp"
 #include "cliente.cpp"
@@ -14,3 +15,5 @@
 #include "carrinho.cpp"
 #include "pagamento.cpp"
 #include "busca.cpp"
+
+#endif /* CLASSES_H */

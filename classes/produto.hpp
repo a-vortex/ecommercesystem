@@ -7,7 +7,8 @@
     Tambem eh possivel atualizar as informacoes.
 */
 
-#pragma once
+#ifndef PRODUTO_H
+#define PRODUTO_H
 
 #include <iostream>
 #include <iomanip>
@@ -31,6 +32,16 @@ public:
             const std::string& id_produto,
             const std::string& tipo,
             float preco);
+
+    /// @brief Construtor de copia
+    /// @param other produto a ser copiado
+    Produto(const Produto& other){
+        this->nome = other.nome;
+        this->descricao = other.descricao;
+        this->id_produto = other.id_produto;
+        this->tipo = other.tipo;
+        this->preco = other.preco;
+    }
 
     /// @brief Atualiza as informacoes do produto
     void atualiza_info();
@@ -76,3 +87,5 @@ public:
     std::string GetType() const;
     float GetPrice() const;
 };
+
+#endif /* PRODUTO_H */

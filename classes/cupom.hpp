@@ -5,9 +5,11 @@
 
     cria cupons que modificam o valor de um produto
 */
-#pragma once
-#include "produto.hpp"
-#include "cliente.hpp"
+
+#ifndef CUPOM_H
+#define CUPOM_H
+
+#include "classes.hpp"
 
 class cupom{
     private:    
@@ -23,3 +25,5 @@ class cupom{
         /// @param quantidade quantidade de cupons disponíveis
         void gera_novo_cupom(unsigned desconto, unsigned quantidade);
 };
+
+#endif /* CUPOM_H */
