@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include "cupom.hpp"
+// #include "cupom.hpp"
 #include "cliente.hpp"
 
 /**
@@ -24,12 +24,12 @@ public:
      * @param id_cliente Ponteiro para o objeto Cliente associado à transação.
      */
     Pagamento(int numero_pedido, double valor_total, int quantidade_produto, std::string produtos,
-              int id_transacao, cliente* id_cliente);
+              int id_transacao, Cliente *id_cliente);
 
     /**
      * @brief Simula o processo de realização do pagamento.
      */
-    void realiza_pagamento(); 
+    void realiza_pagamento();
 
     /**
      * @brief Confirma o pagamento, alterando o status interno.
@@ -49,7 +49,7 @@ public:
      * 
      * @param cupom Objeto Cupom contendo as informações do desconto.
      */
-    void novo_preco(const cupom& cupom);
+    void novo_preco(const Cupom& cupom);
 
 private:
     int numero_pedido; 
@@ -57,6 +57,6 @@ private:
     int quantidade_produto; 
     std::string produtos; 
     int id_transacao; 
-    cliente* id_cliente; 
+    Cliente* id_cliente; 
     bool pagamento_realizado; 
 };
