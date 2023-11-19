@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-// #include "cupom.hpp"
+#include "cupom.hpp"
 #include "cliente.hpp"
 
 /**
