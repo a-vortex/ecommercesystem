@@ -12,6 +12,8 @@
 #include "produto.cpp"
 #include "cliente.cpp"
 #include "estoque.cpp"
+#include "carrinho.cpp"
+#include "pagamento.cpp"
 #include "busca.cpp"
 
 #endif /* CLASSES_H */
