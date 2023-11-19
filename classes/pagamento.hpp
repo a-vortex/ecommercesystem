@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-// #include "cupom.hpp"
+#include "cupom.hpp"
 #include "cliente.hpp"
 
 /**
@@ -11,8 +11,7 @@
  * Author: Brenda Belizário
  * Email: brendaboliveira@ufmg.br
  */
-class Pagamento
-{
+class pagamento {
 public:
     /**
      * @brief Construtor da classe Pagamento.
@@ -24,7 +23,7 @@ public:
      * @param id_transacao Identificador único da transação.
      * @param id_cliente Ponteiro para o objeto Cliente associado à transação.
      */
-    Pagamento(int numero_pedido, double valor_total, int quantidade_produto, std::string produtos,
+    pagamento(int numero_pedido, double valor_total, int quantidade_produto, std::string produtos,
               int id_transacao, Cliente *id_cliente);
 
     /**
@@ -50,7 +49,7 @@ public:
      * 
      * @param cupom Objeto Cupom contendo as informações do desconto.
      */
-    void novo_preco(const Cupom &cupom);
+    void novo_preco(const cupom& cupom);
 
 private:
     int numero_pedido; 
