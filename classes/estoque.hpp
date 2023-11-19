@@ -6,7 +6,8 @@
     de produtos no estoque do sistema.
 */
 
-#pragma once
+#ifndef ESTOQUE_H
+#define ESTOQUE_H
 
 #include <iostream>
 #include <string>
@@ -38,5 +39,7 @@ public:
 
     /// @brief Lista de produtos do estoque
     /// @return a lista de produtos
-    std::vector<Produto> lista_produtos(int numero);
+    std::vector<Produto> lista_produtos();
 };
+
+#endif /* ESTOQUE_H */
