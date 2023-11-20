@@ -15,5 +15,6 @@
 #include "carrinho.cpp"
 #include "pagamento.cpp"
 #include "busca.cpp"
+#include "cupom.cpp"
 
 #endif /* CLASSES_H */
