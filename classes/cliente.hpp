@@ -7,7 +7,8 @@
     Realiza operacoes sobre as informacoes.
 */
 
-#pragma once
+#ifndef CLIENTE_H
+#define CLIENTE_H
 
 #include <iostream>
 #include <iomanip>
@@ -20,6 +21,7 @@ private:
     std::string endereco;
     std::string num_telefone;
     std::string id_cliente;
+    std::string forma_pagamento;
 
 public:
     /// @brief Atualiza nome do usuário
@@ -33,6 +35,10 @@ public:
     /// @brief Atualiza telefone do usuário
     /// @param novo_telefone Número de telefone atualizado
     void atualiza_telefone(std::string novo_telefone);
+
+    /// @brief Atualiza forma de pagamento
+    /// @param nova_forma Número de telefone atualizado
+    void atualiza_forma_pagameto(std::string nova_forma);
 
     void historico_pesquisa(); // finalizar junto ao Serviço de busca
 
@@ -60,4 +66,7 @@ public:
     std::string GetEndereco();
     std::string GetNumero();
     std::string GetID();
+    std::string GetPagamento();
 };
+
+#endif /* CLIENTE_H */
