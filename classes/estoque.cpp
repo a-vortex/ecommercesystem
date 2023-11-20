@@ -69,4 +69,5 @@ int Estoque::GetQuantidade(const std::string &id_produto)
             break;
         }
     }
+    throw std::runtime_error("Produto nao encontrado");
 }
