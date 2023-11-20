@@ -9,6 +9,7 @@ bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
 
 void Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
 {
+
     bool flag = false;
     for (auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
     {
@@ -20,6 +21,7 @@ void Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
             std::pair<std::string, int> novaQnt(id_produto, quantidade);
             _lista_ids.insert(novaQnt);
             flag = true;
+
             break;
         }
     }
@@ -53,4 +55,18 @@ std::vector<Produto>
 Estoque::lista_produtos()
 {
     return produtos;
+}
+
+int Estoque::GetQuantidade(const std::string &id_produto)
+{
+    for (auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
+    {
+        const std::string &key = it->first;
+
+        if (key == id_produto)
+        {
+            return it->second;
+            break;
+        }
+    }
 }

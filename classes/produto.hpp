@@ -16,26 +16,27 @@
 #include <map>
 #include <vector>
 
-class Produto{
+class Produto
+{
 private:
     std::string nome;
     std::string descricao;
     std::string id_produto;
     std::string tipo;
     float preco;
-    
-public:
 
-    //Constructor
-    Produto(const std::string& nome,
-            const std::string& descricao,
-            const std::string& id_produto,
-            const std::string& tipo,
+public:
+    // Constructor
+    Produto(const std::string &nome,
+            const std::string &descricao,
+            const std::string &id_produto,
+            const std::string &tipo,
             float preco);
 
     /// @brief Construtor de copia
     /// @param other produto a ser copiado
-    Produto(const Produto& other){
+    Produto(const Produto &other)
+    {
         this->nome = other.nome;
         this->descricao = other.descricao;
         this->id_produto = other.id_produto;
