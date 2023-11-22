@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+#include "test/doctest.h"
+#include "sys/header.hpp"
 #include <iostream>
-#include "../classes/classes.hpp"
 
 TEST_CASE("Testando classe Busca")
 {

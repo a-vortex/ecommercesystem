@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
-#include "../classes/produto.cpp"
+#include "test/doctest.h"
+#include "sys/header.hpp"
 
 TEST_CASE("Testando classe produto")
 {
