@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "test/doctest.h"
+#include "test/doctest.hpp"
 #include "sys/header.hpp"
 #include <iostream>
 
