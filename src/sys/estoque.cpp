@@ -1,4 +1,4 @@
-#include "estoque.hpp"
+#include "sys/estoque.hpp"
 
 bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
 {

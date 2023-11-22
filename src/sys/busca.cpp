@@ -1,7 +1,7 @@
-#include "busca.hpp"
+#include "sys/busca.hpp"
 
 Produto
-Busca::busca_produtos_nome(const std::string nome, const std::vector<Produto> &_lista_de_produtos)
+Busca::busca_produtos_nome(const std::string& nome, const std::vector<Produto> &_lista_de_produtos)
 {
     for (const Produto &buscador : _lista_de_produtos)
     {
