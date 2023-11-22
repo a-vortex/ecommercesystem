@@ -20,11 +20,18 @@ TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
 
 TEST_EXECUTABLES := $(TEST_FILES:$(TEST_DIR)/%.cpp=$(BIN_DIR)/%)
 
-$(BIN_DIR)/test_arquivo1: $(TEST_DIR)/Testebusca.cpp
+$(BIN_DIR)/compilabusca: $(TEST_DIR)/Testebusca.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR)  $< -o $@
 
-$(BIN_DIR)/test_arquivo2: $(TEST_DIR)/Testecliente.cpp
+ $(BIN_DIR)/compilacarrinho : $(TEST_DIR)/Testecarrinho.cpp
+    $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
+    $(BIN_DIR)/compilacupom : $(TEST_DIR)/Testecupom.cpp
+    $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
+
+$(BIN_DIR)/compilacliente: $(TEST_DIR)/Testecliente.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR)  $< -o $@
+
+
 
 -include $(addprefix $(BUILD_DIR)/,$(DEP_FILES))
 
@@ -53,30 +60,30 @@ clean:
 cliente
 
 # Compilação de busca
-busca: $(BIN_DIR)/compiladobusca : $(SRC_DIR)/busca.cpp
+testebusca: $(BIN_DIR)/compilabusca : $(TEST_DIR)/Testebusca.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de carrinho
-carrinho: 
-    $(BIN_DIR)/compiladocarrinho : $(SRC_DIR)/carrinho.cpp
+testecarrinho: 
+    $(BIN_DIR)/compilacarrinho : $(TEST_DIR)/Testecarrinho.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de cupom
-cupom: 
-    $(BIN_DIR)/compiladocupom : $(SRC_DIR)/cupom.cpp
+testecupom: 
+    $(BIN_DIR)/compilacupom : $(TEST_DIR)/Testecupom.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de cliente
-cliente: 
-    $(BIN_DIR)/compiladocliente : $(SRC_DIR)/cliente.cpp
+testecliente: 
+    $(BIN_DIR)/compilacliente : $(TEST_DIR)/Testecliente.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de estoque
-estoque: 
-    $(BIN_DIR)/compiladocliente : $(SRC_DIR)/estoque.cpp
+testestoque: 
+    $(BIN_DIR)/compilacliente : $(TEST_DIR)/Testeestoque.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de produto
-produto: 
-    $(BIN_DIR)/compiladoproduto : $(SRC_DIR)/produto.cpp
+testeproduto: 
+    $(BIN_DIR)/compilaproduto : $(TEST_DIR)/Testeproduto.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de pagamento
-pagamento: 
-    $(BIN_DIR)/compiladopagamento : $(SRC_DIR)/pagamento.cpp
+testepagamento: 
+    $(BIN_DIR)/compilapagamento : $(TEST_DIR)/Testepagamento.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 .PHONY: all test clean
