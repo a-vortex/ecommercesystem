@@ -5,10 +5,10 @@ CXXFLAGS = -std=c++17 -Wall
 
 INC_DIR := include
 
-SRC_DIR = src
-TEST_DIR = test
+SRC_DIR := src
+TEST_DIR := src/test
 BIN_DIR := bin
-BUILD_DIR = build
+BUILD_DIR := build
 CXXFLAGS += -Iinclude
 
 EXECUTABLE = meu_programa
@@ -21,17 +21,19 @@ TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
 TEST_EXECUTABLES := $(TEST_FILES:$(TEST_DIR)/%.cpp=$(BIN_DIR)/%)
 
 $(BIN_DIR)/compilabusca: $(TEST_DIR)/Testebusca.cpp
-    $(CXX) $(CXXFLAGS) -I$(INC_DIR)  $< -o $@
-
- $(BIN_DIR)/compilacarrinho : $(TEST_DIR)/Testecarrinho.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
-    $(BIN_DIR)/compilacupom : $(TEST_DIR)/Testecupom.cpp
+
+$(BIN_DIR)/compilaestoque: $(TEST_DIR)/Testeestoque.cpp
+    $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
+
+$(BIN_DIR)/compilapagamento: $(TEST_DIR)/Testepagamento.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 
 $(BIN_DIR)/compilacliente: $(TEST_DIR)/Testecliente.cpp
-    $(CXX) $(CXXFLAGS) -I$(INC_DIR)  $< -o $@
+    $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 
-
+$(BIN_DIR)/compilaproduto: $(TEST_DIR)/Testeproduto.cpp
+    $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 
 -include $(addprefix $(BUILD_DIR)/,$(DEP_FILES))
 
@@ -60,30 +62,22 @@ clean:
 cliente
 
 # Compilação de busca
-testebusca: $(BIN_DIR)/compilabusca : $(TEST_DIR)/Testebusca.cpp
-    $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
-# Compilação de carrinho
-testecarrinho: 
-    $(BIN_DIR)/compilacarrinho : $(TEST_DIR)/Testecarrinho.cpp
-    $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
-# Compilação de cupom
-testecupom: 
-    $(BIN_DIR)/compilacupom : $(TEST_DIR)/Testecupom.cpp
+testebusca: $(BIN_DIR)/compilabusca: $(TEST_DIR)/Testebusca.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de cliente
 testecliente: 
-    $(BIN_DIR)/compilacliente : $(TEST_DIR)/Testecliente.cpp
+    $(BIN_DIR)/compilacliente: $(TEST_DIR)/Testecliente.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de estoque
 testestoque: 
-    $(BIN_DIR)/compilacliente : $(TEST_DIR)/Testeestoque.cpp
+    $(BIN_DIR)/compilacliente: $(TEST_DIR)/Testeestoque.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de produto
 testeproduto: 
-    $(BIN_DIR)/compilaproduto : $(TEST_DIR)/Testeproduto.cpp
+    $(BIN_DIR)/compilaproduto: $(TEST_DIR)/Testeproduto.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 # Compilação de pagamento
 testepagamento: 
-    $(BIN_DIR)/compilapagamento : $(TEST_DIR)/Testepagamento.cpp
+    $(BIN_DIR)/compilapagamento: $(TEST_DIR)/Testepagamento.cpp
     $(CXX) $(CXXFLAGS) -I$(INC_DIR) $< -o $@
 .PHONY: all test clean
