@@ -1,6 +1,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.hpp"
-#include "sys/header.hpp"
+#include "../../include/sys/busca.hpp"
+#include "../../include/sys/estoque.hpp"
+
 #include <iostream>
 
 TEST_CASE("Testando classe Busca")
@@ -30,7 +32,7 @@ TEST_CASE("Testando classe Busca")
     std::vector<Produto> vecProd = pesquisa.busca_produtos_tipo("Papelaria", geral.lista_produtos());
     CHECK(vecProd.size() == 2);
 
-    std::vector<Produto> vecProd1= pesquisa.busca_produtos_preco(45.00, geral.lista_produtos());
+    std::vector<Produto> vecProd1 = pesquisa.busca_produtos_preco(45.00, geral.lista_produtos());
     CHECK(vecProd1.size() == 2);
 
     std::vector<Produto> vecProd2 = pesquisa.busca_produtos_tipo("Tipofalso", geral.lista_produtos());

@@ -4,23 +4,22 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall
 
 INC_DIR = include
-INCLUDE += -I ../test/
 
 SRC_DIR := src
 TEST_DIR := test 
+TEST_EXECUTABLES := $(TEST_FILES:$(TEST_DIR)/%.cpp=$(BIN_DIR)/%)
 
 BIN_DIR := bin
 BUILD_DIR := build
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp $(SRC_DIR)/*/*.cpp $(SRC_DIR)/*/*/*.cpp)
-TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
+TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp $(TEST_DIR)/*/*.cpp $(TEST_DIR)/*/*/*.cpp)
 
 DEP_FILES := $(SRC_FILES:.cpp=.d)
 DEP_FILES += $(TEST_FILES:.cpp=.d)
 
 OBJ_SRC_FILES := $(SRC_FILES:.cpp=.o)
-OBJ_TEST_FILES := $(OBJ_SRC_FILES)
-OBJ_TEST_FILES += $(TEST_FILES:.cpp=.o)
+OBJ_TEST_FILES := $(TEST_FILES:.cpp=.o)
 
 -include $(addprefix $(BUILD_DIR)/,$(DEP_FILES))
 
@@ -34,8 +33,7 @@ $(BUILD_DIR)/$(PROJECT_NAME): $(addprefix $(BUILD_DIR)/,$(OBJ_SRC_FILES))
 	@mkdir -p $(BUILD_DIR)
 	@$(CXX) -shared $^ -o $(BUILD_DIR)/$(PROJECT_NAME)
 
-test: $(BIN_DIR)/test
-	@$(BIN_DIR)/test
+test: $(TEST_EXECUTABLES)
 
 $(BIN_DIR)/test: $(addprefix $(BUILD_DIR)/,$(OBJ_TEST_FILES))
 	@echo "🔧 Preparing test suite ..."
