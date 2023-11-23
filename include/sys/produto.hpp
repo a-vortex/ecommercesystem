@@ -26,7 +26,7 @@ private:
     float preco;
 
 public:
-    // Constructor
+    /// @brief Construtor sobrecarregado
     Produto(const std::string &nome,
             const std::string &descricao,
             const std::string &id_produto,
@@ -63,7 +63,7 @@ public:
         for (auto it = produtos.begin(); it != produtos.end(); ++it)
         {
             if (id == it->GetId())
-            { // Use -> para acessar membros de objetos apontados por it
+            {
                 std::cout << "Produto encontrado:" << std::endl;
                 std::cout << std::left << std::setw(20) << "Nome: " << it->GetName() << std::endl;
                 std::cout << std::left << std::setw(20) << "Descrição: " << it->GetDescription() << std::endl;

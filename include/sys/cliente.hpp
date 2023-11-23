@@ -24,6 +24,9 @@ private:
     std::string forma_pagamento;
 
 public:
+    /// @brief Construtor padrao
+    Cliente();
+
     /// @brief Atualiza nome do usuário
     /// @param novo_nome Nome atualizado
     void atualiza_usuario(std::string novo_nome);
@@ -40,7 +43,8 @@ public:
     /// @param nova_forma Número de telefone atualizado
     void atualiza_forma_pagameto(std::string nova_forma);
 
-    void historico_pesquisa(); // finalizar junto ao Serviço de busca
+    /// @todo finalizar junto ao Serviço de busca
+    void historico_pesquisa();
 
     /// @brief Variável estática para poder criar ids únicos
     static int contador_id;
@@ -51,9 +55,6 @@ public:
         std::cout << std::endl
                   << id_cliente;
     }
-
-    /// @brief Construtor da classe Cliente
-    Cliente();
 
     /// @brief Criar id para o usuário
     void contador()

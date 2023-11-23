@@ -50,7 +50,6 @@ $(BUILD_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 $(BUILD_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.cpp
 	@echo "🏛️ Building $< ..."
 	@mkdir -p $(dir $@)
-	@mkdir -p $(STORAGE_DIR)/fake-load
 	@$(CXX) $(CXXFLAGS) $(INCLUDE) $(DOCTEST) -D STORAGE_DIR=\"$(STORAGE_DIR)\" -MMD -MP -c $< -o $@ -fPIC
 
 clean:
