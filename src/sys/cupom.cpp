@@ -1,4 +1,4 @@
-#include "sys/cupom.hpp"
+#include "../../include/sys/cupom.hpp"
 
 Cupom::Cupom(Produto& disc, float discount)
 {

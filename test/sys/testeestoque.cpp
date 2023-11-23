@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "test/doctest.hpp"
+#include "doctest.hpp"
 #include "sys/header.hpp"
 
 TEST_CASE("Testando classe estoque")
