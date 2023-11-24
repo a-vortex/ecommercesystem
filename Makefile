@@ -7,13 +7,12 @@ INC_DIR = include
 
 SRC_DIR := src
 TEST_DIR := test 
-TEST_EXECUTABLES := $(TEST_FILES:$(TEST_DIR)/%.cpp=$(BIN_DIR)/%)
 
 BIN_DIR := bin
 BUILD_DIR := build
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp $(SRC_DIR)/*/*.cpp $(SRC_DIR)/*/*/*.cpp)
-TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp $(TEST_DIR)/*/*.cpp $(TEST_DIR)/*/*/*.cpp)
+TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
 
 DEP_FILES := $(SRC_FILES:.cpp=.d)
 DEP_FILES += $(TEST_FILES:.cpp=.d)
@@ -33,8 +32,6 @@ $(BUILD_DIR)/$(PROJECT_NAME): $(addprefix $(BUILD_DIR)/,$(OBJ_SRC_FILES))
 	@mkdir -p $(BUILD_DIR)
 	@$(CXX) -shared $^ -o $(BUILD_DIR)/$(PROJECT_NAME)
 
-test: $(TEST_EXECUTABLES)
-
 $(BIN_DIR)/test: $(addprefix $(BUILD_DIR)/,$(OBJ_TEST_FILES))
 	@echo "🔧 Preparing test suite ..."
 	@mkdir -p $(BIN_DIR)
@@ -45,14 +42,23 @@ $(BUILD_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
 	@$(CXX) $(CXXFLAGS) $(INCLUDE) -D STORAGE_DIR=\"$(STORAGE_DIR)\" -MMD -MP -c $< -o $@ -fPIC
 
-$(BUILD_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.cpp
+$(BUILD_DIR)/%: $(TEST_DIR)/%.cpp
 	@echo "🏛️ Building $< ..."
 	@mkdir -p $(dir $@)
 	@$(CXX) $(CXXFLAGS) $(INCLUDE) $(DOCTEST) -D STORAGE_DIR=\"$(STORAGE_DIR)\" -MMD -MP -c $< -o $@ -fPIC
 
+test: $(addprefix $(BIN_DIR)/,$(TEST_FILES))
+
 clean:
 	@echo "🧹 Cleaning ..."
 	@rm -rf $(BUILD_DIR) $(BIN_DIR)
+
+run_test:
+	@echo "🧪 Rodando o teste $(TESTE)..."
+	@$(BIN_DIR)/$(TESTE)
+
+.PHONY: run_test
+.PHONY: test
 
 
 # INC_DIR := include
