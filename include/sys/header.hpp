@@ -10,11 +10,13 @@
 #define HEADER_H
 
 #include "produto.hpp"
-#include "cliente.hpp"
 #include "estoque.hpp"
 #include "carrinho.hpp"
 #include "pagamento.hpp"
 #include "busca.hpp"
 #include "cupom.hpp"
+#include "usuario.hpp"
+#include "admnistrador.hpp"
+#include "cliente.hpp"
 
 #endif /* HEADER_H */
