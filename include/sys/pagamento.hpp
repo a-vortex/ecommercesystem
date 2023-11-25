@@ -12,7 +12,7 @@
 #include <iostream>
 #include <string>
 #include "produto.hpp"
-#include "cliente.hpp"
+#include "../user/cliente.hpp"
 #include "estoque.hpp"
 
 class Pagamento
