@@ -43,10 +43,12 @@ public:
         std::cout << std::endl
                   << id_usuario;
     }
+
     /// @brief Criar id para o usuário
     void contador();
 
     bool confirma_acesso();
+    
     /// @brief getters
     std::string GetNome();
     std::string GetEndereco();
