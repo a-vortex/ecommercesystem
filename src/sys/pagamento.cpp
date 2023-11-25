@@ -1,6 +1,7 @@
 #include "../../include/sys/pagamento.hpp"
 
-bool Pagamento::realiza_pagamento(Produto produto, std::string GetPagamento, Cliente cliente)
+bool 
+Pagamento::realiza_pagamento(Produto produto, std::string GetPagamento, Cliente cliente)
 {
     if (GetPagamento != " ")
     {
@@ -15,7 +16,9 @@ bool Pagamento::realiza_pagamento(Produto produto, std::string GetPagamento, Cli
         return false;
     }
 }
-void Pagamento::confirma_pagamento(const std::vector<Produto> &produtos, Produto &produto, Estoque &estoque)
+
+void 
+Pagamento::confirma_pagamento(const std::vector<Produto> &produtos, Produto &produto, Estoque &estoque)
 {
     for (const Produto &buscador : produtos)
     {

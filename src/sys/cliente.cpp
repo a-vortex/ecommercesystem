@@ -14,43 +14,57 @@ Cliente::Cliente()
     std::cin >> forma_pagamento;
     contador();
 }
-void Cliente::atualiza_usuario(std::string novo_nome)
+
+void 
+Cliente::atualiza_usuario(std::string novo_nome)
 {
     nome_usuario = novo_nome;
 }
 
-void Cliente::atualiza_endereco(std::string novo_endereco)
+void 
+Cliente::atualiza_endereco(std::string novo_endereco)
 {
     endereco = novo_endereco;
 }
 
-void Cliente::atualiza_telefone(std::string novo_telefone)
+void 
+Cliente::atualiza_telefone(std::string novo_telefone)
 {
     num_telefone = novo_telefone;
 }
-void Cliente::atualiza_forma_pagameto(std::string nova_forma)
+
+void 
+Cliente::atualiza_forma_pagameto(std::string nova_forma)
 {
     forma_pagamento = nova_forma;
 }
 
-std::string Cliente::GetNome()
+std::string 
+Cliente::GetNome()
 {
     return nome_usuario;
 }
-std::string Cliente::GetEndereco()
+
+std::string 
+Cliente::GetEndereco()
 {
     return endereco;
 }
-std::string Cliente::GetNumero()
+
+std::string 
+Cliente::GetNumero()
 {
     return num_telefone;
 }
-std::string Cliente::GetID()
+
+std::string 
+Cliente::GetID()
 {
     return id_cliente;
 }
 
-std::string Cliente::GetPagamento()
+std::string 
+Cliente::GetPagamento()
 {
     return forma_pagamento;
 }
