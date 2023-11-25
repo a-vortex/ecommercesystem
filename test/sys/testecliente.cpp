@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../test/doctest.hpp"
-#include "../../include/sys/cliente.hpp"
+#include "../../include/user/cliente.hpp"
 
 TEST_CASE("Testando classe Cliente")
 {
