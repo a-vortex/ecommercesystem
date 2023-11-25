@@ -3,7 +3,7 @@
 namespace ecommerce::ui
 {
     void
-    Login::render() const
+    Menu::render() const
     {
         std::string border(_title.size() + 5, '=');
         std::cout << border << '\n';

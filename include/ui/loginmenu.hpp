@@ -4,11 +4,11 @@
 
 namespace ecommerce::ui
 {
-    class LoginMenu : public Login
+    class LoginMenu : public Menu
     {
     public:
         LoginMenu();
 
-        Login *next(unsigned option) override;
+        Menu *next(unsigned option) override;
     };
 }

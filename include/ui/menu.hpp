@@ -15,11 +15,11 @@
 namespace ecommerce::ui
 {
 
-    class Login
+    class Menu
     {
     public:
-        virtual ~Login() = default;
-        virtual Login *next(unsigned option) = 0;
+        virtual ~Menu() = default;
+        virtual Menu *next(unsigned option) = 0;
         virtual void render() const;
 
     protected:
