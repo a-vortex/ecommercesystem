@@ -1,4 +1,4 @@
-#include "sys/carrinho.hpp"
+#include "../../include/sys/carrinho.hpp"
 
 Carrinho::Carrinho(){
     preco_total = 0;
@@ -17,7 +17,7 @@ void Carrinho::adiciona_produto(Produto produto, unsigned quantidade){
     if (!existe){
         lista_ids_produtos.push_front(std::make_pair(produto, quantidade));
     }
-    preco_total = produto.GetPrice()*quantidade;
+    preco_total += produto.GetPrice()*quantidade;
     quantidade_produto += quantidade;
 }
 
@@ -25,15 +25,15 @@ void Carrinho::remove_produto(Produto produto, unsigned quantidade){
 
     for (auto it = lista_ids_produtos.begin(); it != lista_ids_produtos.end(); ++it){
         if (produto.GetId() == it->first.GetId()){
-            if ((it->second-quantidade)<0){
+            if (it->second<quantidade){
                 std::cout<< "Quantidade inválida para remoção"<< std::endl;
                 break; 
-            }else if ((it->second-quantidade)>0){
+            }else if (it->second>quantidade){
                 it->second-=quantidade;
-            }else if((it->second-quantidade)==0){
+            }else {
                 lista_ids_produtos.erase(it);
             }
-            preco_total-=produto.GetPrice()*-(quantidade);
+            preco_total-=produto.GetPrice()*quantidade;
             quantidade_produto-=quantidade;
             break;
         }

@@ -1,4 +1,4 @@
-#include "sys/produto.hpp"
+#include "../../include/sys/produto.hpp"
 
 Produto::Produto(const std::string &nome,
                  const std::string &descricao,

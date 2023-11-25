@@ -1,3 +1,11 @@
+/*
+    busca.hpp
+    Author: Kauan Valente da Silva
+    kauanvalentesv@gmail.com
+
+    Cria os mecanismos de busca do sistema.
+*/
+
 #ifndef BUSCA_H
 #define BUSCA_H
 
@@ -15,13 +23,12 @@ private:
     std::vector<float> preco_produto;
 
 public:
-
     /// @brief Faz a busca do produto com o nome especificado
     ///        em uma determinada lista
     /// @param nome do produto que quer pesquisar
     /// @param _lista_de_produtos onde o produto esta inserido
     /// @return o produto especifiado
-    Produto busca_produtos_nome(const std::string& nome, const std::vector<Produto> &_lista_de_produtos);
+    Produto busca_produtos_nome(const std::string &nome, const std::vector<Produto> &_lista_de_produtos);
 
     /// @brief Faz a busca dos produtos com tipo determinado
     /// @param tipo do produto que quer pesquisar

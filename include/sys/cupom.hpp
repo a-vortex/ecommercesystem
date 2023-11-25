@@ -12,23 +12,25 @@
 #include <random>
 #include "produto.hpp"
 
-class Cupom{
-    private:    
-        std::string id_produto;
-        std::string id_cupom;
-        float preco;
-        float discount;
-    public:
-        /// @brief Construtor padrao
-        Cupom(Produto& disc, float discount);
+class Cupom
+{
+private:
+    std::string id_produto;
+    std::string id_cupom;
+    float preco;
+    float discount;
 
-        /// @brief altera o preço do produto de acordo com o cupom 
-        void altera_preço(Produto& disc);
+public:
+    /// @brief Construtor padrao
+    Cupom(Produto &disc, float discount);
 
-        // /// @brief gera um cupom para ser usado no sistema
-        // /// @param desconto porcentagem de desconto do cupom 
-        // /// @param quantidade quantidade de cupons disponíveis
-        // void gera_novo_cupom(unsigned desconto, unsigned quantidade);
+    /// @brief altera o preço do produto de acordo com o cupom
+    void altera_preço(Produto &disc);
+
+    /// @todo gera um cupom para ser usado no sistema
+    // /// @param desconto porcentagem de desconto do cupom
+    // /// @param quantidade quantidade de cupons disponíveis
+    // void gera_novo_cupom(unsigned desconto, unsigned quantidade);
 };
 
 #endif /* CUPOM_H */

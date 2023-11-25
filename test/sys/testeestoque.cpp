@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "test/doctest.h"
-#include "sys/header.hpp"
+#include "../../test/doctest.hpp"
+#include "../../include/sys/estoque.hpp"
+#include "../../include/sys/produto.hpp"
 
 TEST_CASE("Testando classe estoque")
 {
