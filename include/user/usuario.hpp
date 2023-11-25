@@ -1,32 +1,20 @@
-/*
-    cliente.hpp
-    Author: Yuri Wada
-    yuriwada@ufmg.br
-
-    Define a classe Cliente.
-    Realiza operacoes sobre as informacoes.
-*/
-
-#ifndef CLIENTE_H
-#define CLIENTE_H
+#ifndef USUARIO_H
+#define USUARIO_H
 
 #include <iostream>
 #include <iomanip>
 #include <string>
 
-class Cliente
+class Usuario
 {
 private:
     std::string nome_usuario;
-    std::string endereco;
     std::string num_telefone;
-    std::string id_cliente;
-    std::string forma_pagamento;
+    std::string id_usuario;
+    bool isAdmin;
+    bool login;
 
 public:
-    /// @brief Construtor padrao
-    Cliente();
-
     /// @brief Atualiza nome do usuário
     /// @param novo_nome Nome atualizado
     void atualiza_usuario(std::string novo_nome);
@@ -53,21 +41,19 @@ public:
     void imprime()
     {
         std::cout << std::endl
-                  << id_cliente;
+                  << id_usuario;
     }
-
     /// @brief Criar id para o usuário
-    void contador()
-    {
-        id_cliente = std::to_string(contador_id);
-        contador_id++;
-    }
+    void contador();
 
+    bool confirma_acesso();
+    /// @brief getters
     std::string GetNome();
     std::string GetEndereco();
     std::string GetNumero();
     std::string GetID();
     std::string GetPagamento();
+    bool GetisAdmin();
 };
 
-#endif /* CLIENTE_H */
+#endif /* USUARIO_H */
