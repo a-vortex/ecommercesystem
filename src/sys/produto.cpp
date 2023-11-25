@@ -13,7 +13,8 @@ Produto::Produto(const std::string &nome,
     this->preco = preco;
 }
 
-void Produto::atualiza_info()
+void 
+Produto::atualiza_info()
 {
     std::cout << "Qual tipo de informacao quer alterar? Escolha uma opcao (1 a 4)" << std::endl;
     std::cout << "Para finalizar a operacao, digite 0" << std::endl;
@@ -57,27 +58,32 @@ Produto::associaID()
     return produto;
 }
 
-std::string Produto::GetId() const
+std::string 
+Produto::GetId() const
 {
     return id_produto;
 }
 
-std::string Produto::GetName() const
+std::string 
+Produto::GetName() const
 {
     return nome;
 }
 
-std::string Produto::GetDescription() const
+std::string 
+Produto::GetDescription() const
 {
     return descricao;
 }
 
-std::string Produto::GetType() const
+std::string 
+Produto::GetType() const
 {
     return tipo;
 }
 
-float Produto::GetPrice() const
+float 
+Produto::GetPrice() const
 {
     return preco;
 }
