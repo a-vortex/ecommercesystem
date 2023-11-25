@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.hpp"
+#include "../../test/doctest.hpp"
 #include "../../include/sys/produto.hpp"
 #include "../../include/sys/estoque.hpp"
 #include "../../include/sys/pagamento.hpp"
