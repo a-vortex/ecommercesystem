@@ -1,6 +1,6 @@
 #include "../../include/user/administrador.hpp"
 
-Admnistrador::Admnistrador()
+Administrador::Administrador()
 {
     isAdmin();
     std::string coringa;
@@ -14,8 +14,7 @@ Admnistrador::Admnistrador()
     contador();
 }
 
-void
-Admnistrador::isAdmin()
+void Administrador::isAdmin()
 {
     std::cout << "Escreva o código de acesso:" << std::endl;
     std::cin >> codigo_escrito;
@@ -30,7 +29,7 @@ Admnistrador::isAdmin()
 }
 
 std::string
-Admnistrador::Get_codigo_escrito()
+Administrador::Get_codigo_escrito()
 {
     return codigo_escrito;
 }

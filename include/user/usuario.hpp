@@ -11,7 +11,7 @@ private:
     std::string nome_usuario;
     std::string num_telefone;
     std::string id_usuario;
-    bool isAdmin;
+    bool isAdmin = false;
     bool login;
 
 public:
@@ -48,7 +48,7 @@ public:
     void contador();
 
     bool confirma_acesso();
-    
+
     /// @brief getters
     std::string GetNome();
     std::string GetEndereco();
