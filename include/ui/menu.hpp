@@ -7,10 +7,11 @@
 */
 
 #pragma once
-
 #include <string>
 #include <vector>
 #include <iostream>
+#include "../user/cliente.hpp"
+#include "../user/administrador.hpp"
 
 namespace ecommerce::ui
 {
@@ -19,7 +20,9 @@ namespace ecommerce::ui
     {
     public:
         virtual ~Menu() = default;
-        virtual Menu *next(unsigned option) = 0;
+        virtual Menu *next(unsigned option) { return nullptr; };
+        virtual Menu *nextWithAdmin(unsigned option, Administrador adm) { return nullptr; }
+        virtual Menu *nextWithCliente(unsigned option, Cliente cliente) { return nullptr; }
         virtual void render() const;
 
     protected:

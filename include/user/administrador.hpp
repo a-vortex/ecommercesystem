@@ -15,14 +15,14 @@
 #include <string>
 #include "usuario.hpp"
 
-class Admnistrador : public Usuario
+class Administrador : public Usuario
 {
 private:
     std::string codigo_acesso = "1124";
     std::string codigo_escrito;
 
 public:
-    Admnistrador();
+    Administrador();
     void isAdmin();
     std::string Get_codigo_escrito();
 };

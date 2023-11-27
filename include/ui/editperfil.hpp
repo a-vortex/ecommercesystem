@@ -3,20 +3,20 @@
 #include <string>
 #include <vector>
 #include "menu.hpp"
-#include "../../include/sys/header.hpp"
 
 namespace ecommerce::ui
 {
-
     class Editperfil : public Menu
     {
     public:
-
-        /// @brief Constroi um menu para editar perfil
         Editperfil();
-
-
-        Menu *next(unsigned option) override;
+        /// @brief Permite editar um informação específica do usuário administrador
+        /// @param  option Número da opção escolhida
+        /// @param  adm Classe do tipo Administrador
+        Menu *nextWithAdmin(unsigned option, Administrador adm) override;
+        /// @brief Permite editar um informação específica do usuário cliente
+        /// @param  option Número da opção escolhida
+        /// @param  adm Classe do tipo Cliente
+        Menu *nextWithCliente(unsigned option, Cliente cliente) override;
     };
-
 }
