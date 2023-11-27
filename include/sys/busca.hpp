@@ -41,6 +41,10 @@ public:
     /// @param _lista_de_produtos onde o produto esta inserido
     /// @return uma lista de produtos com o preco especificado
     std::vector<Produto> busca_produtos_preco(float preco, const std::vector<Produto> &_lista_de_produtos);
+    /// @brief Faz a busca de todos os produtos
+    /// @param _lista_de_produtos onde os produtos estão inseridos
+    /// @return Imprime na tela uma lista com todos os produtos no estoque
+    std::vector<Produto> busca_produtos_todos(const std::vector<Produto> &_lista_de_produtos);
 };
 
 #endif /* BUSCA_H */
