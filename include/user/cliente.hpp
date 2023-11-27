@@ -17,12 +17,8 @@
 
 class Cliente : public Usuario
 {
-private:
-    std::string endereco;
-    std::string forma_pagamento;
-
 public:
-    Cliente();
+    using Usuario::Usuario;
     void atualiza_endereco(std::string novo_endereco);
     void atualiza_forma_pagameto(std::string nova_forma);
     std::string GetEndereco();

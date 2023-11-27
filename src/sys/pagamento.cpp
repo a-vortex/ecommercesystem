@@ -5,8 +5,8 @@ Pagamento::realiza_pagamento(Produto produto, std::string GetPagamento, Cliente 
 {
     if (GetPagamento != " ")
     {
-        std::cout << "Pagamento realizado com sucesso o valor de: " << produto.GetPrice() << std::endl
-                  << "de acordo com a forma de pagamento:"
+        std::cout << "Pagamento realizado com sucesso no valor de: " << produto.GetPrice() << std::endl
+                  << "De acordo com a forma de pagamento:"
                   << cliente.GetPagamento() << std::endl;
         return true;
     }
