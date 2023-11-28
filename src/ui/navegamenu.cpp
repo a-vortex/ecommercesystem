@@ -1,5 +1,5 @@
 #include "../../include/ui/navegamenu.hpp"
-#include "menu.cpp"
+#include "../../include/ui/menu.hpp"
 
 namespace ecommerce::ui
 {
