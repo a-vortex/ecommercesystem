@@ -109,6 +109,8 @@ namespace ecommerce::ui
                 if(ler_autenticacao(email, senha, tipo))
                 {
                     std::cout << "> Logando: " << email << std::endl;
+                    /// @todo terminar entrar no sistema
+                    /// @return ir para proximo menu cliente ou admin
                 }
                 break;
             }
@@ -167,6 +169,9 @@ namespace ecommerce::ui
                 this->cadastrarAdmin(email, password);
                 break;
             }
+
         }
+
     }
+
 }
