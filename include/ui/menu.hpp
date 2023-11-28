@@ -33,7 +33,7 @@ namespace ecommerce::ui
 
     protected:
         std::string _title = "Tela de Login";
-        std::vector<std::string> _options = {"0 - Sair"};
+        std::vector<std::string> _options = {""};
     };
 
 }

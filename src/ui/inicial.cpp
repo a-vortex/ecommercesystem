@@ -9,10 +9,9 @@ namespace ecommerce::ui
     Inicial::Inicial()
     {
         _title = "Editar Informações";
-        _options.push_back("1- Login");
-        _options.push_back("2- Realizar cadastro");
-        _options.push_back("3- Encerrar sistema");
-    }
+        _options.push_back("1- Opções de acesso");
+        _options.push_back("2- Encerrar sistema");
+        }
 
     Menu *Inicial::next(unsigned option)
     {
@@ -22,8 +21,11 @@ namespace ecommerce::ui
         case 1:
         {
             LoginMenu login;
-            std::cout << "Vamos realizar seu login!";
-            login.next();
+            std::cout << "Seja bem vindo ao nosso ecommerce, como deseja proceder?";
+            login.render();
+            int option;
+            std::cin >> option;
+            login.next(option);
         }
 
         break;
@@ -42,4 +44,6 @@ namespace ecommerce::ui
 }
 int main()
 {
+    ecommerce::ui::Inicial teste;
+    teste.next(1);
 }
