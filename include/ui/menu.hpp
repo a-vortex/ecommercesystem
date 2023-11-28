@@ -17,9 +17,6 @@
 #include <string>
 #include <vector>
 #include <iostream>
-// #include "../../src/sys/estoque.cpp"
-// #include "../../src/sys/busca.cpp"
-
 namespace ecommerce::ui
 {
 
@@ -30,7 +27,15 @@ namespace ecommerce::ui
         virtual Menu *next(unsigned option) { return nullptr; };
         virtual Menu *nextWithAdmin(unsigned option, Administrador adm) { return nullptr; }
         virtual Menu *nextWithCliente(unsigned option, Cliente cliente) { return nullptr; }
-
+        virtual Menu *nextEditaProduto(unsigned option)
+        {
+            return nullptr;
+        }
+        virtual Menu *navegamenunext(unsigned option, std::string pesquisa, Estoque estoque, Busca busca)
+        {
+            return nullptr;
+        };
+        Estoque glob;
         virtual void render() const;
 
     protected:
