@@ -162,7 +162,10 @@ namespace ecommerce::ui
                 std::cin >> email;
 
                 std::cout << "> Senha: " << std::endl;
-                std::cin >> password;                
+                std::cin >> password;
+                Administrador admin(nome, endereco, telefone);
+                this->cadastrarAdmin(email, password);
+                break;
             }
         }
     }

@@ -7,14 +7,16 @@
 */
 
 #pragma once
-#include <string>
-#include <vector>
-#include <iostream>
+
 #include "../user/cliente.hpp"
 #include "../user/administrador.hpp"
 #include "../sys/estoque.hpp"
 #include "../sys/busca.hpp"
 #include "../sys/produto.hpp"
+
+#include <string>
+#include <vector>
+#include <iostream>
 // #include "../../src/sys/estoque.cpp"
 // #include "../../src/sys/busca.cpp"
 

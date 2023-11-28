@@ -62,9 +62,3 @@ Usuario::GetHistorico()
 {
     return historicopesquisa;
 }
-
-bool
-Usuario::GetIsAdmin()
-{
-    return _isAdmin;
-}

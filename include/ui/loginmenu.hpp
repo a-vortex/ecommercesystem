@@ -1,3 +1,11 @@
+/*
+    loginmenu.hpp
+    Author: Yuri Wada
+    yuriwada@ufmg.br
+
+    Cria a tela de login
+*/
+
 #pragma once
 
 #include "menu.hpp"

@@ -1,10 +1,9 @@
 /*
-    cliente.hpp
-    Author: Yuri Wada
-    yuriwada@ufmg.br
+    administrador.hpp
+    Author: Kauan Valente
+    kauanvalentesv@gmail.com
 
-    Define a classe Cliente.
-    Realiza operacoes sobre as informacoes.
+    Define a classe Administrador.
 */
 
 #ifndef ADMINISTRADOR_H
@@ -18,13 +17,11 @@
 class Administrador : public Usuario
 {
 private:
-    std::string codigo_acesso = "1124";
-    std::string codigo_escrito;
+    bool isAdmin = true;
 
 public:
-    Administrador();
-    void isAdmin();
-    std::string Get_codigo_escrito();
+    using Usuario::Usuario;
+    bool GetIsAdmin();
 };
 
 #endif /* ADMINISTRADOR_H */

@@ -1,3 +1,13 @@
+/*
+    usuario.hpp
+    Author: Kauan Valente
+            Yuri Wada
+    kauanvalentesv@gmail.com
+    yuriwada@ufmg.br
+
+    Define a classe Usuario.
+*/
+
 #ifndef USUARIO_H
 #define USUARIO_H
 
@@ -15,7 +25,6 @@ private:
     unsigned _num_telefone;
     std::string _id_usuario;
     std::vector<std::string> historicopesquisa;
-    bool _isAdmin = false;
 
 public:
 
@@ -43,7 +52,6 @@ public:
     unsigned GetTelefone();
     std::string GetID();
     std::vector<std::string> GetHistorico();
-    bool GetIsAdmin();
 };
 
 #endif /* USUARIO_H */
