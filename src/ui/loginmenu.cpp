@@ -2,21 +2,22 @@
 
 namespace ecommerce::ui
 {
-    const std::string LoginMenu::PATHCLIENT = "../../database/user/autenticacaocliente.txt";
-    const std::string LoginMenu::PATHADMIN = "../../database/user/autenticacaoadmin.txt";
+    const std::string LoginMenu::PATH_CLIENT = "autenticacaocliente.txt";
+    const std::string LoginMenu::PATH_ADMIN = "autenticacaoadmin.txt";
 
     LoginMenu::LoginMenu()
     {
-        _title = "Menu de Autenticação";
-        _options.push_back("1 - Entrar");
+        _title = "Bem-vindo ao Sistema de E-commerce";
+        _options.push_back("1 - Login");
         _options.push_back("2 - Cadastrar Cliente");
         _options.push_back("3 - Cadastrar Administrador");
+        _options.push_back("4 - Encerrar Sistema");
     }
 
     void
     LoginMenu::cadastrarCliente(const std::string& email, const std::string& senha)
     {
-        std::ofstream arquivo(PATHCLIENT, std::ios_base::app);
+        std::ofstream arquivo(PATH_CLIENT, std::ios_base::app);
 
         if(arquivo.is_open())
         {
@@ -34,7 +35,7 @@ namespace ecommerce::ui
     void
     LoginMenu::cadastrarAdmin(const std::string& email, const std::string& senha)
     {
-        std::ofstream arquivo(PATHADMIN, std::ios_base::app);
+        std::ofstream arquivo(PATH_ADMIN, std::ios_base::app);
         if(arquivo.is_open())
         {
             arquivo << email << std::endl;
@@ -58,13 +59,13 @@ namespace ecommerce::ui
 
             if (tipo == 'c')
             {
-                arquivo.open(PATHCLIENT);
-                path = PATHCLIENT;
+                arquivo.open(PATH_CLIENT);
+                path = PATH_CLIENT;
             }
             else if (tipo == 'a')
             {
-                arquivo.open(PATHADMIN);
-                path = PATHADMIN;
+                arquivo.open(PATH_ADMIN);
+                path = PATH_ADMIN;
             }
 
             if (!arquivo.is_open())
@@ -82,13 +83,27 @@ namespace ecommerce::ui
                 if (linha.find(senha) != std::string::npos) pkey = true;
                 if (ekey && pkey)
                 {
+                    std::cout << "> Autenticação bem sucedida <" << std::endl;
                     arquivo.close(); // Fechar o arquivo apos encontrar a autenticação
                     return true;
                 }
             }
 
+            std::cout << "> Email ou senha invalidos! <" << std::endl;
             arquivo.close(); // Fechar o arquivo apos terminar a leitura sem autenticação
             return false;
+        };
+
+        auto contemApenasdigitos = [] (const std::string& str)
+        {
+            for(char c : str)
+            {
+                if(!std::isdigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         };
 
         switch(option)
@@ -106,6 +121,12 @@ namespace ecommerce::ui
                 std::string email;
                 std::string senha;
 
+                std::cout << "> Email: " << std::endl;
+                std::cin >> email;
+                
+                std::cout << "> Senha: " << std::endl;
+                std::cin >> senha;
+
                 if(ler_autenticacao(email, senha, tipo))
                 {
                     std::cout << "> Logando: " << email << std::endl;
@@ -117,20 +138,22 @@ namespace ecommerce::ui
 
             case 2:
             {
-                std::string nome;
-                std::string endereco;
-                unsigned telefone;
-                std::string email;
-                std::string password;
+                std::string nome, endereco, telefone, email, password;
 
                 std::cout << "> Nome: " << std::endl;
-                std::cin >> nome;
+                std::getline(std::cin >> std::ws, nome);
 
                 std::cout << "> Endereço: " << std::endl;
-                std::cin >> endereco;
+                std::getline(std::cin >> std::ws, endereco);
                 
                 std::cout << "> Telefone: " << std::endl;
-                std::cin >> telefone;
+                std::getline(std::cin >> std::ws, telefone);
+
+                while(!contemApenasdigitos(telefone))
+                {
+                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente." << std::endl;
+                    std::getline(std::cin >> std::ws, telefone);
+                }
 
                 std::cout << "> Email: " << std::endl;
                 std::cin >> email;
@@ -138,40 +161,46 @@ namespace ecommerce::ui
                 std::cout << "> Senha: " << std::endl;
                 std::cin >> password;
 
-                Cliente cliente(nome, endereco, telefone);
+                //Cliente cliente(nome, endereco, std::stoul(telefone));
                 this->cadastrarCliente(email, password);
                 break;
             }
 
             case 3:
             {
-                std::string nome;
-                std::string endereco;
-                unsigned telefone;
-                std::string email;
-                std::string password;
+                std::string nome, endereco, telefone, email, password;
 
                 std::cout << "> Nome: " << std::endl;
-                std::cin >> nome;
+                std::getline(std::cin >> std::ws, nome);
 
                 std::cout << "> Endereço: " << std::endl;
-                std::cin >> endereco;
+                std::getline(std::cin >> std::ws, endereco);
                 
                 std::cout << "> Telefone: " << std::endl;
-                std::cin >> telefone;
+                std::getline(std::cin >> std::ws, telefone);
+
+                while(!contemApenasdigitos(telefone))
+                {
+                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente." << std::endl;
+                    std::getline(std::cin >> std::ws, telefone);
+                }
 
                 std::cout << "> Email: " << std::endl;
                 std::cin >> email;
 
                 std::cout << "> Senha: " << std::endl;
                 std::cin >> password;
-                Administrador admin(nome, endereco, telefone);
+                //Administrador admin(nome, endereco, std::stoul(telefone));
+
                 this->cadastrarAdmin(email, password);
                 break;
             }
 
-        }
+            case 4:
+                return nullptr;
 
+        }
+        return nullptr;
     }
 
 }

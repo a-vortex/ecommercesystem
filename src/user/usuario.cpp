@@ -2,7 +2,7 @@
 
 Usuario::Usuario(std::string nome, 
                 std::string endereco, 
-                unsigned telefone)
+                long unsigned telefone)
 {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -28,7 +28,7 @@ Usuario::atualiza_endereco(std::string novo_endereco)
 }
 
 void 
-Usuario::atualiza_telefone(unsigned novo_telefone)
+Usuario::atualiza_telefone(long unsigned novo_telefone)
 {
     _num_telefone = novo_telefone;
 }
@@ -45,7 +45,7 @@ Usuario::GetEndereco()
     return _endereco;
 }
 
-unsigned
+long unsigned
 Usuario::GetTelefone()
 {
     return _num_telefone;

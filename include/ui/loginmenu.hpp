@@ -24,8 +24,8 @@ namespace ecommerce::ui
     public:
         LoginMenu();
 
-        static const std::string PATHCLIENT;
-        static const std::string PATHADMIN;
+        static const std::string PATH_CLIENT;
+        static const std::string PATH_ADMIN;
         void cadastrarCliente(const std::string& email, const std::string& senha);
         void cadastrarAdmin(const std::string& email, const std::string& senha);
         Menu *next(unsigned option) override;
