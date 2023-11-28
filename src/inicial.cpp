@@ -4,44 +4,7 @@
 #include "../include/ui/menu.hpp"
 
 namespace ui = ecommerce::ui;
-// {
 
-//     // Inicial::Inicial()
-//     // {
-//     //     _title = "Editar Informações";
-//     //     _options.push_back("1- Opções de acesso");
-//     //     _options.push_back("2- Encerrar sistema");
-//     //     }
-
-//     Menu *Inicial::next(unsigned option)
-//     {
-
-//         switch (option)
-//         {
-//         case 1:
-//         {
-//             LoginMenu login;
-//             login.render();
-//             int option;
-//             std::cin >> option;
-//             login.next(option);
-//             break;
-//         }
-
-//         case 4:
-//         {
-
-//             break;
-//         }
-//         default:
-//             break;
-
-//             return nullptr;
-//         }
-//         return nullptr;
-//     }
-
-// }
 int main()
 {
     ui::LoginMenu login;
