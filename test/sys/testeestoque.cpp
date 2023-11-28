@@ -3,6 +3,7 @@
 #include "../../include/sys/estoque.hpp"
 #include "../../include/sys/produto.hpp"
 
+
 TEST_CASE("Testando classe estoque")
 {
     Estoque test;

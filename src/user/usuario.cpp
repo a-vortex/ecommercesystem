@@ -1,48 +1,64 @@
 #include "../../include/user/usuario.hpp"
 
-int Usuario::contador_id;
-
-void Usuario::atualiza_usuario(std::string novo_nome)
+Usuario::Usuario(std::string nome, 
+                std::string endereco, 
+                long unsigned telefone)
 {
-    nome_usuario = novo_nome;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(1000000, 999999999);
+    unsigned usuarioID = dis(gen);
+    _id_usuario = std::to_string(usuarioID);
+
+    _nome_usuario = nome;
+    _endereco = endereco;
+    _num_telefone = telefone;
 }
 
-void Usuario::atualiza_telefone(std::string novo_telefone)
+void
+Usuario::atualiza_nomeusuario(std::string novo_nome)
 {
-    num_telefone = novo_telefone;
+    _nome_usuario = novo_nome;
 }
 
-void Usuario::contador()
+void
+Usuario::atualiza_endereco(std::string novo_endereco)
 {
-    id_usuario = std::to_string(contador_id);
-    contador_id++;
+    _endereco = novo_endereco;
 }
 
-bool Usuario::confirma_acesso()
+void 
+Usuario::atualiza_telefone(long unsigned novo_telefone)
 {
-    isAdmin = true;
-    return 0;
+    _num_telefone = novo_telefone;
 }
 
 std::string
 Usuario::GetNome()
 {
-    return nome_usuario;
+    return _nome_usuario;
 }
 
 std::string
-Usuario::GetNumero()
+Usuario::GetEndereco()
 {
-    return num_telefone;
+    return _endereco;
+}
+
+long unsigned
+Usuario::GetTelefone()
+{
+    return _num_telefone;
 }
 
 std::string
 Usuario::GetID()
 {
-    return id_usuario;
+    return _id_usuario;
 }
 
-bool Usuario::GetisAdmin()
+std::vector<std::string>
+Usuario::GetHistorico()
 {
-    return isAdmin;
+    return historicopesquisa;
 }

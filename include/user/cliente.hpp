@@ -1,10 +1,11 @@
 /*
     cliente.hpp
-    Author: Yuri Wada
+    Author: Kauan Valente
+            Yuri Wada
+    kauanvalentesv@gmail.com
     yuriwada@ufmg.br
 
     Define a classe Cliente.
-    Realiza operacoes sobre as informacoes.
 */
 
 #ifndef CLIENTE_H
@@ -18,15 +19,13 @@
 class Cliente : public Usuario
 {
 private:
-    std::string endereco;
-    std::string forma_pagamento;
+    std::vector<std::string> historicopesquisa;
+    bool isAdmin = false;
 
 public:
-    Cliente();
-    void atualiza_endereco(std::string novo_endereco);
-    void atualiza_forma_pagameto(std::string nova_forma);
-    std::string GetEndereco();
-    std::string GetPagamento();
+    using Usuario::Usuario;
+    void adicionaHistorico(std::string &nome_produto);
+    bool GetIsAdmin();
 };
 
 #endif /* CLIENTE_H */
