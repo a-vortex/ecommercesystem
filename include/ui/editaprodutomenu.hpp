@@ -14,5 +14,5 @@ namespace ecommerce::ui
         /// @param  option Número da opção escolhida
         /// @param  produto Classe do tipo produto
         Menu *nextEditaProduto(unsigned option) override;
-        };
+    };
 }
