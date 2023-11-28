@@ -21,24 +21,24 @@ namespace ecommerce::ui
         case 1:
         {
             LoginMenu login;
-            std::cout << "Seja bem vindo ao nosso ecommerce, como deseja proceder?";
             login.render();
             int option;
             std::cin >> option;
             login.next(option);
+            break;
         }
 
-        break;
         case 4:
         {
 
             break;
+        }
         default:
             break;
-        }
 
             return nullptr;
         }
+        return nullptr;
     }
 
 }

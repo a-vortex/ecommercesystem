@@ -22,7 +22,7 @@ class Usuario
 private:
     std::string _nome_usuario;
     std::string _endereco;
-    unsigned _num_telefone;
+    long unsigned _num_telefone;
     std::string _id_usuario;
     std::vector<std::string> historicopesquisa;
 
@@ -32,7 +32,7 @@ public:
     /// Cria ID unico para cada usuario
     Usuario(std::string nome, 
             std::string endereco, 
-            unsigned telefone);
+            long unsigned telefone);
 
     /// @brief Atualiza nome do usuário
     /// @param novo_nome Nome atualizado
@@ -44,12 +44,12 @@ public:
 
     /// @brief Atualiza telefone do usuário
     /// @param novo_telefone Número de telefone atualizado
-    void atualiza_telefone(unsigned novo_telefone);
+    void atualiza_telefone(long unsigned novo_telefone);
 
     /// @brief getters
     std::string GetNome();
     std::string GetEndereco();
-    unsigned GetTelefone();
+    long unsigned GetTelefone();
     std::string GetID();
     std::vector<std::string> GetHistorico();
 };
