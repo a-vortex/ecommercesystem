@@ -30,12 +30,12 @@ namespace ecommerce::ui
         virtual Menu *next(unsigned option) { return nullptr; };
         virtual Menu *nextWithAdmin(unsigned option, Administrador adm) { return nullptr; }
         virtual Menu *nextWithCliente(unsigned option, Cliente cliente) { return nullptr; }
-        virtual Menu *navegamenunext(unsigned option, std::string pesquisa, Estoque estoque, Busca busca) { return nullptr; }
+
         virtual void render() const;
 
     protected:
         std::string _title = "Tela de Login";
-        std::vector<std::string> _options = {"0 - Sair"};
+        std::vector<std::string> _options = {""};
     };
 
 }
