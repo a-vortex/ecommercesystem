@@ -1,4 +1,4 @@
-#pragma once
+// #pragma once
 
 #include "menu.hpp"
 
@@ -9,6 +9,6 @@ namespace ecommerce::ui
     public:
         NavegaMenu();
 
-        Menu *navegamenunext(unsigned option, std::string pesquisa, Estoque estoque, Busca busca) override;
+        Menu *navegamenunext(unsigned option, std::string pesquisa, Estoque estoque, Busca busca);
     };
 }

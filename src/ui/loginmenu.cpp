@@ -2,8 +2,8 @@
 
 namespace ecommerce::ui
 {
-    const std::string LoginMenu::PATHCLIENT = "../../database/user/autenticacaocliente.txt";
-    const std::string LoginMenu::PATHADMIN = "../../database/user/autenticacaoadmin.txt";
+    const std::string LoginMenu::PATH_CLIENT = "autenticacaocliente.txt";
+    const std::string LoginMenu::PATH_ADMIN = "autenticacaoadmin.txt";
 
     LoginMenu::LoginMenu()
     {
@@ -17,35 +17,35 @@ namespace ecommerce::ui
     void
     LoginMenu::cadastrarCliente(const std::string& email, const std::string& senha)
     {
-        std::ofstream arquivo(PATHCLIENT, std::ios_base::app);
+        std::ofstream arquivo(PATH_CLIENT, std::ios_base::app);
 
         if(arquivo.is_open())
         {
             arquivo << email << std::endl;
             arquivo << senha << std::endl;
             arquivo.close();
-            std::cout << "Novo cliente cadastrado com sucesso!" << std::endl;
+            std::cout << "> Novo cliente cadastrado com sucesso! <" << std::endl;
         }
         else
         {
-            throw std::runtime_error("Erro ao realizar cadastro!");
+            throw std::runtime_error("> Erro ao realizar cadastro! <");
         }
     }
 
     void
     LoginMenu::cadastrarAdmin(const std::string& email, const std::string& senha)
     {
-        std::ofstream arquivo(PATHADMIN, std::ios_base::app);
+        std::ofstream arquivo(PATH_ADMIN, std::ios_base::app);
         if(arquivo.is_open())
         {
             arquivo << email << std::endl;
             arquivo << senha << std::endl;
             arquivo.close();
-            std::cout << "Administrador cadastrado com sucesso!" << std::endl;
+            std::cout << "> Administrador cadastrado com sucesso! <" << std::endl;
         }
         else
         {
-            throw std::runtime_error("Erro ao realizar cadastro!");
+            throw std::runtime_error("> Erro ao realizar cadastro! <");
         }
     }
 
@@ -59,18 +59,18 @@ namespace ecommerce::ui
 
             if (tipo == 'c')
             {
-                arquivo.open(PATHCLIENT);
-                path = PATHCLIENT;
+                arquivo.open(PATH_CLIENT);
+                path = PATH_CLIENT;
             }
             else if (tipo == 'a')
             {
-                arquivo.open(PATHADMIN);
-                path = PATHADMIN;
+                arquivo.open(PATH_ADMIN);
+                path = PATH_ADMIN;
             }
 
             if (!arquivo.is_open())
             {
-                throw std::runtime_error("Erro na abertura do arquivo: " + path);
+                throw std::runtime_error("> Erro na abertura do arquivo: " + path + " <");
             }
 
             std::string linha;
@@ -115,7 +115,7 @@ namespace ecommerce::ui
                 std::cin >> tipo;
                 if(tipo != 'a' && tipo != 'c')
                 {
-                    std::cout << "Tipo de usuário inválido!!" << std::endl;
+                    std::cout << "> Tipo de usuário inválido!! <" << std::endl;
                 }
 
                 std::string email;
@@ -151,7 +151,7 @@ namespace ecommerce::ui
 
                 while(!contemApenasdigitos(telefone))
                 {
-                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente." << std::endl;
+                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente. <" << std::endl;
                     std::getline(std::cin >> std::ws, telefone);
                 }
 
@@ -161,7 +161,7 @@ namespace ecommerce::ui
                 std::cout << "> Senha: " << std::endl;
                 std::cin >> password;
 
-                Cliente cliente(nome, endereco, std::stoul(telefone));
+                //Cliente cliente(nome, endereco, std::stoul(telefone));
                 this->cadastrarCliente(email, password);
                 break;
             }
@@ -181,7 +181,7 @@ namespace ecommerce::ui
 
                 while(!contemApenasdigitos(telefone))
                 {
-                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente." << std::endl;
+                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente. <" << std::endl;
                     std::getline(std::cin >> std::ws, telefone);
                 }
 
@@ -190,7 +190,7 @@ namespace ecommerce::ui
 
                 std::cout << "> Senha: " << std::endl;
                 std::cin >> password;
-                Administrador admin(nome, endereco, std::stoul(telefone));
+                //Administrador admin(nome, endereco, std::stoul(telefone));
 
                 this->cadastrarAdmin(email, password);
                 break;

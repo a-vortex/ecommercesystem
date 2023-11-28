@@ -11,10 +11,10 @@ Produto::Produto(const std::string &nome,
     this->id_produto = id_produto;
     this->tipo = tipo;
     this->preco = preco;
+    std::cout << "Produto criado com sucesso" << std::endl;
 }
 
-void 
-Produto::atualiza_info()
+void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_produto)
 {
     std::cout << "Qual tipo de informacao quer alterar? Escolha uma opcao (1 a 4)" << std::endl;
     std::cout << "Para finalizar a operacao, digite 0" << std::endl;
@@ -28,24 +28,54 @@ Produto::atualiza_info()
         switch (escolha)
         {
         case 1:
-            std::cout << "Insira o novo nome: " << std::endl;
-            std::cin >> nome;
+
+            for (auto it = produtos.begin(); it != produtos.end(); ++it)
+            {
+                if (nome_produto == it->GetName())
+                {
+                    std::cout << "Insira o novo nome: " << std::endl;
+                    std::cin >> nome;
+                }
+            }
+
             break;
         case 2:
-            std::cout << "Insira a nova descricao: " << std::endl;
-            std::cin >> descricao;
+
+            for (auto it = produtos.begin(); it != produtos.end(); ++it)
+            {
+                if (nome_produto == it->GetName())
+                {
+                    std::cout << "Insira a nova descricao: " << std::endl;
+                    std::cin >> descricao;
+                }
+            }
+
             break;
         case 3:
-            std::cout << "Insira o novo tipo: " << std::endl;
-            std::cin >> tipo;
+            for (auto it = produtos.begin(); it != produtos.end(); ++it)
+            {
+                if (nome_produto == it->GetName())
+                {
+                    std::cout << "Insira o novo tipo: " << std::endl;
+                    std::cin >> tipo;
+                }
+            }
+
             break;
         case 4:
-            std::cout << "Insira o novo preco: " << std::endl;
-            std::cin >> preco;
+            for (auto it = produtos.begin(); it != produtos.end(); ++it)
+            {
+                if (nome_produto == it->GetName())
+                {
+                    std::cout << "Insira o novo preco: " << std::endl;
+                    std::cin >> preco;
+                }
+            }
+
             break;
         }
-        std::cout << "Escolha nova opcao (1 a 4)" << std::endl;
-        std::cout << "Para finalizar a operacao, digite 0" << std::endl;
+        // std::cout << "Escolha nova opcao (1 a 4)" << std::endl;
+        // std::cout << "Para finalizar a operacao, digite 0" << std::endl;
     }
 }
 
@@ -58,32 +88,31 @@ Produto::associaID()
     return produto;
 }
 
-std::string 
+std::string
 Produto::GetId() const
 {
     return id_produto;
 }
 
-std::string 
+std::string
 Produto::GetName() const
 {
     return nome;
 }
 
-std::string 
+std::string
 Produto::GetDescription() const
 {
     return descricao;
 }
 
-std::string 
+std::string
 Produto::GetType() const
 {
     return tipo;
 }
 
-float 
-Produto::GetPrice() const
+float Produto::GetPrice() const
 {
     return preco;
 }

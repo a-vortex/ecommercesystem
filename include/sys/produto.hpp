@@ -45,7 +45,7 @@ public:
     }
 
     /// @brief Atualiza as informacoes do produto
-    void atualiza_info();
+    void atualiza_info(std::vector<Produto> produtos, std::string nome_produto);
 
     /// @brief Associa um ID a um nome, dentro de um tipo map
     /// @return um tipo Map com um ID e nome
