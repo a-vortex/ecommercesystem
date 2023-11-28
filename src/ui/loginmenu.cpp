@@ -24,11 +24,11 @@ namespace ecommerce::ui
             arquivo << email << std::endl;
             arquivo << senha << std::endl;
             arquivo.close();
-            std::cout << "Novo cliente cadastrado com sucesso!" << std::endl;
+            std::cout << "> Novo cliente cadastrado com sucesso! <" << std::endl;
         }
         else
         {
-            throw std::runtime_error("Erro ao realizar cadastro!");
+            throw std::runtime_error("> Erro ao realizar cadastro! <");
         }
     }
 
@@ -41,11 +41,11 @@ namespace ecommerce::ui
             arquivo << email << std::endl;
             arquivo << senha << std::endl;
             arquivo.close();
-            std::cout << "Administrador cadastrado com sucesso!" << std::endl;
+            std::cout << "> Administrador cadastrado com sucesso! <" << std::endl;
         }
         else
         {
-            throw std::runtime_error("Erro ao realizar cadastro!");
+            throw std::runtime_error("> Erro ao realizar cadastro! <");
         }
     }
 
@@ -70,7 +70,7 @@ namespace ecommerce::ui
 
             if (!arquivo.is_open())
             {
-                throw std::runtime_error("Erro na abertura do arquivo: " + path);
+                throw std::runtime_error("> Erro na abertura do arquivo: " + path + " <");
             }
 
             std::string linha;
@@ -115,7 +115,7 @@ namespace ecommerce::ui
                 std::cin >> tipo;
                 if(tipo != 'a' && tipo != 'c')
                 {
-                    std::cout << "Tipo de usuário inválido!!" << std::endl;
+                    std::cout << "> Tipo de usuário inválido!! <" << std::endl;
                 }
 
                 std::string email;
@@ -151,7 +151,7 @@ namespace ecommerce::ui
 
                 while(!contemApenasdigitos(telefone))
                 {
-                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente." << std::endl;
+                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente. <" << std::endl;
                     std::getline(std::cin >> std::ws, telefone);
                 }
 
@@ -181,7 +181,7 @@ namespace ecommerce::ui
 
                 while(!contemApenasdigitos(telefone))
                 {
-                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente." << std::endl;
+                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente. <" << std::endl;
                     std::getline(std::cin >> std::ws, telefone);
                 }
 

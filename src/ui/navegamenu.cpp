@@ -1,7 +1,7 @@
 #include "../../include/ui/navegamenu.hpp"
-#include "../sys/estoque.hpp"
-#include "../sys/produto.hpp"
-#include "../sys/busca.hpp"
+#include "../../include/sys/estoque.hpp"
+#include "../../include/sys/produto.hpp"
+#include "../../include/sys/busca.hpp"
 #include "../../include/ui/menu.hpp"
 
 namespace ecommerce::ui
