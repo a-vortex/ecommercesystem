@@ -11,10 +11,10 @@ Produto::Produto(const std::string &nome,
     this->id_produto = id_produto;
     this->tipo = tipo;
     this->preco = preco;
+    std::cout << "Produto criado com sucesso" << std::endl;
 }
 
-void 
-Produto::atualiza_info()
+void Produto::atualiza_info()
 {
     std::cout << "Qual tipo de informacao quer alterar? Escolha uma opcao (1 a 4)" << std::endl;
     std::cout << "Para finalizar a operacao, digite 0" << std::endl;
@@ -58,32 +58,31 @@ Produto::associaID()
     return produto;
 }
 
-std::string 
+std::string
 Produto::GetId() const
 {
     return id_produto;
 }
 
-std::string 
+std::string
 Produto::GetName() const
 {
     return nome;
 }
 
-std::string 
+std::string
 Produto::GetDescription() const
 {
     return descricao;
 }
 
-std::string 
+std::string
 Produto::GetType() const
 {
     return tipo;
 }
 
-float 
-Produto::GetPrice() const
+float Produto::GetPrice() const
 {
     return preco;
 }
