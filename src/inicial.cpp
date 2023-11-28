@@ -1,4 +1,3 @@
-#include "../include/ui/inicial.hpp"
 #include "../include/ui/loginmenu.hpp"
 #include "../include/user/usuario.hpp"
 #include "../include/ui/menu.hpp"

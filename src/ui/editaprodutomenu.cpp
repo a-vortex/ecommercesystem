@@ -1,7 +1,7 @@
 #include "../../include/ui/editaprodutomenu.hpp"
-#include "../user/usuario.cpp"
+#include "../../include/user/usuario.hpp"
 // #include "menu.cpp"
-#include "navegamenu.cpp"
+#include "../../include/ui/navegamenu.hpp"
 
 namespace ecommerce::ui
 {
@@ -66,12 +66,13 @@ namespace ecommerce::ui
 
             return nullptr;
         }
+        return nullptr;
     }
 
 }
-int main()
-{
-    ecommerce::ui::EditaProduto teste;
-    ecommerce::ui::NavegaMenu navega;
-    teste.nextEditaProduto(2);
-}
+// int main()
+// {
+//     ecommerce::ui::EditaProduto teste;
+//     ecommerce::ui::NavegaMenu navega;
+//     teste.nextEditaProduto(2);
+// }
