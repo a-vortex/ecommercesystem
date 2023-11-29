@@ -9,6 +9,6 @@ namespace ecommerce::ui
     public:
         NavegaMenu();
 
-        Menu *navegamenunext(unsigned option, std::string pesquisa, Estoque estoque, Busca busca);
+        Menu *navegamenunext(unsigned option, Estoque estoque, Busca busca);
     };
 }

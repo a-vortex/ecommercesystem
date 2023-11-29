@@ -33,7 +33,7 @@ namespace ecommerce::ui
         {
             return nullptr;
         }
-        virtual Menu *navegamenunext(unsigned option, std::string pesquisa, Estoque estoque, Busca busca)
+        virtual Menu *navegamenunext(unsigned option, Estoque estoque, Busca busca)
         {
             return nullptr;
         };
