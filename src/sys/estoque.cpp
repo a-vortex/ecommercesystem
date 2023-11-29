@@ -1,15 +1,13 @@
 #include "../../include/sys/estoque.hpp"
 
-bool 
-Estoque::adiciona_produto(const Produto &produto, int quantidade)
+bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
 {
     bool inserted = _lista_ids.insert(std::make_pair(produto.GetId(), quantidade)).second;
     produtos.push_back(produto);
     return inserted;
 }
 
-void 
-Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
+void Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
 {
 
     bool flag = false;
@@ -33,8 +31,7 @@ Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
     }
 }
 
-void 
-Estoque::exibe_quantidade(const std::string &id_produto)
+void Estoque::exibe_quantidade(const std::string &id_produto)
 {
     bool flag = false;
     for (auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
@@ -60,8 +57,7 @@ Estoque::lista_produtos()
     return produtos;
 }
 
-int 
-Estoque::GetQuantidade(const std::string &id_produto)
+int Estoque::GetQuantidade(const std::string &id_produto)
 {
     for (auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
     {
@@ -75,3 +71,4 @@ Estoque::GetQuantidade(const std::string &id_produto)
     }
     throw std::runtime_error("Produto nao encontrado");
 }
+

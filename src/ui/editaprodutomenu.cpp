@@ -1,7 +1,7 @@
 #include "../../include/ui/editaprodutomenu.hpp"
 #include "../../include/user/usuario.hpp"
-// #include "menu.cpp"
-#include "../../include/ui/navegamenu.hpp"
+#include "menu.cpp"
+#include "navegamenu.cpp"
 
 namespace ecommerce::ui
 {
@@ -10,7 +10,9 @@ namespace ecommerce::ui
     {
         _title = "Editar Informações ou adicionar novo produto";
         _options.push_back("1- Adiciona produto");
-        _options.push_back("2- Encerrar sistema");
+        _options.push_back("2- Editar produto");
+        _options.push_back("3- Editar estoque");
+        _options.push_back("4- Navegação");
     }
 
     Menu *EditaProduto::nextEditaProduto(unsigned option)
@@ -57,6 +59,27 @@ namespace ecommerce::ui
             std::cout << "Qual produto deseja editar?: " << std::endl;
             navega.navegamenunext(1, "n care", glob, busca);
         }
+        case 3:
+        {
+            std::cout << "Qual produto deseja editar? " << std::endl;
+            navega.navegamenunext(1, "n care", glob, busca);
+            int quantidade;
+            std::string ID;
+            std::cout << "Escreva o ID correspondente: " << std::endl;
+            std::cin >> ID;
+            std::cout << "Escreva a nova quantidade " << std::endl;
+            std::cin >> quantidade;
+            glob.atualiza_quantidade(ID, quantidade);
+        }
+        case 4:
+        {
+            navega.render();
+            int opção;
+            std::cin >> opção;
+            std::string ID;
+
+            navega.navegamenunext(opção, glob, busca);
+        }
             {
 
                 break;
@@ -70,9 +93,9 @@ namespace ecommerce::ui
     }
 
 }
-// int main()
-// {
-//     ecommerce::ui::EditaProduto teste;
-//     ecommerce::ui::NavegaMenu navega;
-//     teste.nextEditaProduto(2);
-// }
+int main()
+{
+    ecommerce::ui::EditaProduto teste;
+    ecommerce::ui::NavegaMenu navega;
+    teste.nextEditaProduto(4);
+}
