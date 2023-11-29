@@ -10,10 +10,8 @@ namespace ecommerce::ui
         _options.push_back("3- Prosseguir com a compra");
         _options.push_back("4- Voltar ao Menu");
     }
-    Menu *CartAcess(unsigned option)
+    Menu *CartAcess::next(unsigned option)
     {
-
-    
         switch (option)
         {
             case 1:
@@ -47,5 +45,6 @@ namespace ecommerce::ui
                 break;
             }
         }
+    return nullptr;
     }
 }
