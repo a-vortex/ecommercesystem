@@ -1,4 +1,5 @@
 #include "../../include/sys/busca.hpp"
+#include "../../include/exc/excecao.hpp"
 
 Produto
 Busca::busca_produtos_nome(const std::string &nome, const std::vector<Produto> &_lista_de_produtos)
@@ -11,7 +12,7 @@ Busca::busca_produtos_nome(const std::string &nome, const std::vector<Produto> &
             return buscador;
         }
     }
-    throw std::runtime_error("Produto nao encontrado");
+    throw NotFound();
 }
 
 std::vector<Produto>
@@ -30,7 +31,7 @@ Busca::busca_produtos_tipo(const std::string tipo, const std::vector<Produto> &_
     }
     if (!produto_encontrado)
     {
-        std::cout << " Nenhum Produto desse tipo encontrado!!" << std::endl;
+        throw NotFound();
     }
     return lista_tipos;
 }
@@ -53,7 +54,7 @@ Busca::busca_produtos_preco(float preco, const std::vector<Produto> &lista_de_pr
     }
     if (!produto_encontrado)
     {
-        std::cout << "Nenhum Produto com esse preço encontrado!!" << std::endl;
+        throw NotFound();
     }
 
     return lista_preco;

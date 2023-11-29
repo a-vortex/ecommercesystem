@@ -1,4 +1,5 @@
 #include "../../include/sys/estoque.hpp"
+#include "../../include/exc/excecao.hpp"
 
 bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
 {
@@ -27,7 +28,7 @@ void Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
     }
     if (!flag)
     {
-        std::cout << "Produto nao encontrado: " << id_produto << std::endl;
+        throw NotFound();
     }
 }
 
@@ -47,7 +48,7 @@ void Estoque::exibe_quantidade(const std::string &id_produto)
     }
     if (!flag)
     {
-        std::cout << "Produto nao encontrado: " << id_produto << std::endl;
+        throw NotFound();
     }
 }
 
@@ -69,6 +70,6 @@ int Estoque::GetQuantidade(const std::string &id_produto)
             break;
         }
     }
-    throw std::runtime_error("Produto nao encontrado");
+    throw NotFound();
 }
 

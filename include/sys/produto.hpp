@@ -76,7 +76,7 @@ public:
         }
         if (!produtoEncontrado)
         {
-            std::cout << "Produto não encontrado: " << id << std::endl;
+            std::cout << "Produto não encontrado." << std::endl;
         }
     }
 

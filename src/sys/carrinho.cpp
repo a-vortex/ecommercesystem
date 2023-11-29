@@ -1,4 +1,5 @@
 #include "../../include/sys/carrinho.hpp"
+#include "../../include/exc/excecao.hpp"
 
 Carrinho::Carrinho()
 {
@@ -37,8 +38,7 @@ Carrinho::remove_produto(Produto produto, unsigned quantidade)
         {
             if (it->second<quantidade)
             {
-                std::cout<< "Quantidade invalida para remocao"<< std::endl;
-                break; 
+                throw InvalidInput();
             }
             else if (it->second>quantidade)
             {

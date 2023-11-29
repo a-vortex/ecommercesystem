@@ -1,17 +1,16 @@
 #include "../../include/sys/pagamento.hpp"
+#include "../../include/exc/excecao.hpp"
 
-bool 
+void
 Pagamento::realiza_pagamento(Produto produto, std::string GetPagamento, Cliente cliente)
 {
     if (GetPagamento != " ")
     {
         std::cout << "Pagamento realizado com sucesso no valor de: " << produto.GetPrice() << std::endl;
-        return true;
     }
     else
     {
-        std::cout << "Nenhuma forma de pagamento cadastrada" << std::endl;
-        return false;
+        throw  NoAvailablePay();
     }
 }
 
