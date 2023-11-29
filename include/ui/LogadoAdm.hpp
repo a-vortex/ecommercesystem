@@ -6,10 +6,10 @@
 
 namespace ecommerce::ui
 {
-    class EditaProduto : public Menu
+    class LogadoAdm : public Menu
     {
     public:
-        EditaProduto();
+        LogadoAdm();
         /// @brief Permite editar ou adicionar um produto
         /// @param  option Número da opção escolhida
         /// @param  produto Classe do tipo produto

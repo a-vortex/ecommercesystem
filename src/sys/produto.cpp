@@ -22,13 +22,16 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
     std::cout << "2. Descricao" << std::endl;
     std::cout << "3. Tipo" << std::endl;
     std::cout << "4. Preco" << std::endl;
+    std::cout << "0. sair" << std::endl;
+
     unsigned escolha = 5;
     while (std::cin >> escolha && escolha != 0)
     {
         switch (escolha)
         {
         case 1:
-
+        {
+            std::cout << "Insira o novo nome: " << std::endl;
             for (auto it = produtos.begin(); it != produtos.end(); ++it)
             {
                 if (nome_produto == it->GetName())
@@ -36,10 +39,14 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
                     std::cout << "Insira o novo nome: " << std::endl;
                     std::cin >> nome;
                 }
+                break;
             }
-
             break;
+        }
+
         case 2:
+        {
+            std::cout << "Insira a nova descricao: " << std::endl;
 
             for (auto it = produtos.begin(); it != produtos.end(); ++it)
             {
@@ -48,30 +55,45 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
                     std::cout << "Insira a nova descricao: " << std::endl;
                     std::cin >> descricao;
                 }
+                break;
             }
-
             break;
+        }
+
         case 3:
+        {
+            std::cout << "Insira o novo tipo: " << std::endl;
             for (auto it = produtos.begin(); it != produtos.end(); ++it)
             {
                 if (nome_produto == it->GetName())
                 {
-                    std::cout << "Insira o novo tipo: " << std::endl;
                     std::cin >> tipo;
+                    break;
                 }
             }
-
             break;
+        }
+
         case 4:
+        {
+            std::cout << "Insira o novo preco: " << std::endl;
             for (auto it = produtos.begin(); it != produtos.end(); ++it)
             {
                 if (nome_produto == it->GetName())
                 {
-                    std::cout << "Insira o novo preco: " << std::endl;
                     std::cin >> preco;
+                    break;
                 }
             }
+            break;
+        }
 
+            {
+
+                break;
+            default:
+                break;
+            }
             break;
         }
         // std::cout << "Escolha nova opcao (1 a 4)" << std::endl;

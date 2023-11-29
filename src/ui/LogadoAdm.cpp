@@ -1,19 +1,21 @@
-#include "../../include/ui/editaprodutomenu.hpp"
+#include "../../include/ui/LogadoAdm.hpp"
 #include "../../include/user/usuario.hpp"
-// #include "menu.cpp"
-#include "../../include/ui/navegamenu.hpp"
+#include "menu.cpp"
+#include "navegamenu.cpp"
 
 namespace ecommerce::ui
 {
 
-    EditaProduto::EditaProduto()
+    LogadoAdm::LogadoAdm()
     {
-        _title = "Editar Informações ou adicionar novo produto";
+        _title = "Navegação como administrador";
         _options.push_back("1- Adiciona produto");
-        _options.push_back("2- Encerrar sistema");
+        _options.push_back("2- Editar produto");
+        _options.push_back("3- Editar estoque");
+        _options.push_back("4- Navegação");
     }
 
-    Menu *EditaProduto::nextEditaProduto(unsigned option)
+    Menu *LogadoAdm::nextEditaProduto(unsigned option)
     {
         Busca busca;
         NavegaMenu navega;
@@ -49,13 +51,37 @@ namespace ecommerce::ui
             std::cout << "preço:" << std::endl;
             std::cin >> preco;
             Produto teste(nome, descricao, id_produto, tipo, preco);
+            break;
         }
 
-        break;
         case 2:
         {
-            std::cout << "Qual produto deseja editar?: " << std::endl;
-            navega.navegamenunext(1, "n care", glob, busca);
+            std::cout << ">Qual produto deseja editar?: " << std::endl;
+            navega.navegamenunext(1, glob, busca);
+            std::string nome;
+            std::cin >> nome;
+            teste4.atualiza_info(glob.lista_produtos(), nome);
+            break;
+        }
+        case 3:
+        {
+            std::cout << "Qual produto deseja editar? " << std::endl;
+            navega.navegamenunext(1, glob, busca);
+            int quantidade;
+            std::string ID;
+            std::cout << "Escreva o ID correspondente: " << std::endl;
+            std::cin >> ID;
+            std::cout << "Escreva a nova quantidade " << std::endl;
+            std::cin >> quantidade;
+            glob.atualiza_quantidade(ID, quantidade);
+            break;
+        }
+        case 4:
+        {
+            navega.render();
+            int opção;
+            std::cin >> opção;
+            navega.navegamenunext(opção, glob, busca);
         }
             {
 
@@ -70,9 +96,12 @@ namespace ecommerce::ui
     }
 
 }
-// int main()
-// {
-//     ecommerce::ui::EditaProduto teste;
-//     ecommerce::ui::NavegaMenu navega;
-//     teste.nextEditaProduto(2);
-// }
+int main()
+{
+    ecommerce::ui::LogadoAdm teste;
+    teste.render();
+    int opção;
+    std::cin >> opção;
+    ecommerce::ui::NavegaMenu navega;
+    teste.nextEditaProduto(opção);
+}

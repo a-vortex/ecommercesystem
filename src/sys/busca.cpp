@@ -68,13 +68,11 @@ Busca::busca_produtos_todos(const std::vector<Produto> &lista_de_produtos)
     for (const Produto &buscador : lista_de_produtos)
     {
 
-        std::cout << buscador.GetName()
-                  << std::endl;
+        std::cout << buscador.GetName() << "-" << buscador.GetId() << std::endl;
     }
-    if (!produto_encontrado)
-    {
-        std::cout << "Nenhum Produto  encontrado!!" << std::endl;
-    }
-
+    // if (!produto_encontrado)
+    // {
+    //     std::cout << "Nenhum Produto  encontrado!!" << std::endl;
+    // }
     return lista_completa;
 }
