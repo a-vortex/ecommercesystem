@@ -25,7 +25,7 @@ public:
     Cupom(Produto &disc, float discount);
 
     /// @brief altera o preço do produto de acordo com o cupom
-    void altera_preço(Produto &disc);
+    void altera_preco(Produto &disc);
 
     /// @todo gera um cupom para ser usado no sistema
     // /// @param desconto porcentagem de desconto do cupom
