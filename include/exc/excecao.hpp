@@ -1,13 +1,11 @@
 /*
-
     excecao.hpp
     Author: M. Clara Contarini
                 Júlia Raposo Ferreira
     mccontarinid@gmail.com
     juliarferreira00@gmail.com
-
+    
     Exceções do sistema
-
 */
 
 #ifndef EXCECAO_H
