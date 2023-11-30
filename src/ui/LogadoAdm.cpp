@@ -1,14 +1,14 @@
 #include "../../include/ui/LogadoAdm.hpp"
 #include "../../include/user/usuario.hpp"
-#include "menu.cpp"
-#include "navegamenu.cpp"
+#include "../../include/ui/menu.hpp"
+#include "../../include/ui/navegamenu.hpp"
 
 namespace ecommerce::ui
 {
 
-    LogadoAdm::LogadoAdm()
+    LogadoAdm::LogadoAdm(Administrador const &admin) : _admin(admin)
     {
-        _title = "Navegação como administrador";
+        _title = "Olá, sr(a). " + _admin.GetNome();
         _options.push_back("1- Adiciona produto");
         _options.push_back("2- Editar produto");
         _options.push_back("3- Editar estoque");
@@ -96,12 +96,12 @@ namespace ecommerce::ui
     }
 
 }
-int main()
-{
-    ecommerce::ui::LogadoAdm teste;
-    teste.render();
-    int opção;
-    std::cin >> opção;
-    ecommerce::ui::NavegaMenu navega;
-    teste.nextEditaProduto(opção);
-}
+// int main()
+// {
+//     ecommerce::ui::LogadoAdm teste;
+//     teste.render();
+//     int opção;
+//     std::cin >> opção;
+//     ecommerce::ui::NavegaMenu navega;
+//     teste.nextEditaProduto(opção);
+// }

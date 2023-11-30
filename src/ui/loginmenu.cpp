@@ -1,4 +1,6 @@
 #include "../../include/ui/loginmenu.hpp"
+#include "../../include/ui/clientemenu.hpp"
+#include "../../include/ui/LogadoAdm.hpp"
 
 namespace ecommerce::ui
 {
@@ -24,7 +26,7 @@ namespace ecommerce::ui
             arquivo << email << std::endl;
             arquivo << senha << std::endl;
             arquivo.close();
-            std::cout << "> Novo cliente cadastrado com sucesso! <" << std::endl;
+            std::cout << "> Novo cliente cadastrado com sucesso! <" << "\n\n";
         }
         else
         {
@@ -41,7 +43,7 @@ namespace ecommerce::ui
             arquivo << email << std::endl;
             arquivo << senha << std::endl;
             arquivo.close();
-            std::cout << "> Administrador cadastrado com sucesso! <" << std::endl;
+            std::cout << "> Administrador cadastrado com sucesso! <" << "\n\n";
         }
         else
         {
@@ -161,9 +163,9 @@ namespace ecommerce::ui
                 std::cout << "> Senha: " << std::endl;
                 std::cin >> password;
 
-                //Cliente cliente(nome, endereco, std::stoul(telefone));
+                Cliente cliente(nome, endereco, std::stoul(telefone));
                 this->cadastrarCliente(email, password);
-                break;
+                return new ClienteMenu(cliente);
             }
 
             case 3:
@@ -190,10 +192,10 @@ namespace ecommerce::ui
 
                 std::cout << "> Senha: " << std::endl;
                 std::cin >> password;
-                //Administrador admin(nome, endereco, std::stoul(telefone));
+                Administrador admin(nome, endereco, std::stoul(telefone));
 
                 this->cadastrarAdmin(email, password);
-                break;
+                return new LogadoAdm(admin);
             }
 
             case 4:
