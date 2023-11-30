@@ -13,6 +13,7 @@
 #include <string>
 #include <set>
 #include <iomanip>
+#include <fstream>
 #include "produto.hpp"
 
 class Estoque
@@ -44,6 +45,7 @@ public:
     /// @brief Quantidade atual de um produto
     /// @return  Retorna a quantidade atual de um produto
     int GetQuantidade(const std::string &id_produto);
+    static const  std::string PATH_ESTOQUE;
 };
 
 #endif /* ESTOQUE_H */

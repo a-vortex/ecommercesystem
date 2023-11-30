@@ -19,6 +19,8 @@ namespace ecommerce::ui
     Menu *NavegaMenu::navegamenunext(unsigned option, Estoque estoque, Busca busca)
     {
 
+        
+
         switch (option)
         {
             case 1:

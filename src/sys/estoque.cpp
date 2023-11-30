@@ -1,7 +1,22 @@
 #include "../../include/sys/estoque.hpp"
+#include "produto.cpp"
+
+
+const std::string Estoque::PATH_ESTOQUE = "../../../estoque.txt";
 
 bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
 {
+    std::ofstream arquivo(PATH_ESTOQUE, std::ios_base::app);
+      if(arquivo.is_open())
+        {
+            arquivo << produto.GetName() << "-" << produto.GetId() << "-" << quantidade<< "-" << std::endl;
+            arquivo.close();
+            std::cout << "> Novo produto adicionado ao estoque! <" << "\n\n";
+        }
+         else
+        {
+            throw std::runtime_error("> Erro ao realizar cadastro! <");
+        }
     bool inserted = _lista_ids.insert(std::make_pair(produto.GetId(), quantidade)).second;
     produtos.push_back(produto);
     return inserted;
@@ -72,3 +87,11 @@ int Estoque::GetQuantidade(const std::string &id_produto)
     throw std::runtime_error("Produto nao encontrado");
 }
 
+int main(){
+    Estoque test;
+    Produto produto("Produto1", "Testando o produto 1", "2154", "teste", 20.2);
+    (test.adiciona_produto(produto, 12));
+    (test.atualiza_quantidade("2154", 14));
+    (test.exibe_quantidade("2154"));
+
+}
