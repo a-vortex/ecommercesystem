@@ -23,7 +23,7 @@ private:
     std::string descricao;
     std::string id_produto;
     std::string tipo;
-    float preco;
+    std::string preco;
 
 public:
     /// @brief Construtor sobrecarregado

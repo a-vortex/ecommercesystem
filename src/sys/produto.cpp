@@ -1,5 +1,8 @@
 #include "../../include/sys/produto.hpp"
 
+#include <iostream>
+#include <string>
+
 Produto::Produto(const std::string &nome,
                  const std::string &descricao,
                  const std::string &id_produto,
@@ -36,10 +39,8 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
             {
                 if (nome_produto == it->GetName())
                 {
-                    std::cout << "Insira o novo nome: " << std::endl;
-                    std::cin >> nome;
+                    std::getline(std::cin >> std::ws, nome);
                 }
-                break;
             }
             break;
         }
@@ -52,10 +53,8 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
             {
                 if (nome_produto == it->GetName())
                 {
-                    std::cout << "Insira a nova descricao: " << std::endl;
-                    std::cin >> descricao;
+                    std::getline(std::cin >> std::ws, descricao);
                 }
-                break;
             }
             break;
         }
@@ -67,8 +66,7 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
             {
                 if (nome_produto == it->GetName())
                 {
-                    std::cin >> tipo;
-                    break;
+                    std::getline(std::cin >> std::ws, tipo);
                 }
             }
             break;
@@ -81,10 +79,12 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
             {
                 if (nome_produto == it->GetName())
                 {
-                    std::cin >> preco;
-                    break;
+                    while(!contemFLoat(preco))
+                    {
+                        std::cout << "Preço inválido, insira novamente: " << std::endl;
+                        std::getline(std::cin >> std::ws, preco);
+                    }
                 }
-            }
             break;
         }
 
@@ -98,6 +98,7 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
         }
         // std::cout << "Escolha nova opcao (1 a 4)" << std::endl;
         // std::cout << "Para finalizar a operacao, digite 0" << std::endl;
+        }
     }
 }
 
@@ -138,3 +139,16 @@ float Produto::GetPrice() const
 {
     return preco;
 }
+
+auto contemFloat = [] (const std::string& str)
+{
+    for(char c : str)
+    {
+        if(!std::isdigit(c))
+        {
+            if(c == "." || c ==",") continue;
+            else return false;
+        }
+    }
+    return true;
+};
