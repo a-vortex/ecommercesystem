@@ -1,7 +1,7 @@
 #include "../../include/ui/LogadoAdm.hpp"
 #include "../../include/user/usuario.hpp"
-#include "menu.cpp"
-#include "navegamenu.cpp"
+#include "../../include/ui/menu.hpp"
+#include "../../include/ui/navegamenu.hpp"
 
 namespace ecommerce::ui
 {
@@ -79,9 +79,9 @@ namespace ecommerce::ui
         case 4:
         {
             navega.render();
-            int opção;
-            std::cin >> opção;
-            navega.navegamenunext(opção, glob, busca);
+            int opcao;
+            std::cin >> opcao;
+            navega.navegamenunext(opcao, glob, busca);
         }
             {
 
@@ -96,12 +96,12 @@ namespace ecommerce::ui
     }
 
 }
-int main()
-{
-    ecommerce::ui::LogadoAdm teste;
-    teste.render();
-    int opção;
-    std::cin >> opção;
-    ecommerce::ui::NavegaMenu navega;
-    teste.nextEditaProduto(opção);
-}
+// int main()
+// {
+//     ecommerce::ui::LogadoAdm teste;
+//     teste.render();
+//     int opcao;
+//     std::cin >> opcao;
+//     ecommerce::ui::NavegaMenu navega;
+//     teste.nextEditaProduto(opcao);
+// }
