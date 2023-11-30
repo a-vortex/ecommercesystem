@@ -14,27 +14,26 @@ namespace ecommerce::ui
         _options.push_back("4 - Sair");
     }
 
-    Menu
-    *ClienteMenu::next(unsigned option)
+    Menu *ClienteMenu::next(unsigned option)
     {
         Estoque estoque;
-        switch(option)
+        switch (option)
         {
-            case 1:
-            {
-                std::cout << "\n\n";
-                return new NavegaMenu;
-            }
+        case 1:
+        {
+            std::cout << "\n\n";
+            return new NavegaMenu;
+        }
 
-            case 2:
-                break;
+        case 2:
+            break;
 
-            case 3:
-            {
-                return new Editperfil;
-            }
-            case 4:
-                break;
+        case 3:
+        {
+            return new Editperfil(option);
+        }
+        case 4:
+            break;
         }
         return nullptr;
     }
