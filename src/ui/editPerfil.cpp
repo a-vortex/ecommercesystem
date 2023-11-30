@@ -4,7 +4,14 @@
 
 namespace ecommerce::ui
 {
-
+    Editperfil::Editperfil(unsigned &choice) : _choice(choice)
+    {
+            _title = "Editar Perfil";
+            _options.push_back("1 - Editar nome");
+            _options.push_back("2 - Editar Endereço");
+            _options.push_back("3 - Editar numero de telefone");
+    }
+        
     Menu *Editperfil::nextWithCliente(unsigned option, Cliente cliente)
     {
         std::string global;

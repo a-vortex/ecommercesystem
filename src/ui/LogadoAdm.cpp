@@ -96,19 +96,3 @@ namespace ecommerce::ui
     }
 
 }
-// int main()
-// {
-//     ecommerce::ui::LogadoAdm teste;
-//     teste.render();
-<<<<<<< HEAD
-//     int opção;
-//     std::cin >> opção;
-//     ecommerce::ui::NavegaMenu navega;
-//     teste.nextEditaProduto(opção);
-=======
-//     int opcao;
-//     std::cin >> opcao;
-//     ecommerce::ui::NavegaMenu navega;
-//     teste.nextEditaProduto(opcao);
->>>>>>> 939c480b257c7caaf6c21ace49d1d20b021314b5
-// }

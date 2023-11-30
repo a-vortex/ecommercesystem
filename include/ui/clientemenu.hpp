@@ -2,6 +2,10 @@
 
 #include "menu.hpp"
 #include "../user/cliente.hpp"
+#include "../sys/estoque.hpp"
+#include "../sys/produto.hpp"
+#include "navegamenu.hpp"
+#include "editperfil.hpp"
 
 #include <string>
 

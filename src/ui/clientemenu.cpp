@@ -17,13 +17,23 @@ namespace ecommerce::ui
     Menu
     *ClienteMenu::next(unsigned option)
     {
+        Estoque estoque;
         switch(option)
         {
             case 1:
-                break;
+            {
+                std::cout << "\n\n";
+                return new NavegaMenu;
+            }
+
             case 2:
                 break;
+
             case 3:
+            {
+                return new Editperfil;
+            }
+            case 4:
                 break;
         }
         return nullptr;
