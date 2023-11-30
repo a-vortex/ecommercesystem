@@ -9,11 +9,11 @@ namespace ecommerce::ui
     class Editperfil : public Menu
     {
     public:
-        Editperfil();
         /// @brief Permite editar um informação específica do usuário administrador
         /// @param  option Número da opção escolhida
         /// @param  adm Classe do tipo Administrador
         Menu *nextWithAdmin(unsigned option, Administrador adm) override;
+        
         /// @brief Permite editar um informação específica do usuário cliente
         /// @param  option Número da opção escolhida
         /// @param  adm Classe do tipo Cliente

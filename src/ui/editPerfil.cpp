@@ -5,17 +5,6 @@
 namespace ecommerce::ui
 {
 
-    Editperfil::Editperfil()
-    {
-
-        // _title = "Editar Informações";
-        // _options.push_back("1- Nome");
-        // _options.push_back("2- Endereço");
-        // _options.push_back("3- Telefone");
-        // _options.push_back("4- Forma de Pagamento");
-    }
-
-
     Menu *Editperfil::nextWithCliente(unsigned option, Cliente cliente)
     {
         std::string global;
