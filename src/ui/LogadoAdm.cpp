@@ -79,9 +79,9 @@ namespace ecommerce::ui
         case 4:
         {
             navega.render();
-            int opção;
-            std::cin >> opção;
-            navega.navegamenunext(opção, glob, busca);
+            int opcao;
+            std::cin >> opcao;
+            navega.navegamenunext(opcao, glob, busca);
         }
             {
 
@@ -100,8 +100,15 @@ namespace ecommerce::ui
 // {
 //     ecommerce::ui::LogadoAdm teste;
 //     teste.render();
+<<<<<<< HEAD
 //     int opção;
 //     std::cin >> opção;
 //     ecommerce::ui::NavegaMenu navega;
 //     teste.nextEditaProduto(opção);
+=======
+//     int opcao;
+//     std::cin >> opcao;
+//     ecommerce::ui::NavegaMenu navega;
+//     teste.nextEditaProduto(opcao);
+>>>>>>> 939c480b257c7caaf6c21ace49d1d20b021314b5
 // }
