@@ -48,27 +48,24 @@ namespace ecommerce::ui
         std::string global;
         switch (option)
         {
-        case 1:
-        {
-            std::cout << "Digite o seu nome" << std::endl;
-            std::cin >> global;
-            adm.atualiza_nomeusuario(global);
-            std::cout << "Atualizado com sucesso, novo nome: " << adm.GetNome() << std::endl;
+            case 1:
+            {
+                std::cout << "Digite o seu nome" << std::endl;
+                std::cin >> global;
+                adm.atualiza_nomeusuario(global);
+                std::cout << "Atualizado com sucesso, novo nome: " << adm.GetNome() << std::endl;
 
-            break;
-        }
+                break;
+            }
 
-        case 2:
-        {
-            std::cout << "Escreva seu telefone" << std::endl;
-            std::cin >> global;
-            adm.atualiza_telefone(std::stoul(global));
-            std::cout << "Atualizado com sucesso, novo número: " << adm.GetTelefone() << std::endl;
-            break;
-        }
-
-        default:
-            break;
+            case 2:
+            {
+                std::cout << "Escreva seu telefone" << std::endl;
+                std::cin >> global;
+                adm.atualiza_telefone(std::stoul(global));
+                std::cout << "Atualizado com sucesso, novo número: " << adm.GetTelefone() << std::endl;
+                break;
+            }
         }
 
         return 0;
