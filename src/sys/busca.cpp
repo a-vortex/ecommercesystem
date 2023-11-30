@@ -63,7 +63,7 @@ std::vector<Produto>
 Busca::busca_produtos_todos(const std::vector<Produto> &lista_de_produtos)
 {
     std::vector<Produto> lista_completa;
-    bool produto_encontrado = false;
+    // bool produto_encontrado = false;
 
     for (const Produto &buscador : lista_de_produtos)
     {
