@@ -41,4 +41,10 @@ class NoAvailablePay : public std::exception
     char const *what() const noexcept override;
 };
 
+class ErrorFile : public std::exception
+{
+    public:
+    char const *what() const noexcept override;
+};
+
 #endif /* EXCECAO_H */
