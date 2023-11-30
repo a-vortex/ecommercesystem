@@ -19,3 +19,8 @@ char const *NoAvailablePay::what() const noexcept
 {
     return "Nenhum método de pagamento cadastrado.";
 }
+
+char const *ErrorFile::what() const noexcept
+{
+    return "Não foi possível abrir o arquivo.";
+}
