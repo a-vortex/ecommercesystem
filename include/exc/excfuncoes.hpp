@@ -3,11 +3,15 @@
 #include "../../include/sys/estoque.hpp"
 #include "../../include/sys/produto.hpp"
 #include "../../include/exc/excecao.hpp"
+#include "../../include/ui/loginmenu.hpp"
 
+namespace ui = ecommerce::ui;
 
 Busca busca;
 Carrinho carrinho;
 Estoque estoque;
+ui::LoginMenu loginmenu;
+
 
 namespace ecommerce::funcoes
 {
@@ -102,5 +106,33 @@ namespace ecommerce::funcoes
             std::cout << "ERRO: " << e.what() << std::endl;
         }
     }
+
+    void
+    cadastrarCliente(const std::string& email, const std::string& senha)
+    {
+        try
+        {
+            loginmenu.cadastrarCliente(email, senha);
+        }
+        catch(ErrorFile const &e)
+        {
+            std::cout << "ERRO: " << e.what() << std::endl;
+        }
+    }
+
+    void
+    cadastrarAdmin(const std::string& email, const std::string& senha)
+    {
+        try
+        {
+            loginmenu.cadastrarAdmin(email, senha);
+        }
+        catch(ErrorFile const &e)
+        {
+            std::cout << "ERRO: " << e.what() << std::endl;
+        }
+    }
+
+    
 
 }
