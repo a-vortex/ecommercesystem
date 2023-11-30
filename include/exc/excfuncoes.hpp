@@ -1,16 +1,15 @@
-#include "../../include/sys/carrinho.hpp"
-#include "../../include/sys/busca.hpp"
-#include "../../include/sys/estoque.hpp"
-#include "../../include/sys/produto.hpp"
-#include "../../include/exc/excecao.hpp"
-#include "../../include/ui/loginmenu.hpp"
+#include "../sys/carrinho.hpp"
+#include "../sys/busca.hpp"
+#include "../sys/estoque.hpp"
+#include "../sys/produto.hpp"
+#include "../exc/excecao.hpp"
+#include "../ui/loginmenu.hpp"
 
-namespace ui = ecommerce::ui;
+
 
 Busca busca;
 Carrinho carrinho;
 Estoque estoque;
-ui::LoginMenu loginmenu;
 
 
 namespace ecommerce::funcoes
@@ -21,7 +20,8 @@ namespace ecommerce::funcoes
     {
         try
         {
-            busca.busca_produtos_nome(nome, _lista_de_produtos);
+            Produto busca = busca.busca_produtos_nome(nome, _lista_de_produtos);
+            return busca;
         } 
         catch(NotFound const &e)
         {
@@ -34,7 +34,8 @@ namespace ecommerce::funcoes
     {
         try
         {
-            busca.busca_produtos_tipo(tipo, _lista_de_produtos);
+            std::vector<Produto> busca = busca.busca_produtos_tipo(tipo, _lista_de_produtos);
+            return busca;
         }
         catch(NotFound const &e)
         {
@@ -47,7 +48,8 @@ namespace ecommerce::funcoes
     {
         try
         {
-            busca.busca_produtos_preco(preco, lista_de_produtos);
+            std::vector<Produto> busca = busca.busca_produtos_preco(preco, lista_de_produtos);
+            return busca;
         }
         catch(NotFound const &e)
         {
@@ -99,7 +101,8 @@ namespace ecommerce::funcoes
     {
         try 
         {
-            estoque.GetQuantidade(id_produto);
+            int quantidade = estoque.GetQuantidade(id_produto);
+            return quantidade;
         }
         catch(NotFound const &e)
         {
