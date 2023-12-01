@@ -1,15 +1,15 @@
 # 💲 Projeto de Sistema de E-Commerce
 
-### 👨‍🎓INTEGRANTES
+## 👨‍🎓INTEGRANTES
 
 Yuri Wada, M.Clara Contarini, Kauan Valente, Júlia Raposo
 
-### 💭CONCEITO
+## 💭CONCEITO
 
 Nossa intenção é criar um sistema de vendas simples, onde o usuário, como cliente, seja capaz de realizar compras e outras funções que o sejam úteis, enquanto como administrador, tenha capacidade de administrar os produtos do sistema.
 
 
-### 🚧ARQUITETURA DO PROJETO
+## 🚧ARQUITETURA DO PROJETO
 
 O Programa foi feito na linguagem C++, utilizando conceitos como SOLID, polimorfismo, encapsulamento, herança, modularização, entre outros.
 
@@ -36,11 +36,11 @@ Dentro das pastas *include* e *src*, se encontram as mesmas quatro pastas seguin
 
 📁*USER* : O tipo de pessoa usando o sistema, seja cliente ou adm.
 
-### 👨‍💻PARA RODAR O PROGRAMA
+## 👨‍💻PARA RODAR O PROGRAMA
 
 ///@todo Especificações e Instalação do Makefile 
 
-### 📖INSTRUÇÕES PARA USO 
+## 📖INSTRUÇÕES PARA USO 
 
 O Programa foi feito de modo a ser compilado usando o Makefile.
 
