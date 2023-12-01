@@ -11,8 +11,8 @@ bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
 {
     std::ofstream arquivo(PATH_ESTOQUE, std::ios_base::app);
       if(arquivo.is_open())
-        {
-            arquivo << produto.GetName() << "-" << produto.GetId() << "-" << quantidade<< "-" << std::endl;
+        {   arquivo<<std::endl;
+            arquivo << produto.GetName() << " " <<produto.GetId()   << " " << quantidade<< " "<< std::endl;
             arquivo.close();
             std::cout << "> Novo produto adicionado ao estoque! <" << "\n\n";
         }
@@ -27,27 +27,37 @@ bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
 
 void Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
 {
-        std::fstream arquivo(PATH_ESTOQUE);
-    std::string teste;
-    std::stringstream buffer; // Buffer para armazenar o conteúdo do arquivo
+    std::fstream arquivo(PATH_ESTOQUE);
+  
+    std::string palavra;
+    std::stringstream buffer; // Buffer para armazenar as palavras temporariamente
+    int conta = 0;
+    std::string numeroString = std::to_string(quantidade);
 
-    while (arquivo >> teste) {
-        if (teste == id_produto) {
-            buffer << "nova_palavra "; // Substitui a palavra
-        } else {
-            buffer << teste << " - ";
+    while (arquivo >> palavra) {
+        if (arquivo.is_open()) {
+
+            if(palavra == id_produto){
+            arquivo <<" "<< numeroString << "  ";
+
+            }        
+        conta++;
         }
+
+    }
+
+    if (!buffer.str().empty()) {
+        std::cout << buffer.str(); 
     }
 
     arquivo.close(); 
-    std::ofstream arquivo_saida(PATH_ESTOQUE); 
-    arquivo_saida << buffer.str(); 
-    arquivo_saida.close(); 
+}
 
-    std::cout << "Palavra alterada com sucesso!\n";
 
    
-}
+
+ 
+
 
 void Estoque::exibe_quantidade(const std::string &id_produto)
 {
@@ -92,9 +102,9 @@ int Estoque::GetQuantidade(const std::string &id_produto)
 
 int main(){
     Estoque test;
-    test.atualiza_quantidade("aaa", 1);
-    // Produto produto("Produto1", "Testando o produto 1", "2154", "teste", 20.2);
-    // (test.adiciona_produto(produto, 12));
+    test.atualiza_quantidade("5964", 14);
+    Produto produto("Produto3", "Testando o produto 1", "5964", "teste", 20.2);
+    (test.adiciona_produto(produto, 145));
     // (test.atualiza_quantidade("2154", 14));
     // (test.exibe_quantidade("2154"));
 
