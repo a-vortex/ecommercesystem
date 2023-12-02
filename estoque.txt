@@ -1,4 +1,3 @@
-Produto1 2154 14      
-Produto3 5623 12 
-Produto3 5964 232  
+Produto3 5964 232   20.2    teste 
 
+Produto3 5964 232   20.2    oiii 

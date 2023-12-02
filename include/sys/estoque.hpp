@@ -23,6 +23,8 @@ private:
     std::vector<Produto> produtos;
 
 public:
+    /// @brief Constroi lista de produtos com base no que já existe np arquivo;
+    // Estoque();
     /// @brief Adiciona um produto ao estoque
     /// @param produto Produto a ser adicionado
     /// @param quantidade Quantidade inserida no estoque
@@ -38,13 +40,24 @@ public:
     /// @param id_produto ID do produto a ser pesquisado
     void exibe_quantidade(const std::string &id_produto);
 
+    /// @brief Exibe todos os produtos existentes
+    void exibe_produtos();
+
+    /// @brief Exibe todos os produtos existentes de um tipo
+    void exibe_tipo(const std::string &tipo);
+
+    /// @brief Exibe todos os produtos existentes de um tipo
+    void exibe_preco(const int preco);
+
+    /// @brief Exibe todos os produtos existentes de um tipo
+    void exibe_nome(const std::string &nome);
+
+
     /// @brief Lista de produtos do estoque
     /// @return a lista de produtos
     std::vector<Produto> lista_produtos();
 
-    /// @brief Quantidade atual de um produto
-    /// @return  Retorna a quantidade atual de um produto
-    int GetQuantidade(const std::string &id_produto);
+
     static const  std::string PATH_ESTOQUE;
 };
 
