@@ -25,7 +25,7 @@ namespace ecommerce::ui
     class Menu
     {
     public:
-        Estoque global;
+       
         virtual ~Menu() = default;
         virtual Menu *next(unsigned option) { return nullptr; };
         virtual Menu *nextWithAdmin(unsigned option, Administrador adm) { return nullptr; }

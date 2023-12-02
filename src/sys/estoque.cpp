@@ -1,5 +1,5 @@
 #include "../../include/sys/estoque.hpp"
-#include "produto.cpp"
+// #include "produto.cpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -96,70 +96,6 @@ std::string proximaPalavra;
 }
 
 
-void Estoque::exibe_produtos() {
-    std::fstream arquivo(PATH_ESTOQUE);
-    std::string linha;
-
-    if (arquivo.is_open()) {
-        while (getline(arquivo, linha)) {
-            std::cout << linha << std::endl;
-        }
-        arquivo.close();
-    } else {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
-    }
-}
-void Estoque::exibe_tipo(const std::string &tipo) {
-    std::fstream arquivo(PATH_ESTOQUE);
-    std::string linha;
-
-    if (arquivo.is_open()) {
-        while (getline(arquivo, linha)) {
-            if (linha.find(tipo) != std::string::npos) {
-                std::cout << linha << std::endl;
-            }
-        }
-        arquivo.close();
-    } else {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
-    }
-}
-
-   
-
-void Estoque::exibe_nome(const std::string &nome) {
-    std::fstream arquivo(PATH_ESTOQUE);
-    std::string linha;
-
-    if (arquivo.is_open()) {
-        while (getline(arquivo, linha)) {
-            if (linha.find(nome) != std::string::npos) {
-                std::cout << linha << std::endl;
-            }
-        }
-        arquivo.close();
-    } else {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
-    }
-}
-
-
-void Estoque::exibe_preco(int preco) {
-    std::fstream arquivo(PATH_ESTOQUE);
-    std::string linha;
-    std::string numeroString = std::to_string(preco);
-
-    if (arquivo.is_open()) {
-        while (getline(arquivo, linha)) {
-            if (linha.find(numeroString) != std::string::npos) {
-                std::cout << linha << std::endl;
-            }
-        }
-        arquivo.close();
-    } else {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
-    }
-}
 
 std::vector<Produto>
 Estoque::lista_produtos()
@@ -168,13 +104,3 @@ Estoque::lista_produtos()
 }
 
 
-int main(){
-    Estoque test;
-    // test.atualiza_quantidade("5964", 232);
-    // Produto produto("Produto3", "Testando o produto 1", "5964", "teste", 20.2);
-    //  test.exibe_quantidade("5964");
-    // (test.adiciona_produto(produto, 145));
-    test.exibe_nome("aaa");
-
-
-}

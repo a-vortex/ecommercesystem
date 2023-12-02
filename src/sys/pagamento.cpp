@@ -22,8 +22,8 @@ Pagamento::confirma_pagamento(const std::vector<Produto> &produtos, Produto &pro
     {
         if (buscador.GetName() == produto.GetName())
         {
-            int novo_valor = estoque.GetQuantidade(produto.GetId());
-            estoque.atualiza_quantidade(produto.GetId(), novo_valor - 1); // Correção: adição dos parênteses para chamar a função GetId
+            // int novo_valor = estoque.GetQuantidade(produto.GetId());
+            estoque.atualiza_quantidade(produto.GetId(), 2 - 1); // corrigir !!!!
         }
     }
 }

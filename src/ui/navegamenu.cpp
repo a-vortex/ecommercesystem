@@ -3,6 +3,8 @@
 #include "../../include/sys/produto.hpp"
 #include "../../include/sys/busca.hpp"
 #include "../../include/ui/menu.hpp"
+Busca global;
+
 
 namespace ecommerce::ui
 {
@@ -38,7 +40,7 @@ namespace ecommerce::ui
 
                 std::cin >> pesquisa;
                 std::cout << "> Produto encontrado: <" << std::endl;
-                busca.busca_produtos_nome(pesquisa, estoque.lista_produtos()).GetName();
+                global.exibe_nome(pesquisa);
                 break;
             }
             

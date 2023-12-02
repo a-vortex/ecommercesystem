@@ -40,17 +40,6 @@ public:
     /// @param id_produto ID do produto a ser pesquisado
     void exibe_quantidade(const std::string &id_produto);
 
-    /// @brief Exibe todos os produtos existentes
-    void exibe_produtos();
-
-    /// @brief Exibe todos os produtos existentes de um tipo
-    void exibe_tipo(const std::string &tipo);
-
-    /// @brief Exibe todos os produtos existentes de um tipo
-    void exibe_preco(const int preco);
-
-    /// @brief Exibe todos os produtos existentes de um tipo
-    void exibe_nome(const std::string &nome);
 
 
     /// @brief Lista de produtos do estoque
