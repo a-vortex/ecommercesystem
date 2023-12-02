@@ -61,23 +61,40 @@ void Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
 
 void Estoque::exibe_quantidade(const std::string &id_produto)
 {
-    bool flag = false;
-    for (auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
-    {
-        const std::string &key = it->first;
-        if (key == id_produto)
-        {
-            std::cout << std::left << std::setw(20) << "ID do Produto: " << id_produto << std::endl;
-            std::cout << std::left << std::setw(20) << "Quantidade: " << it->second << std::endl;
-            flag = true;
-            break;
+    std::fstream arquivo(PATH_ESTOQUE);
+    std::string palavra;
+    std::stringstream buffer; 
+bool achou = false;
+bool imprimirProxima = false;
+std::string proximaPalavra;
+    if (arquivo.is_open()) {
+        
+ if (arquivo.is_open()) {
+    while (arquivo >> palavra) {
+        if (achou) {
+            proximaPalavra = palavra; 
+            imprimirProxima = true;
+            achou = false; 
+        }
+
+        if (palavra == id_produto) {
+            achou = true; 
+        }
+
+        if (imprimirProxima) {
+            std::cout << proximaPalavra << std::endl;
+            break; 
         }
     }
-    if (!flag)
-    {
-        std::cout << "Produto nao encontrado: " << id_produto << std::endl;
-    }
+    arquivo.close(); 
+} else {
+    std::cerr << "Erro ao abrir o arquivo." << std::endl;
 }
+
+    }
+
+}
+
 
 std::vector<Produto>
 Estoque::lista_produtos()
@@ -102,10 +119,10 @@ int Estoque::GetQuantidade(const std::string &id_produto)
 
 int main(){
     Estoque test;
-    test.atualiza_quantidade("5964", 14);
-    Produto produto("Produto3", "Testando o produto 1", "5964", "teste", 20.2);
-    (test.adiciona_produto(produto, 145));
-    // (test.atualiza_quantidade("2154", 14));
-    // (test.exibe_quantidade("2154"));
+    // test.atualiza_quantidade("5964", 232);
+    // Produto produto("Produto3", "Testando o produto 1", "5964", "teste", 20.2);
+test.exibe_quantidade("2154");
+    // (test.adiciona_produto(produto, 145));
+
 
 }

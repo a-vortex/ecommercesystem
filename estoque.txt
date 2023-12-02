@@ -1,8 +1,4 @@
 Produto1 2154 14      
 Produto3 5623 12 
+Produto3 5964 232  
 
-Produto4 5964 14  
-
-Produto3 5964 14  
-
-Produto3 5964 145 
