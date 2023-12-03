@@ -1,6 +1,6 @@
 # 💲 Projeto de Sistema de E-Commerce
 
-## 👨‍🎓INTEGRANTES
+## 👨‍🎓INTEGRANTES - GRUPO 4
 
 Yuri Wada, M.Clara Contarini, Kauan Valente, Júlia Raposo
 
