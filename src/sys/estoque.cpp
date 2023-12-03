@@ -1,5 +1,5 @@
 #include "../../include/sys/estoque.hpp"
-#include "produto.cpp"
+// #include "produto.cpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -12,7 +12,7 @@ bool Estoque::adiciona_produto(const Produto &produto, int quantidade)
     std::ofstream arquivo(PATH_ESTOQUE, std::ios_base::app);
       if(arquivo.is_open())
         {   arquivo<<std::endl;
-            arquivo << produto.GetName() << " " <<produto.GetId()   << " " << quantidade<< " "<< std::endl;
+            arquivo << produto.GetName() << " " <<produto.GetId()   << " " << quantidade<< "   "<< produto.GetPrice()<< "    "<<produto.GetType()<< " "<< std::endl;
             arquivo.close();
             std::cout << "> Novo produto adicionado ao estoque! <" << "\n\n";
         }
@@ -61,23 +61,41 @@ void Estoque::atualiza_quantidade(const std::string &id_produto, int quantidade)
 
 void Estoque::exibe_quantidade(const std::string &id_produto)
 {
-    bool flag = false;
-    for (auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
-    {
-        const std::string &key = it->first;
-        if (key == id_produto)
-        {
-            std::cout << std::left << std::setw(20) << "ID do Produto: " << id_produto << std::endl;
-            std::cout << std::left << std::setw(20) << "Quantidade: " << it->second << std::endl;
-            flag = true;
-            break;
+    std::fstream arquivo(PATH_ESTOQUE);
+    std::string palavra;
+    std::stringstream buffer; 
+bool achou = false;
+bool imprimirProxima = false;
+std::string proximaPalavra;
+    if (arquivo.is_open()) {
+        
+ if (arquivo.is_open()) {
+    while (arquivo >> palavra) {
+        if (achou) {
+            proximaPalavra = palavra; 
+            imprimirProxima = true;
+            achou = false; 
+        }
+
+        if (palavra == id_produto) {
+            achou = true; 
+        }
+
+        if (imprimirProxima) {
+            std::cout << proximaPalavra << std::endl;
+            break; 
         }
     }
-    if (!flag)
-    {
-        std::cout << "Produto nao encontrado: " << id_produto << std::endl;
-    }
+    arquivo.close(); 
+} else {
+    std::cerr << "Erro ao abrir o arquivo." << std::endl;
 }
+
+    }
+
+}
+
+
 
 std::vector<Produto>
 Estoque::lista_produtos()
@@ -85,27 +103,4 @@ Estoque::lista_produtos()
     return produtos;
 }
 
-int Estoque::GetQuantidade(const std::string &id_produto)
-{
-    for (auto it = _lista_ids.begin(); it != _lista_ids.end(); ++it)
-    {
-        const std::string &key = it->first;
 
-        if (key == id_produto)
-        {
-            return it->second;
-            break;
-        }
-    }
-    throw std::runtime_error("Produto nao encontrado");
-}
-
-int main(){
-    Estoque test;
-    test.atualiza_quantidade("5964", 14);
-    Produto produto("Produto3", "Testando o produto 1", "5964", "teste", 20.2);
-    (test.adiciona_produto(produto, 145));
-    // (test.atualiza_quantidade("2154", 14));
-    // (test.exibe_quantidade("2154"));
-
-}

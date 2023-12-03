@@ -3,6 +3,8 @@
 #include "../../include/sys/produto.hpp"
 #include "../../include/sys/busca.hpp"
 #include "../../include/ui/menu.hpp"
+Busca global;
+
 
 namespace ecommerce::ui
 {
@@ -27,7 +29,7 @@ namespace ecommerce::ui
             {
 
                 std::cout << "> Lista de todos os produtos disponíveis: <" << std::endl;
-                busca.busca_produtos_todos(estoque.lista_produtos());
+                global.exibe_produtos();
                 break;
             }
 
@@ -38,7 +40,7 @@ namespace ecommerce::ui
 
                 std::cin >> pesquisa;
                 std::cout << "> Produto encontrado: <" << std::endl;
-                busca.busca_produtos_nome(pesquisa, estoque.lista_produtos()).GetName();
+                global.exibe_nome(pesquisa);
                 break;
             }
             
@@ -49,7 +51,7 @@ namespace ecommerce::ui
 
                 std::cin >> pesquisa;
                 std::cout << "> Lista de todos o produto do tipo escolhido: <" << std::endl;
-                busca.busca_produtos_tipo(pesquisa, estoque.lista_produtos());
+                global.exibe_tipo(pesquisa);
                 break;
             }
 
@@ -61,7 +63,7 @@ namespace ecommerce::ui
                 std::cin >> pesquisa;
                 float number = std::stof(pesquisa);
                 std::cout << "> Lista de todos o produto do preço escolhido: <" << std::endl;
-                busca.busca_produtos_preco(number, estoque.lista_produtos());
+                global.exibe_preco(number);
                 break;
             }
         }
