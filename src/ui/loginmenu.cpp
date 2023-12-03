@@ -134,6 +134,7 @@ namespace ecommerce::ui
                     std::cout << "> Logando: " << email << std::endl;
                     /// @todo terminar entrar no sistema
                     /// @return ir para proximo menu cliente ou admin
+                  
                 }
                 break;
             }

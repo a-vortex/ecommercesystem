@@ -2,7 +2,6 @@
 #include "../../include/user/usuario.hpp"
 #include "../../include/ui/menu.hpp"
 #include "../../include/ui/navegamenu.hpp"
-Busca global;
 Estoque estoque;
 Produto atualiza("Produto4", "Testando o produto 4", "12345", "Papelaria", 15.00);
 
