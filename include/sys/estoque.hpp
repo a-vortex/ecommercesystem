@@ -40,6 +40,11 @@ public:
     /// @param id_produto ID do produto a ser pesquisado
     void exibe_quantidade(const std::string &id_produto);
 
+    /// @brief Exibe quantos produtos associados a um ID tem disponiveis
+    /// @param id_produto ID do produto a ser pesquisado
+    /// @return A quantidade de produtos
+    std::string return_quantidade(const std::string &id_produto);
+
 
 
     /// @brief Lista de produtos do estoque

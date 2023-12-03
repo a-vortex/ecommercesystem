@@ -38,7 +38,8 @@ namespace ecommerce::ui
         {
             return nullptr;
         };
-        Estoque glob;
+        // Estoque glob;
+        // Produto edicao;
         virtual void render() const;
 
     protected:

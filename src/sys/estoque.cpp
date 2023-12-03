@@ -97,6 +97,45 @@ std::string proximaPalavra;
 
 
 
+
+std::string Estoque::return_quantidade(const std::string &id_produto)
+{
+    std::fstream arquivo(PATH_ESTOQUE);
+    std::string palavra;
+    std::stringstream buffer; 
+bool achou = false;
+bool imprimirProxima = false;
+std::string proximaPalavra;
+    if (arquivo.is_open()) {
+        
+ if (arquivo.is_open()) {
+    while (arquivo >> palavra) {
+        if (achou) {
+            proximaPalavra = palavra; 
+            imprimirProxima = true;
+            achou = false; 
+        }
+
+        if (palavra == id_produto) {
+            achou = true; 
+        }
+
+        if (imprimirProxima) {
+            return proximaPalavra;
+            break; 
+        }
+    }
+    arquivo.close(); 
+} else {
+    std::cerr << "Erro ao abrir o arquivo." << std::endl;
+}
+
+    }
+
+}
+
+
+
 std::vector<Produto>
 Estoque::lista_produtos()
 {

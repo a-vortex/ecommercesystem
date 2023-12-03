@@ -2,9 +2,8 @@
 #include "../../include/user/usuario.hpp"
 #include "../../include/ui/menu.hpp"
 #include "../../include/ui/navegamenu.hpp"
-Estoque estoque;
-Produto atualiza("Produto4", "Testando o produto 4", "12345", "Papelaria", 15.00);
-
+Produto edicao("Produto4", "Testando o produto 4", "12345", "Papelaria", 15.00);
+Estoque glob;
 namespace ecommerce::ui
 {
 
@@ -55,7 +54,7 @@ namespace ecommerce::ui
             Produto teste(nome, descricao, id_produto, tipo, preco);
             std::cout << "Quantidade de produto no estoque:" << std::endl;
             std::cin >> preco;
-            estoque.adiciona_produto(teste,2);
+            glob.adiciona_produto(teste,2);
             break;
         }
 
@@ -65,7 +64,7 @@ namespace ecommerce::ui
             navega.navegamenunext(1, glob, busca);
             std::string nome;
             std::cin >> nome;
-            atualiza.atualiza_info(nome);
+            edicao.atualiza_info(nome);
             break;
         }
         case 3:
