@@ -22,8 +22,9 @@ Pagamento::confirma_pagamento(const std::vector<Produto> &produtos, Produto &pro
     {
         if (buscador.GetName() == produto.GetName())
         {
-            int novo_valor = estoque.return_quantidade(produto.GetId());
-            int numeroInteiro = std::stoi(novo_valor);
+             std::string numeroString = "123";
+             int numeroInteiro;
+             std::stringstream(numeroString) >> numeroInteiro;
             estoque.atualiza_quantidade(produto.GetId(), numeroInteiro - 1); // corrigir !!!!
         }
     }
