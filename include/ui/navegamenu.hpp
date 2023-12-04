@@ -2,6 +2,7 @@
 
 #include "menu.hpp"
 
+
 namespace ecommerce::ui
 {
     class NavegaMenu : public Menu

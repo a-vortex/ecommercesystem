@@ -84,11 +84,18 @@ namespace ecommerce::ui
                 navega.navegamenunext(opcao);
                 break;
             }
+                  
         
             default:
                 return nullptr;
 
         }
+           std::cout << "\n\n";
+           ui::LogadoAdm adm;
+           adm.render();
+           unsigned option;
+           std::cin >> option;
+           adm.nextEditaProduto(option);
         
         return nullptr;
     }

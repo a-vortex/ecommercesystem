@@ -25,9 +25,13 @@ namespace ecommerce::ui
     private:
         Cadastro _client;
         Cadastro _admin;
+        static bool  adm_bool;
+        static bool  cliente_bool;
+
 
     public:
         LoginMenu();
+        bool Get_adm_bool();
 
         static const std::string PATH_CLIENT;
         static const std::string PATH_ADMIN;

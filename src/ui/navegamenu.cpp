@@ -3,6 +3,13 @@
 #include "../../include/sys/produto.hpp"
 #include "../../include/sys/busca.hpp"
 #include "../../include/ui/menu.hpp"
+#include "../../include/ui/loginmenu.hpp"
+#include "../../include/ui/LogadoAdm.hpp"
+// #include "../../include/ui/clientemenu.hpp"
+
+
+
+
 Busca global;
 
 
@@ -31,6 +38,8 @@ namespace ecommerce::ui
 
                 std::cout << "> Lista de todos os produtos disponíveis: <" << std::endl;
                 global.exibe_produtos();
+                
+                
                 break;
             }
 
@@ -42,6 +51,8 @@ namespace ecommerce::ui
                 std::cin >> pesquisa;
                 std::cout << "> Produto encontrado: <" << std::endl;
                 global.exibe_nome(pesquisa);
+
+                
                 break;
             }
             
@@ -67,8 +78,19 @@ namespace ecommerce::ui
                 global.exibe_preco(number);
                 break;
             }
-        }
 
+        }
+        
+        ui::LoginMenu login;
+            if( login.Get_adm_bool() == true){
+                std::cout << "\n\n";
+                ui::LogadoAdm adm;
+                adm.render();
+                unsigned option;
+                std::cin >> option;
+                adm.nextEditaProduto(option);
+
+            }
         return nullptr;
     }
 }

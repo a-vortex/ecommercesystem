@@ -6,6 +6,8 @@ namespace ecommerce::ui
 {
     const std::string LoginMenu::PATH_CLIENT = "autenticacaocliente.txt";
     const std::string LoginMenu::PATH_ADMIN = "autenticacaoadmin.txt";
+    bool LoginMenu::adm_bool = false;
+    bool LoginMenu::cliente_bool = false;
 
     LoginMenu::LoginMenu()
     {
@@ -35,6 +37,7 @@ namespace ecommerce::ui
                         // std::cout << " erro: " << _client.GetPhone() << std::endl;
                         // // Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
                         // // return new ClienteMenu(cliente);
+                        cliente_bool = true;
                         return new ClienteMenu;
                        
                     }
@@ -49,6 +52,7 @@ namespace ecommerce::ui
                         std::cout << "> Logando: " << _admin.GetMail() << std::endl;
                         // Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
                         // return new LogadoAdm(admin);
+                        adm_bool = true;
                         std::cout << "\n\n";
                         ui::LogadoAdm adm;
                         adm.render();
@@ -106,5 +110,8 @@ namespace ecommerce::ui
         }
         return nullptr;
     }
-
+ 
+    bool LoginMenu::Get_adm_bool( ){
+        return adm_bool;
+    }
 }

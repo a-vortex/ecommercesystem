@@ -77,6 +77,7 @@ namespace ecommerce::ui
                 if(ekey && pkey)
                 {
                     arquivo.close();
+                    
                     return true;
                 }
             }
