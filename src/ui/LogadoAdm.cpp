@@ -4,13 +4,13 @@
 #include "../../include/ui/navegamenu.hpp"
 
 Estoque glob;
+Produto produto("", "", "", "", "");
 namespace ecommerce::ui
 {
 
     LogadoAdm::LogadoAdm() 
     {
-        _title = "Olá, sr(a). ";
-        //  + _admin.GetNome();
+        _title = "Olá, sr(a), bem vindo(a) ";
         _options.push_back("1- Adiciona produto");
         _options.push_back("2- Editar produto");
         _options.push_back("3- Editar estoque");
@@ -65,6 +65,8 @@ namespace ecommerce::ui
                 navega.navegamenunext(1);
                 std::string nome;
                 std::getline(std::cin >> std::ws, nome);
+                produto.atualiza_info(nome);
+                
                 break;
             }
 
