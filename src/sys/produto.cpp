@@ -1,4 +1,10 @@
 #include "../../include/sys/produto.hpp"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+
+const std::string Produto::PATH_PRODUTO = "estoque.txt";
 
 #include <iostream>
 #include <string>
@@ -18,76 +24,114 @@ Produto::Produto(const std::string &nome,
     std::cout << "Produto criado com sucesso" << std::endl;
 }
 
-void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_produto)
+void Produto::atualiza_info( std::string nome_produto )
 {
     std::cout << "Qual tipo de informacao quer alterar? Escolha uma opcao (1 a 4)" << std::endl;
     std::cout << "Para finalizar a operacao, digite 0" << std::endl;
     std::cout << "1. Nome" << std::endl;
-    std::cout << "2. Descricao" << std::endl;
+    std::cout << "2. Preco" << std::endl;
     std::cout << "3. Tipo" << std::endl;
-    std::cout << "4. Preco" << std::endl;
     std::cout << "0. sair" << std::endl;
 
     unsigned escolha = 5;
     while (std::cin >> escolha && escolha != 0)
-    {
+    {   
+        std::fstream arquivo(PATH_PRODUTO);
+        std::string global;
         switch (escolha)
         {
         case 1:
         {
             std::cout << "Insira o novo nome: " << std::endl;
-            for (auto it = produtos.begin(); it != produtos.end(); ++it)
-            {
-                if (nome_produto == it->GetName())
-                {
-                    std::getline(std::cin >> std::ws, nome);
+            std::string linha;
+            std::getline(std::cin >> std::ws, global);
+
+            if (arquivo.is_open()) {
+                while (getline(arquivo, linha)) {
+                    if (linha.find(nome_produto) != std::string::npos) {
+                       arquivo <<global << "  ";
+                    }
                 }
+                arquivo.close();
+            } else {
+                std::cout << "Não foi possível editar o nome." << std::endl;
             }
-            break;
         }
 
         case 2:
         {
-            std::cout << "Insira a nova descricao: " << std::endl;
+                std::cout << "Insira o novo preco: " << std::endl;
+                std::string novoPreco;
+                std::getline(std::cin >> std::ws, novoPreco);
 
-            for (auto it = produtos.begin(); it != produtos.end(); ++it)
-            {
-                if (nome_produto == it->GetName())
-                {
-                    std::getline(std::cin >> std::ws, descricao);
+                if (arquivo.is_open()) {
+                    std::string linha;
+                    while (getline(arquivo, linha)) {
+                        std::istringstream iss(linha);
+                        std::ostringstream novaLinha;
+                        std::string palavra;
+                        size_t contador = 0;
+
+                        while (iss >> palavra) {
+                            ++contador;
+                            if (contador == 4) {
+                                novaLinha << std::setw(palavra.length()) << novoPreco;
+                            } else {
+                                novaLinha << std::setw(palavra.length()) << palavra;
+                            }
+                            novaLinha << " ";
+                        }
+
+arquivo.seekp(static_cast<std::streamoff>(arquivo.tellg()) - static_cast<std::streamoff>(linha.length()) - 1);
+                        arquivo << std::left << std::setw(linha.length()) << novaLinha.str() << std::endl;
+                    }
+
+                    arquivo.close();
+                    std::cout << "Edicao concluida com sucesso!" << std::endl;
+                } else {
+                    std::cout << "Nao foi possivel abrir o arquivo." << std::endl;
                 }
-            }
             break;
         }
 
         case 3:
         {
-            std::cout << "Insira o novo tipo: " << std::endl;
-            for (auto it = produtos.begin(); it != produtos.end(); ++it)
-            {
-                if (nome_produto == it->GetName())
-                {
-                    std::getline(std::cin >> std::ws, tipo);
+                std::cout << "Insira o novo tipo: " << std::endl;
+                std::string novo;
+                std::getline(std::cin >> std::ws, novo);
+
+                if (arquivo.is_open()) {
+                    std::string linha;
+                    while (getline(arquivo, linha)) {
+                        std::istringstream iss(linha);
+                        std::ostringstream novaLinha;
+                        std::string palavra;
+                        size_t contador = 0;
+
+                        while (iss >> palavra) {
+                            ++contador;
+                            if (contador == 5) {
+                                novaLinha << std::setw(palavra.length()) << novo;
+                            } else {
+                                novaLinha << std::setw(palavra.length()) << palavra;
+                            }
+                            novaLinha << " ";
+                        }
+
+arquivo.seekp(static_cast<std::streamoff>(arquivo.tellg()) - static_cast<std::streamoff>(linha.length()) - 1);
+                        arquivo << std::left << std::setw(linha.length()) << novaLinha.str() << std::endl;
+                    }
+
+                    arquivo.close();
+                    std::cout << "Edicao concluida com sucesso!" << std::endl;
+                } else {
+                    std::cout << "Nao foi possivel abrir o arquivo." << std::endl;
                 }
-            }
+           
             break;
         }
 
-        case 4:
-        {
-            std::cout << "Insira o novo preco (utilize ponto ao invés de vírgula): " << std::endl;
-            for (auto it = produtos.begin(); it != produtos.end(); ++it)
-            {
-                if (nome_produto == it->GetName())
-                {
-                    while(!eFloat(preco))
-                    {
-                        std::cout << "Preço inválido, insira novamente (utilize ponto ao invès de vírgula): " << std::endl;
-                        std::getline(std::cin >> std::ws, preco);
-                    }
-                }
-            break;
-        }
+
 
             {
 
@@ -140,8 +184,3 @@ std::string Produto::GetPrice() const
 {
     return preco;
 }
-
-auto eFloat = [] (const auto& str)
-{
-    return std::is_floating_point<std::string(str)>value;
-};

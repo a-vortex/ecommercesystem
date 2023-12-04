@@ -9,6 +9,7 @@
 #pragma once
 
 #include "menu.hpp"
+#include "cadastro.hpp"
 #include "../../include/user/administrador.hpp"
 #include "../../include/user/cliente.hpp"
 #include "../../include/user/usuario.hpp"
@@ -21,13 +22,15 @@ namespace ecommerce::ui
 {
     class LoginMenu : public Menu
     {
+    private:
+        Cadastro _client;
+        Cadastro _admin;
+
     public:
         LoginMenu();
 
         static const std::string PATH_CLIENT;
         static const std::string PATH_ADMIN;
-        void cadastrarCliente(const std::string& email, const std::string& senha);
-        void cadastrarAdmin(const std::string& email, const std::string& senha);
         Menu *next(unsigned option) override;
     };
 }
