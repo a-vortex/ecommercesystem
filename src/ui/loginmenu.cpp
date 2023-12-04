@@ -19,48 +19,6 @@ namespace ecommerce::ui
     Menu
     *LoginMenu::next(unsigned option)
     {
-        // auto ler_autenticacao = [] (std::string &email, std::string &senha, char &tipo)
-        // {
-        //     std::ifstream arquivo;
-        //     std::string path;
-
-        //     if (tipo == 'c')
-        //     {
-        //         arquivo.open(PATH_CLIENT);
-        //         path = PATH_CLIENT;
-        //     }
-        //     else if (tipo == 'a')
-        //     {
-        //         arquivo.open(PATH_ADMIN);
-        //         path = PATH_ADMIN;
-        //     }
-
-        //     if (!arquivo.is_open())
-        //     {
-        //         throw std::runtime_error("> Erro na abertura do arquivo: " + path + " <");
-        //     }
-
-        //     std::string linha;
-        //     bool ekey = false;
-        //     bool pkey = false;
-
-        //     while (std::getline(arquivo, linha))
-        //     {
-        //         if (linha.find(email) != std::string::npos) ekey = true;
-        //         if (linha.find(senha) != std::string::npos) pkey = true;
-        //         if (ekey && pkey)
-        //         {
-        //             std::cout << "> Autenticação bem sucedida <" << std::endl;
-        //             arquivo.close(); // Fechar o arquivo apos encontrar a autenticação
-        //             return true;
-        //         }
-        //     }
-
-        //     std::cout << "> Email ou senha invalidos! <" << std::endl;
-        //     arquivo.close(); // Fechar o arquivo apos terminar a leitura sem autenticação
-        //     return false;
-        // };
-
         switch(option)
         {
             case 1:
