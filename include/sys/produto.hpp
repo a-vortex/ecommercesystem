@@ -26,6 +26,8 @@ private:
     float preco;
 
 public:
+    static const  std::string PATH_PRODUTO;
+    
     /// @brief Construtor sobrecarregado
     Produto(const std::string &nome,
             const std::string &descricao,
@@ -87,7 +89,6 @@ public:
     std::string GetDescription() const;
     std::string GetType() const;
     float GetPrice() const;
-     static const  std::string PATH_PRODUTO;
 };
 
 #endif /* PRODUTO_H */

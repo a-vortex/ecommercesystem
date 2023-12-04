@@ -2,19 +2,6 @@
 
 namespace ecommerce::ui
 {
-    // void
-    // Cadastro::SetAttribute(std::string const &name,
-    //                        std::string const &addr,
-    //                        std::string const &phone,
-    //                        std::string const &mail,
-    //                        std::string const &pass)
-    // {
-    //     _name = name;
-    //     _addr = addr;
-    //     _phone = phone;
-    //     _mail = mail;
-    //     _pass = pass;
-    // }
     auto contemApenasdigitos = [] (const std::string& str)
     {
         for(char c : str)

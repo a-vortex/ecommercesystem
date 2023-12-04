@@ -3,7 +3,9 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
-const std::string Produto::PATH_PRODUTO = "../../../estoque.txt";
+
+const std::string Produto::PATH_PRODUTO = "estoque.txt";
+
 Produto::Produto(const std::string &nome,
                  const std::string &descricao,
                  const std::string &id_produto,
@@ -180,8 +182,3 @@ float Produto::GetPrice() const
 {
     return preco;
 }
-// int main(){
-//     Produto teste("Produto1", "Testando o produto 1", "2154", "teste", 20.2);
-//     teste.atualiza_info("Produto3");
-
-// }

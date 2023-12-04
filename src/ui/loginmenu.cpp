@@ -69,6 +69,7 @@ namespace ecommerce::ui
                 else
                 {
                     std::cout << "> Erro no cadastro! <" << std::endl;
+                    return nullptr;
                 }
 
                 Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
@@ -85,6 +86,7 @@ namespace ecommerce::ui
                 else
                 {
                     std::cout << "> Erro no cadastro! <" << std::endl;
+                    return nullptr;
                 }                
                 Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
                 return new LogadoAdm(admin);

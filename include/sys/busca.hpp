@@ -23,7 +23,8 @@ private:
     std::vector<float> preco_produto;
 
 public:
-   
+    static const  std::string PATH_BUSCA;
+    
     /// @brief Exibe todos os produtos existentes
     /// @return imprime na tela uma lista
     void exibe_produtos();
@@ -42,9 +43,6 @@ public:
     /// @param  nome do produto a ser exibido
     /// @return imprime na tela uma lista
     void exibe_nome(const std::string &nome);
-
-    static const  std::string PATH_BUSCA;
-
 };
 
 #endif /* BUSCA_H */

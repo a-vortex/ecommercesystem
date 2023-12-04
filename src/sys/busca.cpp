@@ -1,7 +1,7 @@
 #include "../../include/sys/busca.hpp"
 #include <fstream>
 
-const std::string Busca::PATH_BUSCA = "../../../estoque.txt";
+const std::string Busca::PATH_BUSCA = "estoque.txt";
 
 void Busca::exibe_produtos() {
     std::fstream arquivo(PATH_BUSCA);
