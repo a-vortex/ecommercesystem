@@ -5,11 +5,12 @@
 #include "../exc/excecao.hpp"
 #include "../ui/loginmenu.hpp"
 
-
+namespace ui = ecommerce::ui;
 
 Busca busca;
 Carrinho carrinho;
 Estoque estoque;
+ui::LoginMenu loginmenu;
 
 
 namespace ecommerce::funcoes
@@ -20,8 +21,8 @@ namespace ecommerce::funcoes
     {
         try
         {
-            Produto busca = busca.busca_produtos_nome(nome, _lista_de_produtos);
-            return busca;
+            Produto body = busca.busca_produtos_nome(nome, _lista_de_produtos);
+            return body;
         } 
         catch(NotFound const &e)
         {
@@ -34,8 +35,8 @@ namespace ecommerce::funcoes
     {
         try
         {
-            std::vector<Produto> busca = busca.busca_produtos_tipo(tipo, _lista_de_produtos);
-            return busca;
+            std::vector<Produto> body = busca.busca_produtos_tipo(tipo, _lista_de_produtos);
+            return body;
         }
         catch(NotFound const &e)
         {
@@ -48,8 +49,8 @@ namespace ecommerce::funcoes
     {
         try
         {
-            std::vector<Produto> busca = busca.busca_produtos_preco(preco, lista_de_produtos);
-            return busca;
+            std::vector<Produto> body = busca.busca_produtos_preco(preco, lista_de_produtos);
+            return body;
         }
         catch(NotFound const &e)
         {
