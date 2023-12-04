@@ -26,12 +26,11 @@ private:
     std::string preco;
 
 public:
-    static const  std::string PATH_PRODUTO;
-    
+    static const std::string PATH_PRODUTO;
+
     /// @brief Construtor sobrecarregado
     Produto(const std::string &nome,
             const std::string &descricao,
-            const std::string &id_produto,
             const std::string &tipo,
             const std::string preco);
 
@@ -47,7 +46,7 @@ public:
     }
 
     /// @brief Atualiza as informacoes do produto
-    void atualiza_info( std::string nome_produto);
+    static void atualiza_info(std::string nome_produto);
 
     /// @brief Associa um ID a um nome, dentro de um tipo map
     /// @return um tipo Map com um ID e nome
@@ -58,29 +57,7 @@ public:
     /// @param id ID do produto
     /// @param produtos Conteiner de produtos
     template <typename Container>
-    static void exibe_info(const std::string &id, const Container &produtos)
-    {
-        bool produtoEncontrado = false;
-
-        for (auto it = produtos.begin(); it != produtos.end(); ++it)
-        {
-            if (id == it->GetId())
-            {
-                std::cout << "Produto encontrado:" << std::endl;
-                std::cout << std::left << std::setw(20) << "Nome: " << it->GetName() << std::endl;
-                std::cout << std::left << std::setw(20) << "Descrição: " << it->GetDescription() << std::endl;
-                std::cout << std::left << std::setw(20) << "ID do Produto: " << it->GetId() << std::endl;
-                std::cout << std::left << std::setw(20) << "Tipo: " << it->GetType() << std::endl;
-                std::cout << std::left << std::setw(20) << "Preço: " << it->GetPrice() << std::endl;
-                produtoEncontrado = true;
-                break;
-            }
-        }
-        if (!produtoEncontrado)
-        {
-            std::cout << "Produto não encontrado: " << id << std::endl;
-        }
-    }
+    static void exibe_info(const std::string &id, const Container &produtos);
 
     /// @brief Getters
     /// @return ID, nome, descricao, tipo e preco do produto
