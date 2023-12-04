@@ -34,31 +34,31 @@ Usuario::atualiza_telefone(long unsigned novo_telefone)
 }
 
 std::string
-Usuario::GetNome()
+Usuario::GetNome() const
 {
     return _nome_usuario;
 }
 
 std::string
-Usuario::GetEndereco()
+Usuario::GetEndereco() const
 {
     return _endereco;
 }
 
 long unsigned
-Usuario::GetTelefone()
+Usuario::GetTelefone() const
 {
     return _num_telefone;
 }
 
 std::string
-Usuario::GetID()
+Usuario::GetID() const
 {
     return _id_usuario;
 }
 
 std::vector<std::string>
-Usuario::GetHistorico()
+Usuario::GetHistorico() const
 {
     return historicopesquisa;
 }

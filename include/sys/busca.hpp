@@ -24,28 +24,26 @@ private:
     std::vector<float> preco_produto;
 
 public:
-    /// @brief Faz a busca do produto com o nome especificado
-    ///        em uma determinada lista
-    /// @param nome do produto que quer pesquisar
-    /// @param _lista_de_produtos onde o produto esta inserido
-    /// @return o produto especifiado
-    Produto busca_produtos_nome(const std::string &nome, const std::vector<Produto> &_lista_de_produtos);
+    static const  std::string PATH_BUSCA;
+    
+    /// @brief Exibe todos os produtos existentes
+    /// @return imprime na tela uma lista
+    void exibe_produtos();
 
-    /// @brief Faz a busca dos produtos com tipo determinado
-    /// @param tipo do produto que quer pesquisar
-    /// @param _lista_de_produtos onde o produto esta inserido
-    /// @return uma lista de produtos com o tipo especificado
-    std::vector<Produto> busca_produtos_tipo(const std::string tipo, const std::vector<Produto> &_lista_de_produtos);
+    /// @brief Exibe todos os produtos existentes de um tipo
+    /// @param  tipo do produto a ser exibido
+    /// @return imprime na tela uma lista
+    void exibe_tipo(const std::string &tipo);
 
-    /// @brief Faz a busca dos produtos com preco determinado
-    /// @param preco do produto que quer pesquisar
-    /// @param _lista_de_produtos onde o produto esta inserido
-    /// @return uma lista de produtos com o preco especificado
-    std::vector<Produto> busca_produtos_preco(float preco, const std::vector<Produto> &_lista_de_produtos);
-    /// @brief Faz a busca de todos os produtos
-    /// @param _lista_de_produtos onde os produtos estão inseridos
-    /// @return Imprime na tela uma lista com todos os produtos no estoque
-    std::vector<Produto> busca_produtos_todos(const std::vector<Produto> &_lista_de_produtos);
+    /// @brief Exibe todos os produto de um preco
+    /// @param  preco do produto a ser exibido
+    /// @return imprime na tela uma lista
+    void exibe_preco(const int preco);
+
+    /// @brief Exibe todos os produtos existentes de um tipo
+    /// @param  nome do produto a ser exibido
+    /// @return imprime na tela uma lista
+    void exibe_nome(const std::string &nome);
 };
 
 #endif /* BUSCA_H */
