@@ -23,15 +23,17 @@ private:
     std::string descricao;
     std::string id_produto;
     std::string tipo;
-    float preco;
+    std::string preco;
 
 public:
+    static const  std::string PATH_PRODUTO;
+    
     /// @brief Construtor sobrecarregado
     Produto(const std::string &nome,
             const std::string &descricao,
             const std::string &id_produto,
             const std::string &tipo,
-            float preco);
+            const std::string preco);
 
     /// @brief Construtor de copia
     /// @param other produto a ser copiado
@@ -45,7 +47,7 @@ public:
     }
 
     /// @brief Atualiza as informacoes do produto
-    void atualiza_info(std::vector<Produto> produtos, std::string nome_produto);
+    void atualiza_info( std::string nome_produto);
 
     /// @brief Associa um ID a um nome, dentro de um tipo map
     /// @return um tipo Map com um ID e nome
@@ -86,7 +88,7 @@ public:
     std::string GetName() const;
     std::string GetDescription() const;
     std::string GetType() const;
-    float GetPrice() const;
+    std::string GetPrice() const;
 };
 
 #endif /* PRODUTO_H */

@@ -1,7 +1,7 @@
 /*
     cupom.hpp
-    Author: M. Clara Contarini
-    mccontarinid@gmail.com
+    Author: Yuri Wada
+    yuriwada@ufmg.br
 
     cria cupons que modificam o valor de um produto
 */

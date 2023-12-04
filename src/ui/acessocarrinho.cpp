@@ -18,10 +18,14 @@ namespace ecommerce::ui
             {
                 unsigned quantidade;
                 std::string objeto;
-                std::cout<< std::endl << "> Digite o produto e a quantidade que deseja adicionar:";
+                std::cout << "> Digite o produto e a quantidade que deseja adicionar:" << std::endl;
 
                 /// @todo instanciar/buscar produto em arquivo estoque para passagem de parâmetro
-                std::cin >> objeto >> quantidade;
+                std::cout << "> Produto: " << std::endl;
+                std::getline(std::cin >> std::ws, objeto);
+
+                std::cout << "> Quantidade: " << std::endl;
+                std::cin >> quantidade;
 
                 // Produto produto();
                 // marquinhos->adiciona_produto(produto, quantidade);

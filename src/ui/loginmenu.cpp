@@ -1,4 +1,6 @@
 #include "../../include/ui/loginmenu.hpp"
+#include "../../include/ui/clientemenu.hpp"
+#include "../../include/ui/LogadoAdm.hpp"
 
 namespace ecommerce::ui
 {
@@ -14,186 +16,88 @@ namespace ecommerce::ui
         _options.push_back("4 - Encerrar Sistema");
     }
 
-    void
-    LoginMenu::cadastrarCliente(const std::string& email, const std::string& senha)
-    {
-        std::ofstream arquivo(PATH_CLIENT, std::ios_base::app);
-
-        if(arquivo.is_open())
-        {
-            arquivo << email << std::endl;
-            arquivo << senha << std::endl;
-            arquivo.close();
-            std::cout << "> Novo cliente cadastrado com sucesso! <" << std::endl;
-        }
-        else
-        {
-            throw std::runtime_error("> Erro ao realizar cadastro! <");
-        }
-    }
-
-    void
-    LoginMenu::cadastrarAdmin(const std::string& email, const std::string& senha)
-    {
-        std::ofstream arquivo(PATH_ADMIN, std::ios_base::app);
-        if(arquivo.is_open())
-        {
-            arquivo << email << std::endl;
-            arquivo << senha << std::endl;
-            arquivo.close();
-            std::cout << "> Administrador cadastrado com sucesso! <" << std::endl;
-        }
-        else
-        {
-            throw std::runtime_error("> Erro ao realizar cadastro! <");
-        }
-    }
-
     Menu
     *LoginMenu::next(unsigned option)
     {
-        auto ler_autenticacao = [] (std::string &email, std::string &senha, char &tipo)
-        {
-            std::ifstream arquivo;
-            std::string path;
-
-            if (tipo == 'c')
-            {
-                arquivo.open(PATH_CLIENT);
-                path = PATH_CLIENT;
-            }
-            else if (tipo == 'a')
-            {
-                arquivo.open(PATH_ADMIN);
-                path = PATH_ADMIN;
-            }
-
-            if (!arquivo.is_open())
-            {
-                throw std::runtime_error("> Erro na abertura do arquivo: " + path + " <");
-            }
-
-            std::string linha;
-            bool ekey = false;
-            bool pkey = false;
-
-            while (std::getline(arquivo, linha))
-            {
-                if (linha.find(email) != std::string::npos) ekey = true;
-                if (linha.find(senha) != std::string::npos) pkey = true;
-                if (ekey && pkey)
-                {
-                    std::cout << "> Autenticação bem sucedida <" << std::endl;
-                    arquivo.close(); // Fechar o arquivo apos encontrar a autenticação
-                    return true;
-                }
-            }
-
-            std::cout << "> Email ou senha invalidos! <" << std::endl;
-            arquivo.close(); // Fechar o arquivo apos terminar a leitura sem autenticação
-            return false;
-        };
-
-        auto contemApenasdigitos = [] (const std::string& str)
-        {
-            for(char c : str)
-            {
-                if(!std::isdigit(c))
-                {
-                    return false;
-                }
-            }
-            return true;
-        };
-
         switch(option)
         {
             case 1:
             {
-                char tipo;
+                std::string tipo;
                 std::cout << "> Tipo de usuário (c: cliente, a: administrador): ";
-                std::cin >> tipo;
-                if(tipo != 'a' && tipo != 'c')
+                std::getline(std::cin >> std::ws, tipo);
+                
+                if(tipo == "c")
+                {
+                    if(_client.Autenticacao(PATH_CLIENT))
+                    {
+                        std::cout << "> Logando: " << _client.GetMail() << std::endl;
+                        // std::cout << " erro: " << _client.GetPhone() << std::endl;
+                        // // Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
+                        // // return new ClienteMenu(cliente);
+                        return new ClienteMenu;
+                       
+                    }
+                    std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
+                    break;
+                }
+
+                else if(tipo == "a")
+                {
+                    if(_admin.Autenticacao(PATH_ADMIN))
+                    {
+                        std::cout << "> Logando: " << _admin.GetMail() << std::endl;
+                        // Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
+                        // return new LogadoAdm(admin);
+                        std::cout << "\n\n";
+                        ui::LogadoAdm adm;
+                        adm.render();
+                        unsigned option;
+                        std::cin >> option;
+                        adm.nextEditaProduto(option);
+                    }
+                    std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
+                    break;
+                }
+                else
                 {
                     std::cout << "> Tipo de usuário inválido!! <" << std::endl;
+                    return nullptr;
                 }
-
-                std::string email;
-                std::string senha;
-
-                std::cout << "> Email: " << std::endl;
-                std::cin >> email;
-                
-                std::cout << "> Senha: " << std::endl;
-                std::cin >> senha;
-
-                if(ler_autenticacao(email, senha, tipo))
-                {
-                    std::cout << "> Logando: " << email << std::endl;
-                    /// @todo terminar entrar no sistema
-                    /// @return ir para proximo menu cliente ou admin
-                }
-                break;
+                // return nullptr;
             }
 
             case 2:
             {
-                std::string nome, endereco, telefone, email, password;
-
-                std::cout << "> Nome: " << std::endl;
-                std::getline(std::cin >> std::ws, nome);
-
-                std::cout << "> Endereço: " << std::endl;
-                std::getline(std::cin >> std::ws, endereco);
-                
-                std::cout << "> Telefone: " << std::endl;
-                std::getline(std::cin >> std::ws, telefone);
-
-                while(!contemApenasdigitos(telefone))
+                if(_client.CadastrarUsuario(PATH_CLIENT))
                 {
-                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente. <" << std::endl;
-                    std::getline(std::cin >> std::ws, telefone);
+                    std::cout << "\n\n";
+                    std::cout << "> Cliente cadastrado com sucesso! <" << std::endl;
+                }
+                else
+                {
+                    std::cout << "> Erro no cadastro! <" << std::endl;
+                    return nullptr;
                 }
 
-                std::cout << "> Email: " << std::endl;
-                std::cin >> email;
-
-                std::cout << "> Senha: " << std::endl;
-                std::cin >> password;
-
-                //Cliente cliente(nome, endereco, std::stoul(telefone));
-                this->cadastrarCliente(email, password);
-                break;
+                Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
+                // return new ClienteMenu(cliente);
             }
 
             case 3:
             {
-                std::string nome, endereco, telefone, email, password;
-
-                std::cout << "> Nome: " << std::endl;
-                std::getline(std::cin >> std::ws, nome);
-
-                std::cout << "> Endereço: " << std::endl;
-                std::getline(std::cin >> std::ws, endereco);
-                
-                std::cout << "> Telefone: " << std::endl;
-                std::getline(std::cin >> std::ws, telefone);
-
-                while(!contemApenasdigitos(telefone))
+                if(_admin.CadastrarUsuario(PATH_ADMIN))
                 {
-                    std::cout << "> Numero de telefone inválido. Por favor, insira novamente. <" << std::endl;
-                    std::getline(std::cin >> std::ws, telefone);
+                    std::cout << "\n\n";
+                    std::cout << "> Administrador cadastrado com sucesso! <" << std::endl;
                 }
-
-                std::cout << "> Email: " << std::endl;
-                std::cin >> email;
-
-                std::cout << "> Senha: " << std::endl;
-                std::cin >> password;
-                //Administrador admin(nome, endereco, std::stoul(telefone));
-
-                this->cadastrarAdmin(email, password);
-                break;
+                else
+                {
+                    std::cout << "> Erro no cadastro! <" << std::endl;
+                    return nullptr;
+                }                
+                Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
+                // return new LogadoAdm(admin);
             }
 
             case 4:

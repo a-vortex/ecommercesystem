@@ -13,6 +13,7 @@
 #include <string>
 #include <set>
 #include <iomanip>
+#include <fstream>
 #include "produto.hpp"
 
 class Estoque
@@ -22,6 +23,10 @@ private:
     std::vector<Produto> produtos;
 
 public:
+    static const std::string PATH_ESTOQUE;
+    
+    /// @brief Constroi lista de produtos com base no que já existe np arquivo;
+    // Estoque();
     /// @brief Adiciona um produto ao estoque
     /// @param produto Produto a ser adicionado
     /// @param quantidade Quantidade inserida no estoque
@@ -37,13 +42,16 @@ public:
     /// @param id_produto ID do produto a ser pesquisado
     void exibe_quantidade(const std::string &id_produto);
 
+    /// @brief Exibe quantos produtos associados a um ID tem disponiveis
+    /// @param id_produto ID do produto a ser pesquisado
+    /// @return A quantidade de produtos
+    std::string return_quantidade(const std::string &id_produto);
+
+
+
     /// @brief Lista de produtos do estoque
     /// @return a lista de produtos
     std::vector<Produto> lista_produtos();
-
-    /// @brief Quantidade atual de um produto
-    /// @return  Retorna a quantidade atual de um produto
-    int GetQuantidade(const std::string &id_produto);
 };
 
 #endif /* ESTOQUE_H */

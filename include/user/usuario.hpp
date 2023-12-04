@@ -47,11 +47,11 @@ public:
     void atualiza_telefone(long unsigned novo_telefone);
 
     /// @brief getters
-    std::string GetNome();
-    std::string GetEndereco();
-    long unsigned GetTelefone();
-    std::string GetID();
-    std::vector<std::string> GetHistorico();
+    std::string GetNome() const;
+    std::string GetEndereco() const;
+    long unsigned GetTelefone() const;
+    std::string GetID() const;
+    std::vector<std::string> GetHistorico() const;
 };
 
 #endif /* USUARIO_H */
