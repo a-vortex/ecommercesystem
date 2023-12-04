@@ -31,7 +31,7 @@ public:
             const std::string &descricao,
             const std::string &id_produto,
             const std::string &tipo,
-            float preco);
+            const std::string preco);
 
     /// @brief Construtor de copia
     /// @param other produto a ser copiado
@@ -86,7 +86,7 @@ public:
     std::string GetName() const;
     std::string GetDescription() const;
     std::string GetType() const;
-    float GetPrice() const;
+    std::string GetPrice() const;
 };
 
 #endif /* PRODUTO_H */

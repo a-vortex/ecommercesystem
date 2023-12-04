@@ -54,17 +54,17 @@ namespace ecommerce::ui
     Menu
     *LoginMenu::next(unsigned option)
     {
-        auto ler_autenticacao = [] (std::string &email, std::string &senha, char &tipo)
+        auto ler_autenticacao = [] (std::string &email, std::string &senha, std::string &tipo)
         {
             std::ifstream arquivo;
             std::string path;
 
-            if (tipo == 'c')
+            if (tipo == "c")
             {
                 arquivo.open(PATH_CLIENT);
                 path = PATH_CLIENT;
             }
-            else if (tipo == 'a')
+            else if (tipo == "a")
             {
                 arquivo.open(PATH_ADMIN);
                 path = PATH_ADMIN;
@@ -112,10 +112,10 @@ namespace ecommerce::ui
         {
             case 1:
             {
-                char tipo;
+                std::string tipo;
                 std::cout << "> Tipo de usuário (c: cliente, a: administrador): ";
-                std::cin >> tipo;
-                if(tipo != 'a' && tipo != 'c')
+                std::getline(std::cin >> std::ws, tipo);
+                if(tipo != "a" && tipo != "c")
                 {
                     std::cout << "> Tipo de usuário inválido!! <" << std::endl;
                 }
@@ -124,10 +124,10 @@ namespace ecommerce::ui
                 std::string senha;
 
                 std::cout << "> Email: " << std::endl;
-                std::cin >> email;
+                std::getline(std::cin >> std::ws, email);
                 
                 std::cout << "> Senha: " << std::endl;
-                std::cin >> senha;
+                std::getline(std::cin >> std::ws, senha);
 
                 if(ler_autenticacao(email, senha, tipo))
                 {
@@ -158,10 +158,10 @@ namespace ecommerce::ui
                 }
 
                 std::cout << "> Email: " << std::endl;
-                std::cin >> email;
+                std::getline(std::cin >> std::ws, email);
 
                 std::cout << "> Senha: " << std::endl;
-                std::cin >> password;
+                std::getline(std::cin >> std::ws, password);
 
                 Cliente cliente(nome, endereco, std::stoul(telefone));
                 this->cadastrarCliente(email, password);
@@ -188,10 +188,10 @@ namespace ecommerce::ui
                 }
 
                 std::cout << "> Email: " << std::endl;
-                std::cin >> email;
+                std::getline(std::cin >> std::ws, email);
 
                 std::cout << "> Senha: " << std::endl;
-                std::cin >> password;
+                std::getline(std::cin >> std::ws, password);
                 Administrador admin(nome, endereco, std::stoul(telefone));
 
                 this->cadastrarAdmin(email, password);

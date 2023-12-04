@@ -20,7 +20,7 @@ namespace ecommerce::ui
             case 1:
             {
                 std::cout << "Digite o seu nome" << std::endl;
-                std::cin >> global;
+                std::getline(std::cin >> std::ws, global);
                 cliente.atualiza_nomeusuario(global);
                 std::cout << "Atualizado com sucesso, novo nome: " << cliente.GetNome() << std::endl;
                 break;
@@ -29,7 +29,7 @@ namespace ecommerce::ui
             case 2:
             {
                 std::cout << "Escreva seu endereço" << std::endl;
-                std::cin >> global;
+                std::getline(std::cin >> std::ws, global);
                 cliente.atualiza_endereco(global);
                 std::cout << "Atualizado com sucesso, novo endereço: " << cliente.GetEndereco() << std::endl;
                 break;
@@ -38,7 +38,7 @@ namespace ecommerce::ui
             case 3:
             {
                 std::cout << "Escreva seu telefone" << std::endl;
-                std::cin >> global;
+                std::getline(std::cin >> std::ws, global);
                 cliente.atualiza_telefone(std::stoul(global));
                 std::cout << "Atualizado com sucesso, novo número de telefone: " << cliente.GetTelefone() << std::endl;
                 break;
@@ -58,7 +58,7 @@ namespace ecommerce::ui
             case 1:
             {
                 std::cout << "Digite o seu nome" << std::endl;
-                std::cin >> global;
+                std::getline(std::cin >> std::ws, global);
                 adm.atualiza_nomeusuario(global);
                 std::cout << "Atualizado com sucesso, novo nome: " << adm.GetNome() << std::endl;
 
@@ -68,7 +68,7 @@ namespace ecommerce::ui
             case 2:
             {
                 std::cout << "Escreva seu telefone" << std::endl;
-                std::cin >> global;
+                std::getline(std::cin >> std::ws, global);
                 adm.atualiza_telefone(std::stoul(global));
                 std::cout << "Atualizado com sucesso, novo número: " << adm.GetTelefone() << std::endl;
                 break;

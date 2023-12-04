@@ -19,11 +19,11 @@ namespace ecommerce::ui
     {
         Busca busca;
         NavegaMenu navega;
-        Produto teste4("Produto4", "Testando o produto 4", "12345", "Papelaria", 15.00);
-        Produto teste5("Produto5", "Testando o produto 5", "12346", "Papelaria", 21.00);
+        Produto teste4("Produto4", "Testando o produto 4", "12345", "Papelaria", "15.00");
+        Produto teste5("Produto5", "Testando o produto 5", "12346", "Papelaria", "21.00");
 
-        Produto teste6("Produto6", "Testando o produto 6", "12347", "qualquer", 45.00);
-        Produto teste7("Produto7", "Testando o produto 7", "12348", "outroqualquer", 45.00);
+        Produto teste6("Produto6", "Testando o produto 6", "12347", "qualquer", "45.00");
+        Produto teste7("Produto7", "Testando o produto 7", "12348", "outroqualquer", "45.00");
 
         glob.adiciona_produto(teste4, 2);
         glob.adiciona_produto(teste5, 2);
@@ -38,18 +38,18 @@ namespace ecommerce::ui
             std::string descricao;
             std::string id_produto;
             std::string tipo;
-            float preco;
+            std::string preco;
             std::cout << "Informe os dados do novo produto:" << std::endl;
             std::cout << "Nome:" << std::endl;
-            std::cin >> nome;
+            std::getline(std::cin >> std::ws, nome);
             std::cout << "descrição:" << std::endl;
-            std::cin >> descricao;
+            std::getline(std::cin >> std::ws, descricao);
             std::cout << "id_produto:" << std::endl;
-            std::cin >> id_produto;
+            std::getline(std::cin >> std::ws, id_produto);
             std::cout << "tipo:" << std::endl;
-            std::cin >> tipo;
+            std::getline(std::cin >> std::ws, tipo);
             std::cout << "preço:" << std::endl;
-            std::cin >> preco;
+            std::getline(std::cin >> std::ws, preco);
             Produto teste(nome, descricao, id_produto, tipo, preco);
             break;
         }

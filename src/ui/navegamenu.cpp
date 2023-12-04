@@ -45,7 +45,7 @@ namespace ecommerce::ui
                 std::string pesquisa;
                 std::cout << "> Escreva o tipo do produto:" << std::endl;
 
-                std::cin >> pesquisa;
+                std::getline(std::cin >> std::ws, pesquisa);
                 std::cout << "> Lista de todos o produto do tipo escolhido: <" << std::endl;
                 busca.busca_produtos_tipo(pesquisa, estoque.lista_produtos());
                 break;
@@ -56,7 +56,7 @@ namespace ecommerce::ui
                 std::string pesquisa;
                 std::cout << "> Escreva o preço do produto:" << std::endl;
 
-                std::cin >> pesquisa;
+                std::getline(std::cin >> std::ws, pesquisa);
                 float number = std::stof(pesquisa);
                 std::cout << "> Lista de todos o produto do preço escolhido: <" << std::endl;
                 busca.busca_produtos_preco(number, estoque.lista_produtos());

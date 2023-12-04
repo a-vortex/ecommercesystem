@@ -2,12 +2,13 @@
 
 #include <iostream>
 #include <string>
+#include <type_traits>
 
 Produto::Produto(const std::string &nome,
                  const std::string &descricao,
                  const std::string &id_produto,
                  const std::string &tipo,
-                 float preco)
+                 const std::string preco)
 {
     this->nome = nome;
     this->descricao = descricao;
@@ -74,14 +75,14 @@ void Produto::atualiza_info(std::vector<Produto> produtos, std::string nome_prod
 
         case 4:
         {
-            std::cout << "Insira o novo preco: " << std::endl;
+            std::cout << "Insira o novo preco (utilize ponto ao invés de vírgula): " << std::endl;
             for (auto it = produtos.begin(); it != produtos.end(); ++it)
             {
                 if (nome_produto == it->GetName())
                 {
-                    while(!contemFLoat(preco))
+                    while(!eFloat(preco))
                     {
-                        std::cout << "Preço inválido, insira novamente: " << std::endl;
+                        std::cout << "Preço inválido, insira novamente (utilize ponto ao invès de vírgula): " << std::endl;
                         std::getline(std::cin >> std::ws, preco);
                     }
                 }
@@ -135,20 +136,12 @@ Produto::GetType() const
     return tipo;
 }
 
-float Produto::GetPrice() const
+std::string Produto::GetPrice() const
 {
     return preco;
 }
 
-auto contemFloat = [] (const std::string& str)
+auto eFloat = [] (const auto& str)
 {
-    for(char c : str)
-    {
-        if(!std::isdigit(c))
-        {
-            if(c == "." || c ==",") continue;
-            else return false;
-        }
-    }
-    return true;
+    return std::is_floating_point<std::string(str)>value;
 };
