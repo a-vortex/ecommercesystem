@@ -81,8 +81,8 @@ namespace ecommerce::ui
 
         }
         
-        ui::LoginMenu login;
-            if( login.Get_adm_bool() == true){
+                ui::LoginMenu login;
+                if( login.Get_adm_bool() == true && option != 1){
                 std::cout << "\n\n";
                 ui::LogadoAdm adm;
                 adm.render();
