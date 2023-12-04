@@ -23,38 +23,38 @@ namespace ecommerce::ui
 
         switch (option)
         {
-            case 1:
-            {
-                std::string nome;
-                std::string descricao;
-                std::string id_produto;
-                std::string tipo;
-                float preco;
-
-                std::cout << "> Informe os dados do novo produto:" << std::endl;
-                std::cout << "> Nome:" << std::endl;
-                std::cin >> nome;
-
-                std::cout << "> Descrição:" << std::endl;
-                std::cin >> descricao;
-
-                std::cout << "> ID do Produto:" << std::endl;
-                std::cin >> id_produto;
-
-                std::cout << "> Tipo:" << std::endl;
-                std::cin >> tipo;
-
-                std::cout << "> Preço:" << std::endl;
-                std::cin >> preco;
-                break;
-            }
+        case 1:
+        {
+            std::string nome;
+            std::string descricao;
+            std::string id_produto;
+            std::string tipo;
+            std::string preco;
+          
+            std::cout << "Informe os dados do novo produto:" << std::endl;
+            std::cout << "Nome:" << std::endl;
+            std::getline(std::cin >> std::ws, nome);
+          
+            std::cout << "descrição:" << std::endl;
+            std::getline(std::cin >> std::ws, descricao);
+          
+            std::cout << "id_produto:" << std::endl;
+            std::getline(std::cin >> std::ws, id_produto);
+          
+            std::cout << "tipo:" << std::endl;
+            std::getline(std::cin >> std::ws, tipo);
+          
+            std::cout << "preço:" << std::endl;
+            std::getline(std::cin >> std::ws, preco);
+            break;
+        }
 
             case 2:
             {
                 std::cout << "> Qual produto deseja editar?: " << std::endl;
                 navega.navegamenunext(1, glob, busca);
                 std::string nome;
-                std::cin >> nome;
+                std::getline(std::cin >> std::ws, nome);
                 break;
             }
 
@@ -65,7 +65,7 @@ namespace ecommerce::ui
                 int quantidade;
                 std::string ID;
                 std::cout << "> Escreva o ID correspondente: " << std::endl;
-                std::cin >> ID;
+                std::getline(std::cin >> std::ws, ID);
                 std::cout << "> Escreva a nova quantidade " << std::endl;
                 std::cin >> quantidade;
                 glob.atualiza_quantidade(ID, quantidade);

@@ -6,11 +6,15 @@
 
 const std::string Produto::PATH_PRODUTO = "estoque.txt";
 
+#include <iostream>
+#include <string>
+#include <type_traits>
+
 Produto::Produto(const std::string &nome,
                  const std::string &descricao,
                  const std::string &id_produto,
                  const std::string &tipo,
-                 float preco)
+                 const std::string preco)
 {
     this->nome = nome;
     this->descricao = descricao;
@@ -40,7 +44,7 @@ void Produto::atualiza_info( std::string nome_produto )
         {
             std::cout << "Insira o novo nome: " << std::endl;
             std::string linha;
-            std::cin>>global;
+            std::getline(std::cin >> std::ws, global);
 
             if (arquivo.is_open()) {
                 while (getline(arquivo, linha)) {
@@ -58,8 +62,7 @@ void Produto::atualiza_info( std::string nome_produto )
         {
                 std::cout << "Insira o novo preco: " << std::endl;
                 std::string novoPreco;
-                std::cin >> novoPreco;
-
+                std::getline(std::cin >> std::ws, novoPreco);
 
                 if (arquivo.is_open()) {
                     std::string linha;
@@ -93,11 +96,9 @@ arquivo.seekp(static_cast<std::streamoff>(arquivo.tellg()) - static_cast<std::st
 
         case 3:
         {
-
                 std::cout << "Insira o novo tipo: " << std::endl;
                 std::string novo;
-                std::cin >> novo;
-
+                std::getline(std::cin >> std::ws, novo);
 
                 if (arquivo.is_open()) {
                     std::string linha;
@@ -142,6 +143,7 @@ arquivo.seekp(static_cast<std::streamoff>(arquivo.tellg()) - static_cast<std::st
         }
         // std::cout << "Escolha nova opcao (1 a 4)" << std::endl;
         // std::cout << "Para finalizar a operacao, digite 0" << std::endl;
+        }
     }
 }
 
@@ -178,7 +180,7 @@ Produto::GetType() const
     return tipo;
 }
 
-float Produto::GetPrice() const
+std::string Produto::GetPrice() const
 {
     return preco;
 }

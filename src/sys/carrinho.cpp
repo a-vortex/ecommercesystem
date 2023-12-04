@@ -23,7 +23,7 @@ Carrinho::adiciona_produto(Produto produto, unsigned quantidade)
     {
         lista_ids_produtos.push_front(std::make_pair(produto, quantidade));
     }
-    preco_total += produto.GetPrice()*quantidade;
+    preco_total += std::stof(produto.GetPrice())*quantidade;
     quantidade_produto += quantidade;
 }
 
@@ -48,7 +48,7 @@ Carrinho::remove_produto(Produto produto, unsigned quantidade)
             {
                 lista_ids_produtos.erase(it);
             }
-            preco_total-=produto.GetPrice()*quantidade;
+            preco_total-=std::stof(produto.GetPrice())*quantidade;
             quantidade_produto-=quantidade;
             break;
         }

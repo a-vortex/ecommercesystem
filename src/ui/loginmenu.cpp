@@ -23,11 +23,11 @@ namespace ecommerce::ui
         {
             case 1:
             {
-                char tipo;
+                std::string tipo;
                 std::cout << "> Tipo de usuário (c: cliente, a: administrador): ";
-                std::cin >> tipo;
+                std::getline(std::cin >> std::ws, tipo);
                 
-                if(tipo == 'c')
+                if(tipo == "c")
                 {
                     if(_client.Autenticacao(PATH_CLIENT))
                     {
@@ -40,7 +40,8 @@ namespace ecommerce::ui
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
                     break;
                 }
-                else if(tipo == 'a')
+
+                else if(tipo == "a")
                 {
                     if(_admin.Autenticacao(PATH_ADMIN))
                     {
