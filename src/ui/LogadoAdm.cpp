@@ -31,6 +31,8 @@ namespace ecommerce::ui
             std::string id_produto;
             std::string tipo;
             std::string preco;
+            int quantidade;
+
           
             std::cout << "Informe os dados do novo produto:" << std::endl;
             std::cout << "Nome:" << std::endl;
@@ -48,6 +50,10 @@ namespace ecommerce::ui
             std::cout << "preço:" << std::endl;
             std::getline(std::cin >> std::ws, preco);
             Produto produto_adiciona(nome, descricao , id_produto, tipo, preco);
+            std::cout << "Quantidade disponível: ";
+            std::cin >> quantidade;
+            glob.adiciona_produto(produto_adiciona,quantidade );
+
 
 
             break;
