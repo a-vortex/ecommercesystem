@@ -11,11 +11,13 @@ int main()
 
     unsigned option;
     std::cin >> option;
+    system("clear||cls");
 
     ui::Menu *menu = login.next(option);
     while (menu != nullptr) {
         menu->render();
         std::cin >> option;
+        system("clear||cls");
 
         ui::Menu *old_menu = menu;
         menu = menu->next(option);
