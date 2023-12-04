@@ -6,7 +6,6 @@ namespace ecommerce::ui
 {
     const std::string LoginMenu::PATH_CLIENT = "autenticacaocliente.txt";
     const std::string LoginMenu::PATH_ADMIN = "autenticacaoadmin.txt";
-
     LoginMenu::LoginMenu()
     {
         _title = "Bem-vindo ao Sistema de E-commerce";
@@ -32,14 +31,13 @@ namespace ecommerce::ui
                     if(_client.Autenticacao(PATH_CLIENT))
                     {
                         std::cout << "> Logando: " << _client.GetMail() << std::endl;
-                        // std::cout << " erro: " << _client.GetPhone() << std::endl;
-                        // // Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
-                        // // return new ClienteMenu(cliente);
-                        return new ClienteMenu;
-                       
+                        std::cout << "\n\n";
+                        _clientLogin.leArquivo(PATH_CLIENT, _client.GetMail());
+                        Cliente cliente(_clientLogin.GetName(), _clientLogin.GetAddr(), std::stoul(_clientLogin.GetPhone()));
+                        return new ClienteMenu(cliente);
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
-                    break;
+                    return nullptr;
                 }
 
                 else if(tipo == "a")
@@ -47,57 +45,45 @@ namespace ecommerce::ui
                     if(_admin.Autenticacao(PATH_ADMIN))
                     {
                         std::cout << "> Logando: " << _admin.GetMail() << std::endl;
-                        // Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
-                        // return new LogadoAdm(admin);
                         std::cout << "\n\n";
-                        ui::LogadoAdm adm;
-                        adm.render();
-                        unsigned option;
-                        std::cin >> option;
-                        adm.nextEditaProduto(option);
+                        _adminLogin.leArquivo(PATH_ADMIN, _admin.GetMail());
+                        Administrador admin(_adminLogin.GetName(), _adminLogin.GetAddr(), std::stoul(_adminLogin.GetPhone()));
+                        return new LogadoAdm(admin);
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
-                    break;
-                }
-                else
-                {
-                    std::cout << "> Tipo de usuário inválido!! <" << std::endl;
                     return nullptr;
                 }
-                // return nullptr;
+
+                std::cout << "> Tipo de usuário inválido!! <" << std::endl;
+                return nullptr;
             }
 
             case 2:
             {
                 if(_client.CadastrarUsuario(PATH_CLIENT))
                 {
-                    std::cout << "\n\n";
                     std::cout << "> Cliente cadastrado com sucesso! <" << std::endl;
-                }
-                else
-                {
-                    std::cout << "> Erro no cadastro! <" << std::endl;
-                    return nullptr;
+                    std::cout << "\n\n";
+                    Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
+                    return new ClienteMenu(cliente);
                 }
 
-                Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
-                // return new ClienteMenu(cliente);
+                std::cout << "> Erro no cadastro! <" << std::endl;
+                return nullptr;
             }
 
             case 3:
             {
                 if(_admin.CadastrarUsuario(PATH_ADMIN))
                 {
-                    std::cout << "\n\n";
                     std::cout << "> Administrador cadastrado com sucesso! <" << std::endl;
+                    std::cout << "\n\n";
+                    Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
+                    return new LogadoAdm(admin);
                 }
-                else
-                {
-                    std::cout << "> Erro no cadastro! <" << std::endl;
-                    return nullptr;
-                }                
-                Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
-                // return new LogadoAdm(admin);
+
+                std::cout << "> Erro no cadastro! <" << std::endl;
+                return nullptr;             
             }
 
             case 4:
@@ -106,5 +92,4 @@ namespace ecommerce::ui
         }
         return nullptr;
     }
-
 }

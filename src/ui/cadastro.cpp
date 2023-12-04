@@ -44,6 +44,9 @@ namespace ecommerce::ui
         {
             arquivo << _mail << std::endl;
             arquivo << _pass << std::endl;
+            arquivo << _name << std::endl;
+            arquivo << _addr << std::endl;
+            arquivo << _phone << std::endl;
             arquivo.close();
             return true;
         }
@@ -53,14 +56,11 @@ namespace ecommerce::ui
     bool
     Cadastro::Autenticacao(std::string const &PATH)
     {
-        std::string email;
-        std::string senha;
-
         std::cout << "> Email: " << std::endl;
-        std::cin >> email;
+        std::cin >> _mail;
                 
         std::cout << "> Senha: " << std::endl;
-        std::cin >> senha;
+        std::cin >> _pass;
 
         std::ifstream arquivo(PATH);
         if(arquivo.is_open())
@@ -72,11 +72,12 @@ namespace ecommerce::ui
 
             while(std::getline(arquivo, linha))
             {
-                if(linha.find(email) != std::string::npos) ekey = true;
-                if(linha.find(senha) != std::string::npos) pkey = true;
+                if(linha.find(_mail) != std::string::npos) ekey = true;
+                if(linha.find(_pass) != std::string::npos) pkey = true;
                 if(ekey && pkey)
                 {
                     arquivo.close();
+                    
                     return true;
                 }
             }

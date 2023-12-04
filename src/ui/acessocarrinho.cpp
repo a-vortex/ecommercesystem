@@ -56,6 +56,7 @@ namespace ecommerce::ui
                 return new CartAcess;
             }
 
+
             case 2:
             {
                 std::ifstream arquivo(PATH_CARRINHO);

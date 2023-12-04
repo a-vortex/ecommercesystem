@@ -2,13 +2,17 @@
 
 #include "menu.hpp"
 
+
 namespace ecommerce::ui
 {
     class NavegaMenu : public Menu
     {
+    private:
+        Busca global;
+        
     public:
         NavegaMenu();
 
-        Menu *navegamenunext(unsigned option);
+        Menu *next(unsigned option) override;
     };
 }

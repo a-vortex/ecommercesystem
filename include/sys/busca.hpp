@@ -27,7 +27,7 @@ public:
     
     /// @brief Exibe todos os produtos existentes
     /// @return imprime na tela uma lista
-    void exibe_produtos();
+    static void exibe_produtos();
 
     /// @brief Exibe todos os produtos existentes de um tipo
     /// @param  tipo do produto a ser exibido

@@ -24,7 +24,7 @@ private:
 
 public:
     static const std::string PATH_ESTOQUE;
-    
+
     /// @brief Constroi lista de produtos com base no que já existe np arquivo;
     // Estoque();
     /// @brief Adiciona um produto ao estoque
@@ -46,9 +46,7 @@ public:
     /// @param id_produto ID do produto a ser pesquisado
     /// @return A quantidade de produtos
     std::string return_quantidade(const std::string &id_produto);
-
-
-
+    
     /// @brief Lista de produtos do estoque
     /// @return a lista de produtos
     std::vector<Produto> lista_produtos();
