@@ -27,6 +27,9 @@ private:
 
 public:
     static const  std::string PATH_PRODUTO;
+
+    /// @brief destructor
+    ~Produto() = defalt;
     
     /// @brief Construtor sobrecarregado
     Produto(const std::string &nome,

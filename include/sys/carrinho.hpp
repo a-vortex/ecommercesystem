@@ -23,8 +23,11 @@ private:
     // std::string id_cliente;
 
 public:
+    static const  std::string PATH_CARRINHO;
+
     /// @brief Constructor
     Carrinho();
+    ~Carrinho() = default;
 
     /// @brief adiciona um produto ao carrinho
     /// @param id_produto produto a ser adicionado
