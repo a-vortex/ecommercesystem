@@ -33,21 +33,25 @@ namespace ecommerce::ui
                 // proximo.render();
                 break;
             }
+
             case 2:
             {
                 ///@todo
                 break;
             }
+
             case 3:
             {
                 ///@todo acesso ao pagamento
                 break;
             }
+
             case 4:
             {
                 ///@todo retorna ao menu cliente
                 break;
             }
+            
         }
     return nullptr;
     }

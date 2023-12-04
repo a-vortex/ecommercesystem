@@ -7,11 +7,7 @@
 #include "../../include/ui/LogadoAdm.hpp"
 // #include "../../include/ui/clientemenu.hpp"
 
-
-
-
 Busca global;
-
 
 namespace ecommerce::ui
 {
