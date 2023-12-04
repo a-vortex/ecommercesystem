@@ -10,10 +10,12 @@ namespace ecommerce::ui
     class LogadoAdm : public Menu
     {
     private:
-        Administrador const &_admin;
+        // Administrador const &_admin;
         
     public:
-        LogadoAdm(Administrador const &admin);
+        // LogadoAdm(Administrador const &admin);
+        LogadoAdm();
+
 
         /// @brief Permite editar ou adicionar um produto
         /// @param  option Número da opção escolhida

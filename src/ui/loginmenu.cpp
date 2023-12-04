@@ -32,10 +32,11 @@ namespace ecommerce::ui
                     if(_client.Autenticacao(PATH_CLIENT))
                     {
                         std::cout << "> Logando: " << _client.GetMail() << std::endl;
-                        std::cout << " erro: " << _client.GetPhone() << std::endl;
-                        // Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
-                        // return new ClienteMenu(cliente);
-                        break;
+                        // std::cout << " erro: " << _client.GetPhone() << std::endl;
+                        // // Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
+                        // // return new ClienteMenu(cliente);
+                        return new ClienteMenu;
+                       
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
                     break;
@@ -46,8 +47,14 @@ namespace ecommerce::ui
                     if(_admin.Autenticacao(PATH_ADMIN))
                     {
                         std::cout << "> Logando: " << _admin.GetMail() << std::endl;
-                        Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
-                        return new LogadoAdm(admin);
+                        // Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
+                        // return new LogadoAdm(admin);
+                        std::cout << "\n\n";
+                        ui::LogadoAdm adm;
+                        adm.render();
+                        unsigned option;
+                        std::cin >> option;
+                        adm.nextEditaProduto(option);
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
                     break;
@@ -74,7 +81,7 @@ namespace ecommerce::ui
                 }
 
                 Cliente cliente(_client.GetName(), _client.GetAddr(), std::stoul(_client.GetPhone()));
-                return new ClienteMenu(cliente);
+                // return new ClienteMenu(cliente);
             }
 
             case 3:
@@ -90,7 +97,7 @@ namespace ecommerce::ui
                     return nullptr;
                 }                
                 Administrador admin(_admin.GetName(), _admin.GetAddr(), std::stoul(_admin.GetPhone()));
-                return new LogadoAdm(admin);
+                // return new LogadoAdm(admin);
             }
 
             case 4:

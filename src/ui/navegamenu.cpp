@@ -16,9 +16,10 @@ namespace ecommerce::ui
         _options.push_back("2- Pesquisar produto por nome");
         _options.push_back("3- Pesquisar produto por tipo");
         _options.push_back("4- Pesquisar produto por preço");
+
     }
 
-    Menu *NavegaMenu::navegamenunext(unsigned option, Estoque estoque, Busca busca)
+    Menu *NavegaMenu::navegamenunext(unsigned option)
     {
 
         

@@ -145,7 +145,7 @@ arquivo.seekp(static_cast<std::streamoff>(arquivo.tellg()) - static_cast<std::st
         // std::cout << "Para finalizar a operacao, digite 0" << std::endl;
         }
     }
-}
+
 
 std::map<long int, std::string>
 Produto::associaID()

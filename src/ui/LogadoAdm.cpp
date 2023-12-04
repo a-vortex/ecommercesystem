@@ -7,9 +7,10 @@ Estoque glob;
 namespace ecommerce::ui
 {
 
-    LogadoAdm::LogadoAdm(Administrador const &admin) : _admin(admin)
+    LogadoAdm::LogadoAdm() 
     {
-        _title = "Olá, sr(a). " + _admin.GetNome();
+        _title = "Olá, sr(a). ";
+        //  + _admin.GetNome();
         _options.push_back("1- Adiciona produto");
         _options.push_back("2- Editar produto");
         _options.push_back("3- Editar estoque");
@@ -46,13 +47,16 @@ namespace ecommerce::ui
           
             std::cout << "preço:" << std::endl;
             std::getline(std::cin >> std::ws, preco);
+            Produto produto_adiciona(nome, descricao , id_produto, tipo, preco);
+
+
             break;
         }
 
             case 2:
             {
                 std::cout << "> Qual produto deseja editar?: " << std::endl;
-                navega.navegamenunext(1, glob, busca);
+                navega.navegamenunext(1);
                 std::string nome;
                 std::getline(std::cin >> std::ws, nome);
                 break;
@@ -61,7 +65,7 @@ namespace ecommerce::ui
             case 3:
             {
                 std::cout << "> Qual produto deseja editar? " << std::endl;
-                navega.navegamenunext(1, glob, busca);
+                navega.navegamenunext(1);
                 int quantidade;
                 std::string ID;
                 std::cout << "> Escreva o ID correspondente: " << std::endl;
@@ -77,7 +81,7 @@ namespace ecommerce::ui
                 navega.render();
                 int opcao;
                 std::cin >> opcao;
-                navega.navegamenunext(opcao, glob, busca);
+                navega.navegamenunext(opcao);
                 break;
             }
         

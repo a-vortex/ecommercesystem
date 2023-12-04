@@ -19,5 +19,5 @@ Cupom::Cupom(Produto& disc, float discount)
 void
 Cupom::altera_preco(Produto& disc)
 {
-    preco = disc.GetPrice() * ((100 - discount)/100);
+    // preco = disc.GetPrice() * ((100 - discount)/100);
 }

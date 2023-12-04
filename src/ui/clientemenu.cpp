@@ -5,13 +5,13 @@
 
 namespace ecommerce::ui
 {
-    ClienteMenu::ClienteMenu(Cliente const &client) : _client(client)
+    ClienteMenu::ClienteMenu() 
     {
-        _title = "Olá, sr(a). " + _client.GetNome();
+        _title = "Olá, sr(a). ";
+        //  + _client.GetNome()
         _options.push_back("1 - Navegação");
         _options.push_back("2 - Acesso ao Carrinho");
-        _options.push_back("3 - Editar perfil");
-        _options.push_back("4 - Sair");
+        _options.push_back("3 - Sair");
     }
 
     Menu *ClienteMenu::next(unsigned option)
@@ -22,17 +22,18 @@ namespace ecommerce::ui
         case 1:
         {
             std::cout << "\n\n";
-            return new NavegaMenu;
+            ui::NavegaMenu navega;
+            navega.render();
+            unsigned option;
+            std::cin >> option;
+            navega.navegamenunext(option);
+ 
         }
 
         case 2:
             break;
 
         case 3:
-        {
-            return new Editperfil(option);
-        }
-        case 4:
             break;
         }
         return nullptr;
