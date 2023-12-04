@@ -22,7 +22,8 @@ Produto::Produto(const std::string &nome,
     std::cout << "> Produto criado com sucesso <" << std::endl;
 }
 
-void Produto::atualiza_info(std::string nome_produto)
+void
+Produto::atualiza_info( std::string nome_produto )
 {
     std::cout << "> Qual tipo de informacao quer alterar? Escolha uma opcao (1 a 4) <" << std::endl;
     std::cout << "> Para finalizar a operacao, digite 0 <" << std::endl;
