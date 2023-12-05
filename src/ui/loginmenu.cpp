@@ -18,6 +18,7 @@ namespace ecommerce::ui
     Menu
     *LoginMenu::next(unsigned option)
     {
+        unsigned _opt = 1;
         switch(option)
         {
             case 1:
@@ -30,32 +31,63 @@ namespace ecommerce::ui
                 {
                     if(_client.Autenticacao(PATH_CLIENT))
                     {
-                        std::cout << "> Logando: " << _client.GetMail() << std::endl;
+                        std::cout << "> Logando: " << _client.GetName() << std::endl;
                         std::cout << "\n\n";
-                        _clientLogin.leArquivo(PATH_CLIENT, _client.GetMail());
-                        Cliente cliente(_clientLogin.GetName(), _clientLogin.GetAddr(), std::stoul(_clientLogin.GetPhone()));
+                        Cliente cliente(_client.GetName(), " ", 12345);
                         return new ClienteMenu(cliente);
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
-                    return nullptr;
+                    std::cout << "> Insira nova opção: " << std::endl;
+                    std::cout << "1 - Tentar novamente" << std::endl;
+                    std::cout << "4 - Encerrar Sistema" << std::endl;
+                    std::cin >> _opt;
+                    if(_opt != 1 && _opt != 4) 
+                    {
+                        std::cout << "> Opção inválida!!" << std::endl;
+                        return LoginMenu::next(1); 
+                    }
+                    else
+                    {
+                        system("clear||cls");
+                        return LoginMenu::next(_opt);
+                    }
                 }
 
                 else if(tipo == "a")
                 {
                     if(_admin.Autenticacao(PATH_ADMIN))
                     {
-                        std::cout << "> Logando: " << _admin.GetMail() << std::endl;
+                        std::cout << "> Logando: " << _admin.GetName() << std::endl;
                         std::cout << "\n\n";
-                        _adminLogin.leArquivo(PATH_ADMIN, _admin.GetMail());
-                        Administrador admin(_adminLogin.GetName(), _adminLogin.GetAddr(), std::stoul(_adminLogin.GetPhone()));
+                        Administrador admin(_admin.GetName(), " ", 12345);
                         return new LogadoAdm(admin);
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
-                    return nullptr;
+                    std::cout << "> Insira nova opção: " << std::endl;
+                    std::cout << "1 - Tentar novamente" << std::endl;
+                    std::cout << "4 - Encerrar Sistema" << std::endl;
+                    std::cin >> _opt;
+                    system("clear||cls");
+                    if(_opt != 1 && _opt != 4) 
+                    {
+                        std::cout << "> Opção inválida!!" << std::endl;
+                        return LoginMenu::next(1); 
+                    }
+                    return LoginMenu::next(_opt);
                 }
-
-                std::cout << "> Tipo de usuário inválido!! <" << std::endl;
-                return nullptr;
+                std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
+                std::cout << "> Insira nova opção: " << std::endl;
+                std::cout << "1 - Tentar novamente" << std::endl;
+                std::cout << "4 - Encerrar Sistema" << std::endl;
+                std::cin >> _opt;
+                system("clear||cls");
+                if(_opt != 1 && _opt != 4) 
+                {
+                    std::cout << "> Opção inválida!!" << std::endl;
+                    system("clear||cls");
+                    return LoginMenu::next(1); 
+                }
+                return LoginMenu::next(_opt);
             }
 
             case 2:
@@ -69,7 +101,7 @@ namespace ecommerce::ui
                 }
 
                 std::cout << "> Erro no cadastro! <" << std::endl;
-                return nullptr;
+                return LoginMenu::next(2);
             }
 
             case 3:
@@ -83,11 +115,18 @@ namespace ecommerce::ui
                 }
 
                 std::cout << "> Erro no cadastro! <" << std::endl;
-                return nullptr;             
+                return LoginMenu::next(3);             
             }
 
             case 4:
                 return nullptr;
+
+            default:
+            {
+                std::cout << "> Opção inválida!! <" << std::endl;
+                std::cout << "> Reinicie o sistema <" << std::endl;
+                return nullptr;
+            }
 
         }
         return nullptr;

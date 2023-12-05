@@ -10,7 +10,6 @@
 
 #include "menu.hpp"
 #include "cadastro.hpp"
-#include "login.hpp"
 #include "../../include/user/administrador.hpp"
 #include "../../include/user/cliente.hpp"
 #include "../../include/user/usuario.hpp"
@@ -26,8 +25,6 @@ namespace ecommerce::ui
     private:
         Cadastro _client;
         Cadastro _admin;
-        Login _clientLogin;
-        Login _adminLogin;
 
     public:
         LoginMenu();

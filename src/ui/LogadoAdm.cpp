@@ -13,6 +13,7 @@ namespace ecommerce::ui
         _options.push_back("2- Editar produto");
         _options.push_back("3- Editar estoque");
         _options.push_back("4- Navegação");
+        _options.push_back("5- Sair");
     }
 
     Menu *LogadoAdm::nextEditaProduto(unsigned option)
@@ -86,12 +87,19 @@ namespace ecommerce::ui
                 return new NavegaMenu;
             }
             
-            default:
+            case 5:
+            {
                 return nullptr;
+            }
+
+            default:
+            {
+                std::cout << "> Opção inválida! <" << std::endl;
+                std::cout << "> Insira novamente: " << std::endl;
+                return new LogadoAdm(_admin);
+            }
 
         }
-        
-        return nullptr;
     }
 
 }
