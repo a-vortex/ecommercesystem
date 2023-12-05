@@ -27,7 +27,7 @@ public:
 
     /// @brief Constructor
     Carrinho();
-    ~Carrinho() = default;
+    virtual ~Carrinho() = default;
 
     /// @brief adiciona um produto ao carrinho
     /// @param id_produto produto a ser adicionado

@@ -29,7 +29,7 @@ public:
     static const  std::string PATH_PRODUTO;
 
     /// @brief destructor
-    ~Produto() = defalt;
+    virtual ~Produto() = default;
     
     /// @brief Construtor sobrecarregado
     Produto(const std::string &nome,

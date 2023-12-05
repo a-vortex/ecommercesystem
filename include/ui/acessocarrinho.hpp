@@ -9,6 +9,7 @@
 #pragma once
 
 #include "menu.hpp"
+#include "clientemenu.hpp"
 #include "../sys/carrinho.hpp"
 #include "../sys/produto.hpp"
 #include <iostream>
@@ -19,11 +20,13 @@ namespace ecommerce::ui
 {
     class CartAcess : public Menu
     {
+        private:
+            Cliente _cliente;
         public:
-            static const std::string PATH_ESTOQUE;
-            static const std::string PATH_CARRINHO;
+            std::string estoque=Estoque::PATH_ESTOQUE;
+            std::string carrinho=Carrinho::PATH_CARRINHO;
             
-            CartAcess();
+            CartAcess(Cliente const &client);
             /// @brief Permite escolher a tela seguinde na navegação
             /// @param  option Número da opção escolhida
             Menu *next(unsigned option) override;
