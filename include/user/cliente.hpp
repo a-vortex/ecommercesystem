@@ -20,12 +20,19 @@ class Cliente : public Usuario
 {
 private:
     std::vector<std::string> historicopesquisa;
+    std::string _name;
+    std::string _addr;
+    long unsigned _phone;
     bool isAdmin = false;
 
 public:
     using Usuario::Usuario;
     void adicionaHistorico(std::string &nome_produto);
     bool GetIsAdmin();
+    
+    void SetName(std::string const &name);
+    void SetAddr(std::string const &addr);
+    void SetPhone(long unsigned const &phone);
 };
 
 #endif /* CLIENTE_H */

@@ -69,8 +69,8 @@ namespace ecommerce::ui
 
             while(std::getline(arquivo, linha))
             {
-                if(linha.find(_name) != std::string::npos) nkey = true;
-                if(linha.find(_pass) != std::string::npos) pkey = true;
+                if(linha.find(_name) == 0) nkey = true;
+                if(linha.find(_pass) == 0) pkey = true;
                 if(nkey && pkey)
                 {
                     arquivo.close();

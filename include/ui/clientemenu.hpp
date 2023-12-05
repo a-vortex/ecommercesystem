@@ -15,10 +15,10 @@ namespace ecommerce::ui
     class ClienteMenu : public Menu
     {
     private:
-        Cliente const &_client;
+        Cliente &_client;
     
     public:
-        ClienteMenu(Cliente const &client);
+        ClienteMenu(Cliente &client);
         Menu *next(unsigned option) override;
     };
 }

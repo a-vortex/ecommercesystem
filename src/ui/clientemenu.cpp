@@ -5,7 +5,7 @@
 
 namespace ecommerce::ui
 {
-    ClienteMenu::ClienteMenu(Cliente const &client) : _client(client) 
+    ClienteMenu::ClienteMenu(Cliente &client) : _client(client) 
     {
         _title = "Olá, sr(a). " + _client.GetNome();
         _options.push_back("1 - Navegação");

@@ -50,7 +50,6 @@ namespace ecommerce::ui
 
                 if (!produto_encontrado)
                 {
-                    // @todo tratamento de exceção
                     std::cout << "Erro ao procurar produto" << std::endl;
                     arquivo.close();
                     return new CartAcess(_cliente);
@@ -69,7 +68,6 @@ namespace ecommerce::ui
                 std::ifstream arquivo(carrinho);
                 if (!arquivo.is_open())
                 {
-                    ///@todo tratamento de exceção
                     std::cout<< "Erro ao verificar Carrinho" << std::endl;
                     return new CartAcess(_cliente);
                 }

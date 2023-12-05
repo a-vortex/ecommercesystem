@@ -33,7 +33,7 @@ namespace ecommerce::ui
                     {
                         std::cout << "> Logando: " << _client.GetName() << std::endl;
                         std::cout << "\n\n";
-                        Cliente cliente(_client.GetName(), " ", 12345);
+                        Cliente cliente(_client.GetName(), "addr", 12345);
                         return new ClienteMenu(cliente);
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
@@ -59,7 +59,7 @@ namespace ecommerce::ui
                     {
                         std::cout << "> Logando: " << _admin.GetName() << std::endl;
                         std::cout << "\n\n";
-                        Administrador admin(_admin.GetName(), " ", 12345);
+                        Administrador admin(_admin.GetName(), "addr", 12345);
                         return new LogadoAdm(admin);
                     }
                     std::cout << "> Usuário ou senha inválidos!! <" << std::endl;
