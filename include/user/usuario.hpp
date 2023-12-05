@@ -20,14 +20,14 @@
 class Usuario
 {
 private:
+
+
+public:
     std::string _nome_usuario;
     std::string _endereco;
     long unsigned _num_telefone;
     std::string _id_usuario;
     std::vector<std::string> historicopesquisa;
-
-public:
-
     /// @brief Construtor padrao
     /// Cria ID unico para cada usuario
     Usuario(std::string nome, 
@@ -51,7 +51,10 @@ public:
     std::string GetEndereco() const;
     long unsigned GetTelefone() const;
     std::string GetID() const;
-    std::vector<std::string> GetHistorico() const;
+    std::vector<std::string>
+    GetHistorico() const;
+
+  
 };
 
 #endif /* USUARIO_H */

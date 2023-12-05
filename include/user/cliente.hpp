@@ -26,6 +26,12 @@ public:
     using Usuario::Usuario;
     void adicionaHistorico(std::string &nome_produto);
     bool GetIsAdmin();
+
+      /// @brief setters
+    void SetEndereco(const std::string& endereco);
+    void SetNome(const std::string& nome);
+    void SetTelefone(long unsigned telefone);
+    void SettID(const std::string& ID);
 };
 
 #endif /* CLIENTE_H */

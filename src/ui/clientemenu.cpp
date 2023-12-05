@@ -15,16 +15,24 @@ namespace ecommerce::ui
 
     Menu *ClienteMenu::next(unsigned option)
     {
+        Estoque estoque;
         switch (option)
         {
             case 1:
+            {
                 return new NavegaMenu;
+            }
 
             case 2:
+                _client.SetEndereco("aaa");
+                _client.SetNome("aaa");
+                _client.SetTelefone(522124);
+                _client.SettID("aaa");
                 return new CartAcess(_client);
+                break;
 
             case 3:
-                return nullptr;
+                break;
         }
         return nullptr;
     }

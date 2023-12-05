@@ -62,3 +62,4 @@ Usuario::GetHistorico() const
 {
     return historicopesquisa;
 }
+
