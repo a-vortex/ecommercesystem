@@ -12,6 +12,9 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <utility>
+#include <iterator>
+#include <fstream>
 #include "produto.hpp"
 
 class Carrinho
