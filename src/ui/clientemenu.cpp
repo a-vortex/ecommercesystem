@@ -15,19 +15,16 @@ namespace ecommerce::ui
 
     Menu *ClienteMenu::next(unsigned option)
     {
-        Estoque estoque;
         switch (option)
         {
             case 1:
-            {
                 return new NavegaMenu;
-            }
 
             case 2:
-                break;
+                return new CartAcess(_client);
 
             case 3:
-                break;
+                return nullptr;
         }
         return nullptr;
     }

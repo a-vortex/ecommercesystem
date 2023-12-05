@@ -5,6 +5,7 @@
 #include "../sys/estoque.hpp"
 #include "../sys/produto.hpp"
 #include "navegamenu.hpp"
+#include "acessocarrinho.hpp"
 
 
 #include <string>
