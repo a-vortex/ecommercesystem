@@ -2,22 +2,56 @@
 #include "../../test/doctest.hpp"
 #include "../../include/sys/produto.hpp"
 
-TEST_CASE("Testando classe produto")
+TEST_CASE("Teste de Produto") 
 {
-    Produto teste("Produto1", "Testando o produto 1", "2154", "teste", 20.2);
+    SUBCASE("Construtor e Getters") 
+    {
+        Produto produto("P001", "Produto 1", "Descrição 1", "Tipo1", "10.0");
 
-    CHECK(teste.GetName() == "Produto1");
-    CHECK_FALSE(teste.GetName() == "Produto1incorreto");
+        CHECK(produto.GetId() == "P001");
+        CHECK(produto.GetName() == "Produto 1");
+        CHECK(produto.GetDescription() == "Descrição 1");
+        CHECK(produto.GetType() == "Tipo1");
+        CHECK(produto.GetPrice() == "10.0");
+    }
 
-    CHECK(teste.GetDescription() == "Testando o produto 1");
-    CHECK_FALSE(teste.GetDescription() == "Descriçaoincorreta");
+    SUBCASE("Atualiza Informações") 
+    {
 
-    CHECK(teste.GetId() == "2154");
-    CHECK_FALSE(teste.GetId() == "IDincorreto");
+        std::stringstream output;
+        std::streambuf* coutBuffer = std::cout.rdbuf();
+        std::cout.rdbuf(output.rdbuf());
 
-    CHECK(teste.GetType() == "teste");
-    CHECK_FALSE(teste.GetType() == "tipoincorreto");
-    float price = 20.2;
-    CHECK(teste.GetPrice() == price);
-    CHECK_FALSE(teste.GetPrice() == 17);
+        Produto::atualiza_info("Produto 1");
+
+        std::cout.rdbuf(coutBuffer);
+
+        CHECK(output.str().find("Informações atualizadas para o produto: Produto 1") != std::string::npos);
+    }
+
+    SUBCASE("Associa ID") 
+    {
+        Produto produto("P001", "Produto 1", "Descrição 1", "Tipo1", "10.0");
+
+        auto idMap = produto.associaID();
+
+        REQUIRE(idMap.size() == 1);
+        CHECK(idMap[1] == "Produto 1");
+    }
+
+    SUBCASE("Exibe Informações") 
+    {
+        Produto produto("P001", "Produto 1", "Descrição 1", "Tipo1", "10.0");
+
+        std::stringstream output;
+        std::streambuf* coutBuffer = std::cout.rdbuf();
+        std::cout.rdbuf(output.rdbuf());
+
+        produto.exibe_info("P001", std::vector<Produto>{produto});
+
+        std::cout.rdbuf(coutBuffer);
+
+        CHECK(output.str().find("ID: P001, Nome: Produto 1, Descrição: Descrição 1, Tipo: Tipo1, Preço: 10.0") != std::string::npos);
+    }
+
 }

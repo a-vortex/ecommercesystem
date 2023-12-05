@@ -5,19 +5,45 @@
 #include "../../include/sys/pagamento.hpp"
 #include "../../include/user/cliente.hpp"
 
-TEST_CASE("Testando classe estoque")
+TEST_CASE("Teste de Pagamento") 
 {
-    // Produto produto("Produto1", "Testando o produto 1", "2154", "teste", 20.2);
-    // Produto produto1("Produto2", "Testando o produto 1", "2sd3d", "teste", 25.2);
-    // Estoque estoque;
-    // estoque.adiciona_produto(produto, 3);
-    // estoque.adiciona_produto(produto1, 2);
-    // Pagamento pagamento;
-    // Cliente cliente;
-    // if (pagamento.realiza_pagamento(produto, cliente.GetPagamento(), cliente) == true)
-    // {
-    //     pagamento.confirma_pagamento(estoque.lista_produtos(), produto, estoque);
-    // }
+    SUBCASE("Realiza Pagamento") 
+    {
+        Pagamento pagamento;
+        Cliente cliente("John Doe", "john@gmail.com", "123456789");
+        Estoque estoque;
 
-    // CHECK(estoque.GetQuantidade(produto.GetId()) == 2);
+        Produto produto("P001", "Produto 1", 10.0, "Tipo1");
+
+        estoque.adiciona_produto(produto, 5);
+
+        std::stringstream output;
+        std::streambuf* coutBuffer = std::cout.rdbuf();
+        std::cout.rdbuf(output.rdbuf());
+
+        bool pagamentoEfetuado = pagamento.realiza_pagamento(produto, "Cartao", cliente);
+
+        std::cout.rdbuf(coutBuffer);
+
+        CHECK(pagamentoEfetuado == true);
+    }
+
+    SUBCASE("Confirma Pagamento") {
+        Pagamento pagamento;
+        Cliente cliente("John Doe", "john@gmail.com", "123456789");
+        Estoque estoque;
+
+        Produto produto("P001", "Produto 1", 10.0, "Tipo1");
+
+        estoque.adiciona_produto(produto, 5);
+
+        pagamento.realiza_pagamento(produto, "Cartao", cliente);
+
+        auto listaProdutos = estoque.lista_produtos();
+
+        pagamento.confirma_pagamento(listaProdutos, produto, estoque);
+
+        CHECK(estoque.return_quantidade("P001") == "4");
+    }
+
 }
