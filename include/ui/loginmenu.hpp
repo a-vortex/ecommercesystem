@@ -28,7 +28,6 @@ namespace ecommerce::ui
 
     public:
         LoginMenu();
-
         static const std::string PATH_CLIENT;
         static const std::string PATH_ADMIN;
         Menu *next(unsigned option) override;

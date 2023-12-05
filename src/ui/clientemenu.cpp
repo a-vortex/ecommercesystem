@@ -5,10 +5,9 @@
 
 namespace ecommerce::ui
 {
-    ClienteMenu::ClienteMenu() 
+    ClienteMenu::ClienteMenu(Cliente const &client) : _client(client) 
     {
-        _title = "Olá, sr(a). ";
-        //  + _client.GetNome()
+        _title = "Olá, sr(a). " + _client.GetNome();
         _options.push_back("1 - Navegação");
         _options.push_back("2 - Acesso ao Carrinho");
         _options.push_back("3 - Sair");
@@ -16,25 +15,16 @@ namespace ecommerce::ui
 
     Menu *ClienteMenu::next(unsigned option)
     {
-        Estoque estoque;
         switch (option)
         {
-        case 1:
-        {
-            std::cout << "\n\n";
-            ui::NavegaMenu navega;
-            navega.render();
-            unsigned option;
-            std::cin >> option;
-            navega.navegamenunext(option);
- 
-        }
+            case 1:
+                return new NavegaMenu;
 
-        case 2:
-            break;
+            case 2:
+                return new CartAcess(_client);
 
-        case 3:
-            break;
+            case 3:
+                return nullptr;
         }
         return nullptr;
     }

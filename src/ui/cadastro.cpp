@@ -20,6 +20,9 @@ namespace ecommerce::ui
         std::cout << "> Nome: " << std::endl;
         std::getline(std::cin >> std::ws, _name);
 
+        std::cout << "> Senha: " << std::endl;
+        std::cin >> _pass;
+
         std::cout << "> Endereço: " << std::endl;
         std::getline(std::cin >> std::ws, _addr);
                 
@@ -34,15 +37,12 @@ namespace ecommerce::ui
 
         std::cout << "> Email: " << std::endl;
         std::cin >> _mail;
-
-        std::cout << "> Senha: " << std::endl;
-        std::cin >> _pass;
         
         std::ofstream arquivo(PATH, std::ios_base::app);
 
         if(arquivo.is_open())
         {
-            arquivo << _mail << std::endl;
+            arquivo << _name << std::endl;
             arquivo << _pass << std::endl;
             arquivo.close();
             return true;
@@ -53,30 +53,28 @@ namespace ecommerce::ui
     bool
     Cadastro::Autenticacao(std::string const &PATH)
     {
-        std::string email;
-        std::string senha;
-
-        std::cout << "> Email: " << std::endl;
-        std::cin >> email;
+        std::cout << "> Nome: " << std::endl;
+        std::getline(std::cin >> std::ws, _name);
                 
         std::cout << "> Senha: " << std::endl;
-        std::cin >> senha;
+        std::getline(std::cin >> std::ws, _pass);
 
         std::ifstream arquivo(PATH);
         if(arquivo.is_open())
         {
             std::string linha;
 
-            bool ekey = false;
+            bool nkey = false;
             bool pkey = false;
 
             while(std::getline(arquivo, linha))
             {
-                if(linha.find(email) != std::string::npos) ekey = true;
-                if(linha.find(senha) != std::string::npos) pkey = true;
-                if(ekey && pkey)
+                if(linha.find(_name) != std::string::npos) nkey = true;
+                if(linha.find(_pass) != std::string::npos) pkey = true;
+                if(nkey && pkey)
                 {
                     arquivo.close();
+                    
                     return true;
                 }
             }

@@ -16,14 +16,10 @@ namespace ecommerce::ui
         std::string _pass;
         
     public:
-        // void SetAttribute(std::string const &name,
-        //                   std::string const &addr,
-        //                   std::string const &phone,
-        //                   std::string const &mail,
-        //                   std::string const &pass);
+        // static const std::string PATH_CLIENT;
+        // static const std::string PATH_ADMIN;
         bool CadastrarUsuario(std::string const &PATH);
         bool Autenticacao(std::string const &PATH);
-
 
         std::string GetName();
         std::string GetAddr();

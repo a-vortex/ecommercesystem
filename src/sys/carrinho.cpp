@@ -1,6 +1,8 @@
 #include "../../include/sys/carrinho.hpp"
 #include "../../include/exc/excecao.hpp"
 
+const std::string Carrinho::PATH_CARRINHO = "carrinho.txt";
+
 Carrinho::Carrinho()
 {
     preco_total = 0;
