@@ -26,8 +26,11 @@ private:
     std::string preco;
 
 public:
-    static const std::string PATH_PRODUTO;
+    static const  std::string PATH_PRODUTO;
 
+    /// @brief destructor
+    virtual ~Produto() = default;
+    
     /// @brief Construtor sobrecarregado
     Produto(const std::string &nome,
             const std::string &descricao,

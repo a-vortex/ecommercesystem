@@ -1,5 +1,7 @@
 #include "../../include/sys/carrinho.hpp"
 
+const std::string Carrinho::PATH_CARRINHO = "carrinho.txt";
+
 Carrinho::Carrinho()
 {
     preco_total = 0;
