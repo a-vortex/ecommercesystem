@@ -6,9 +6,8 @@ TEST_CASE("Teste de Produto")
 {
     SUBCASE("Construtor e Getters") 
     {
-        Produto produto("P001", "Produto 1", "Descrição 1", "Tipo1", "10.0");
+        Produto produto("Produto 1", "Descrição 1", "Tipo1", "10.0");
 
-        CHECK(produto.GetId() == "P001");
         CHECK(produto.GetName() == "Produto 1");
         CHECK(produto.GetDescription() == "Descrição 1");
         CHECK(produto.GetType() == "Tipo1");
@@ -31,7 +30,7 @@ TEST_CASE("Teste de Produto")
 
     SUBCASE("Associa ID") 
     {
-        Produto produto("P001", "Produto 1", "Descrição 1", "Tipo1", "10.0");
+        Produto produto("Produto 1", "Descrição 1", "Tipo1", "10.0");
 
         auto idMap = produto.associaID();
 
@@ -41,7 +40,7 @@ TEST_CASE("Teste de Produto")
 
     SUBCASE("Exibe Informações") 
     {
-        Produto produto("P001", "Produto 1", "Descrição 1", "Tipo1", "10.0");
+        Produto produto("Produto 1", "Descrição 1", "Tipo1", "10.0");
 
         std::stringstream output;
         std::streambuf* coutBuffer = std::cout.rdbuf();
@@ -51,7 +50,7 @@ TEST_CASE("Teste de Produto")
 
         std::cout.rdbuf(coutBuffer);
 
-        CHECK(output.str().find("ID: P001, Nome: Produto 1, Descrição: Descrição 1, Tipo: Tipo1, Preço: 10.0") != std::string::npos);
+        CHECK(output.str().find("Nome: Produto 1, Descrição: Descrição 1, Tipo: Tipo1, Preço: 10.0") != std::string::npos);
     }
 
 }
