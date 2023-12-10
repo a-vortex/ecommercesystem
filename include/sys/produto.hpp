@@ -59,7 +59,8 @@ public:
     /// @tparam Container
     /// @param id ID do produto
     /// @param produtos Conteiner de produtos
-    template <typename Container>
+    template <typename Container>;
+
     static void exibe_info(const std::string &id, const Container &produtos);
 
     /// @brief Getters

@@ -19,7 +19,7 @@ Busca::exibe_produtos()
     }
     else
     {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
+        throw ErrorFile();
     }
 }
 
@@ -42,7 +42,7 @@ Busca::exibe_tipo(const std::string &tipo)
     }
     else
     {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
+        throw ErrorFile();
     }
 }
 
@@ -65,7 +65,7 @@ Busca::exibe_nome(const std::string &nome)
     }
     else
     {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
+        throw ErrorFile();
     }
 }
 
@@ -89,6 +89,6 @@ Busca::exibe_preco(int preco)
     }
     else
     {
-        std::cout << "Não foi possível abrir o arquivo." << std::endl;
+        throw ErrorFile();
     }
 }

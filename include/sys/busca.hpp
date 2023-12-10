@@ -1,6 +1,7 @@
 /*
     busca.hpp
     Author: Kauan Valente da Silva
+            Júlia Raposo Ferreira
     kauanvalentesv@gmail.com
 
     Cria os mecanismos de busca do sistema.

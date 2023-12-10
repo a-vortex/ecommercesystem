@@ -23,7 +23,7 @@ public:
     /// @param GetPagamento
     /// @param cliente
     /// @return
-    bool realiza_pagamento(Produto produto, std::string GetPagamento, Cliente cliente); // adicionar cupom ára receber depois
+    void realiza_pagamento(Produto produto, std::string GetPagamento, Cliente cliente); // adicionar cupom ára receber depois
 
     /// @brief Atualiza o valor total com base em um objeto Cupom.
     /// @param  produtos Vetor de produtos.
